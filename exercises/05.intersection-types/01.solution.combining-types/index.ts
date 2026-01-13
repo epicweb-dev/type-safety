@@ -14,7 +14,7 @@ export type Comment = WithId &
 	WithTimestamps &
 	WithAuthor & { text: string; postId: string }
 
-export function getAgeInDays(entity: WithTimestamps): number {
+export function getAgeInDays(entity: WithTimestamps) {
 	const now = new Date()
 	const created = entity.createdAt
 	const diffMs = now.getTime() - created.getTime()

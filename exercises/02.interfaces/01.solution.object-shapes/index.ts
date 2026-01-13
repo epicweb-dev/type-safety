@@ -14,11 +14,11 @@ interface Product {
 	description?: string
 }
 
-export function isAdmin(user: User): boolean {
+export function isAdmin(user: User) {
 	return user.role === 'admin'
 }
 
-export function getProductSummary(product: Product): string {
+export function getProductSummary(product: Product) {
 	const desc = product.description ?? 'No description'
 	return `${product.name} - $${product.price}: ${desc}`
 }

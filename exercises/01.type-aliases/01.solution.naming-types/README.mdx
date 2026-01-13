@@ -11,3 +11,20 @@
 
 Type aliases are one of the first things you should add when you notice
 yourself repeating the same object structure.
+
+## Alternative: deriving types from values
+
+When you have a canonical example value, you can derive the type from it:
+
+```ts
+const defaultUser = {
+	id: '',
+	name: '',
+	email: '',
+} as const
+
+type User = typeof defaultUser
+```
+
+This keeps the type and the default value in sync automatically. It's especially
+useful for configuration objects and form defaults.

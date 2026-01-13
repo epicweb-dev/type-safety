@@ -1,11 +1,14 @@
 // State Machines with Literal Types
 
-export type OrderState =
-	| 'pending'
-	| 'processing'
-	| 'shipped'
-	| 'delivered'
-	| 'cancelled'
+// Value-first approach: derive types from runtime values
+const orderStates = [
+	'pending',
+	'processing',
+	'shipped',
+	'delivered',
+	'cancelled',
+] as const
+export type OrderState = (typeof orderStates)[number]
 
 export function advanceOrder(current: OrderState): OrderState {
 	switch (current) {
@@ -21,8 +24,11 @@ export function advanceOrder(current: OrderState): OrderState {
 	}
 }
 
-export type PlayerState = 'stopped' | 'playing' | 'paused'
-export type PlayerAction = 'play' | 'pause' | 'stop'
+const playerStates = ['stopped', 'playing', 'paused'] as const
+export type PlayerState = (typeof playerStates)[number]
+
+const playerActions = ['play', 'pause', 'stop'] as const
+export type PlayerAction = (typeof playerActions)[number]
 
 export function playerAction(
 	current: PlayerState,
@@ -56,4 +62,13 @@ console.log('Player:', player)
 player = playerAction(player, 'stop')
 console.log('Player:', player)
 
-export {}
+export { orderStates, playerStates, playerActions }
+
+// 🦉 Note: State machine functions keep explicit return types because they
+// constrain the implementation to return only valid states. This catches bugs
+// at compile time if you accidentally return an invalid state.
+//
+// 🦉 Traditional approach (you may see this in other codebases):
+// export type OrderState = 'pending' | 'processing' | 'shipped' | 'delivered' | 'cancelled'
+// export type PlayerState = 'stopped' | 'playing' | 'paused'
+// export type PlayerAction = 'play' | 'pause' | 'stop'

@@ -1,10 +1,14 @@
 // Using Literal Types for Exact Values
 
-export type Size = 'xs' | 's' | 'm' | 'l' | 'xl'
+// Value-first approach: derive types from runtime values
+const sizes = ['xs', 's', 'm', 'l', 'xl'] as const
+export type Size = (typeof sizes)[number]
 
-export type Color = 'red' | 'blue' | 'green' | 'black'
+const colors = ['red', 'blue', 'green', 'black'] as const
+export type Color = (typeof colors)[number]
 
-export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE'
+const httpMethods = ['GET', 'POST', 'PUT', 'DELETE'] as const
+export type HttpMethod = (typeof httpMethods)[number]
 
 export function createOrder(size: Size, color: Color) {
 	return {
@@ -14,7 +18,7 @@ export function createOrder(size: Size, color: Color) {
 	}
 }
 
-export function makeRequest(method: HttpMethod, url: string): void {
+export function makeRequest(method: HttpMethod, url: string) {
 	console.log(`${method} ${url}`)
 }
 
@@ -27,4 +31,18 @@ makeRequest('POST', '/api/orders')
 // createOrder('medium', 'blue')  // ❌ 'medium' not in Size
 // makeRequest('PATCH', '/api')    // ❌ 'PATCH' not in HttpMethod
 
-export {}
+// Bonus: the arrays are available at runtime for validation/iteration
+console.log('Available sizes:', sizes)
+console.log('Available colors:', colors)
+
+export { sizes, colors, httpMethods }
+
+// 🦉 Traditional approach (you may see this in other codebases):
+// export type Size = 'xs' | 's' | 'm' | 'l' | 'xl'
+// export type Color = 'red' | 'blue' | 'green' | 'black'
+// export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE'
+//
+// The value-first approach above is preferred because:
+// - The array is useful at runtime (iteration, validation)
+// - Type and values stay in sync automatically
+// - Less duplication between runtime and type-level code

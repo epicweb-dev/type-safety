@@ -4,14 +4,14 @@ export type ID = string | number
 
 export type Result = string | Error
 
-export function formatId(id: ID): string {
+export function formatId(id: ID) {
 	if (typeof id === 'number') {
 		return `#${id}`
 	}
 	return id
 }
 
-export function processResult(result: Result): void {
+export function processResult(result: Result) {
 	if (result instanceof Error) {
 		console.log(`Error: ${result.message}`)
 	} else {

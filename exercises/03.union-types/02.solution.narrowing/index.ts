@@ -2,7 +2,7 @@
 
 export type TextInput = string | Array<string>
 
-export function normalizeText(input: TextInput): string {
+export function normalizeText(input: TextInput) {
 	if (Array.isArray(input)) {
 		return input.join(' ').trim()
 	}
@@ -16,7 +16,7 @@ export type GuestUser = { type: 'guest' }
 
 export type User = AdminUser | RegularUser | GuestUser
 
-export function describeUser(user: User): string {
+export function describeUser(user: User) {
 	switch (user.type) {
 		case 'admin':
 			return `Admin with ${user.permissions.length} permissions`
