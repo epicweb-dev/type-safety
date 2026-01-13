@@ -1,6 +1,6 @@
 // Type Narrowing Techniques
 
-export type TextInput = string | string[]
+export type TextInput = string | Array<string>
 
 export function normalizeText(input: TextInput): string {
 	if (Array.isArray(input)) {
@@ -10,7 +10,7 @@ export function normalizeText(input: TextInput): string {
 }
 
 // Different user types
-export type AdminUser = { type: 'admin'; permissions: string[] }
+export type AdminUser = { type: 'admin'; permissions: Array<string> }
 export type RegularUser = { type: 'user'; subscription: 'free' | 'premium' }
 export type GuestUser = { type: 'guest' }
 

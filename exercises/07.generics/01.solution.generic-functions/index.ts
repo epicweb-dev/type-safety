@@ -4,15 +4,15 @@ export function identity<T>(value: T): T {
 	return value
 }
 
-export function first<T>(arr: T[]): T | undefined {
+export function first<T>(arr: Array<T>): T | undefined {
 	return arr[0]
 }
 
-export function last<T>(arr: T[]): T | undefined {
+export function last<T>(arr: Array<T>): T | undefined {
 	return arr[arr.length - 1]
 }
 
-export function reverse<T>(arr: T[]): T[] {
+export function reverse<T>(arr: Array<T>): Array<T> {
 	return [...arr].reverse()
 }
 
@@ -27,6 +27,6 @@ console.log(reverse([1, 2, 3])) // [3, 2, 1]
 // TypeScript knows the types!
 const num = first([1, 2, 3]) // number | undefined
 const str = first(['a', 'b']) // string | undefined
-const reversed = reverse([1, 2, 3]) // number[]
+const reversed = reverse([1, 2, 3]) // Array<number>
 
 export {}

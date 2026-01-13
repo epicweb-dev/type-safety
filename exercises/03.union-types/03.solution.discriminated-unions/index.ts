@@ -1,7 +1,7 @@
 // Discriminated Unions Pattern
 
 export type LoadingState = { status: 'loading' }
-export type SuccessState = { status: 'success'; data: string[] }
+export type SuccessState = { status: 'success'; data: Array<string> }
 export type ErrorState = { status: 'error'; error: string }
 export type ApiState = LoadingState | SuccessState | ErrorState
 

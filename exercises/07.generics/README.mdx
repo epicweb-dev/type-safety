@@ -6,12 +6,12 @@ work with multiple types while maintaining type safety.
 
 ```ts
 // Without generics - only works with numbers
-function firstNumber(arr: number[]): number | undefined {
+function firstNumber(arr: Array<number>): number | undefined {
 	return arr[0]
 }
 
 // With generics - works with ANY type
-function first<T>(arr: T[]): T | undefined {
+function first<T>(arr: Array<T>): T | undefined {
 	return arr[0]
 }
 
@@ -28,15 +28,15 @@ Without generics, you'd need to either:
 
 ```ts
 // Bad: Duplicated code
-function firstString(arr: string[]): string | undefined { ... }
-function firstNumber(arr: number[]): number | undefined { ... }
-function firstUser(arr: User[]): User | undefined { ... }
+function firstString(arr: Array<string>): string | undefined { ... }
+function firstNumber(arr: Array<number>): number | undefined { ... }
+function firstUser(arr: Array<User>): User | undefined { ... }
 
 // Bad: Loses type safety
-function first(arr: any[]): any { ... }
+function first(arr: Array<any>): any { ... }
 
 // Good: Generic - type-safe and reusable
-function first<T>(arr: T[]): T | undefined { ... }
+function first<T>(arr: Array<T>): T | undefined { ... }
 ```
 
 ## Generics Are Everywhere

@@ -4,7 +4,7 @@
 accessing type-specific properties.
 
 ```ts
-function process(value: string | string[]) {
+function process(value: string | Array<string>) {
 	// Can't call .length—both have it, but .join is only on arrays
 	if (Array.isArray(value)) {
 		console.log(value.join(', ')) // ✅ Array methods available
@@ -16,7 +16,7 @@ function process(value: string | string[]) {
 
 🐨 Open <InlineFile file="index.ts" /> and:
 
-1. Write a function that handles `string | string[]`
+1. Write a function that handles `string | Array<string>`
 2. Write a function that handles objects with different shapes
 3. Use the `in` operator to check for properties
 
