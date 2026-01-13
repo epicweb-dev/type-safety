@@ -4,8 +4,8 @@
    ```sh
    npx degit epicweb-dev/type-safety YOUR_REPO_NAME
    ```
-1. Find/replace github repo name from "type-safety" to "your-repo-name"
-   (the org is already set to "epicweb-dev")
+1. Find/replace github repo name from "type-safety" to "your-repo-name" (the org
+   is already set to "epicweb-dev")
 1. Find/replace the title of the workshop from "Workshop Title 🎃" to "Your
    Workshop Title 🦊" (emoji optional, but fun, choose something you think
    represents your topic in some clever way).

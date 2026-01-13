@@ -24,7 +24,10 @@ export function advanceOrder(current: OrderState): OrderState {
 export type PlayerState = 'stopped' | 'playing' | 'paused'
 export type PlayerAction = 'play' | 'pause' | 'stop'
 
-export function playerAction(current: PlayerState, action: PlayerAction): PlayerState {
+export function playerAction(
+	current: PlayerState,
+	action: PlayerAction,
+): PlayerState {
 	switch (action) {
 		case 'play':
 			return 'playing'

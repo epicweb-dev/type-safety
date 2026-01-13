@@ -31,9 +31,7 @@ This is exactly how built-in types like `Array<T>` and `Promise<T>` work.
 💰 Result pattern:
 
 ```ts
-type Result<T> =
-	| { success: true; data: T }
-	| { success: false; error: string }
+type Result<T> = { success: true; data: T } | { success: false; error: string }
 ```
 
 📜 [TypeScript Handbook - Generic Types](https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-types)

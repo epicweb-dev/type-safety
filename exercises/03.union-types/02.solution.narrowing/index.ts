@@ -30,7 +30,10 @@ export function describeUser(user: User): string {
 console.log(normalizeText('  hello  '))
 console.log(normalizeText(['hello', 'world']))
 
-const admin: AdminUser = { type: 'admin', permissions: ['read', 'write', 'delete'] }
+const admin: AdminUser = {
+	type: 'admin',
+	permissions: ['read', 'write', 'delete'],
+}
 const regular: RegularUser = { type: 'user', subscription: 'premium' }
 const guest: GuestUser = { type: 'guest' }
 

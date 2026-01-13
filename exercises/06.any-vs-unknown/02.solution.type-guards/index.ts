@@ -16,11 +16,7 @@ export function isProduct(value: unknown): value is Product {
 	}
 
 	const obj = value as Record<string, unknown>
-	return (
-		isString(obj.id) &&
-		isString(obj.name) &&
-		isNumber(obj.price)
-	)
+	return isString(obj.id) && isString(obj.name) && isNumber(obj.price)
 }
 
 export function processApiResponse(data: unknown): string {

@@ -15,7 +15,8 @@ value.toUpperCase() // No error! (but will crash at runtime)
 ```
 
 <callout-danger>
-`any` is an escape hatch that removes type safety. Use it sparingly, if at all.
+	`any` is an escape hatch that removes type safety. Use it sparingly, if at
+	all.
 </callout-danger>
 
 ## The `unknown` Type
@@ -42,8 +43,8 @@ if (typeof value === 'string') {
 | User input          | `unknown` |
 
 <callout-info>
-Prefer `unknown` over `any`. It forces you to verify the type before using the
-value, catching potential bugs.
+	Prefer `unknown` over `any`. It forces you to verify the type before using the
+	value, catching potential bugs.
 </callout-info>
 
 In this exercise, you'll handle unknown data safely.
