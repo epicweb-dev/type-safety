@@ -1,7 +1,8 @@
 # Discriminated Unions
 
-👨‍💼 Discriminated unions are a pattern where each type in a union has a common
-"discriminant" property with a literal type value.
+👨‍💼 Discriminated unions (also called "tagged unions" or "algebraic data types")
+are a pattern where each type in a union has a common "discriminant" property
+with a literal type value.
 
 ```ts
 type Circle = { kind: 'circle'; radius: number }
@@ -9,15 +10,17 @@ type Rectangle = { kind: 'rectangle'; width: number; height: number }
 type Shape = Circle | Rectangle
 ```
 
-The `kind` property lets TypeScript narrow the type automatically.
+The `kind` property lets TypeScript narrow the type automatically. This is how
+you **make invalid states unrepresentable**—the type system ensures you can only
+create valid combinations.
 
 🐨 Open <InlineFile file="index.ts" /> and:
 
 1. Create discriminated unions for API responses
-2. Create discriminated unions for form states
+2. Create discriminated unions for payment methods
 3. Handle all cases with exhaustiveness checking
 
-💰 Exhaustiveness checking:
+💰 Exhaustiveness checking with `never`:
 
 ```ts
 function handle(shape: Shape) {
@@ -27,6 +30,8 @@ function handle(shape: Shape) {
 		case 'rectangle':
 			return shape.width * shape.height
 		default: {
+			// If you add a new shape and forget to handle it,
+			// TypeScript will error here!
 			const _exhaustive: never = shape
 			return _exhaustive
 		}

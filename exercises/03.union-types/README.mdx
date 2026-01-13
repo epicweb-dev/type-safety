@@ -1,7 +1,7 @@
 # Union Types
 
 Union types allow a value to be one of several types. They're TypeScript's way
-of modeling "either/or" scenarios.
+of modeling "either/or" scenarios—and a core concept in functional programming.
 
 ```ts
 type StringOrNumber = string | number
@@ -29,9 +29,11 @@ function process(value: string | number) {
 }
 ```
 
-## Discriminated Unions
+## Discriminated Unions (Algebraic Data Types)
 
-The most powerful pattern: objects with a common "tag" property:
+The most powerful pattern: objects with a common "tag" property. In functional
+programming, these are called **algebraic data types** (ADTs) or **tagged
+unions**:
 
 ```ts
 type Success = { status: 'success'; data: string }
@@ -49,7 +51,9 @@ function handle(result: Result) {
 
 <callout-info>
 	Discriminated unions are one of TypeScript's most powerful features for
-	modeling real-world scenarios where data can take different shapes.
+	**making invalid states unrepresentable**. By defining exactly which states
+	are possible, you eliminate entire categories of bugs at compile time. This
+	pattern is foundational in React, Redux, and modern functional codebases.
 </callout-info>
 
 In this exercise, you'll master union types and narrowing.

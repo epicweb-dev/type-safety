@@ -32,13 +32,15 @@ Use `as const` to preserve literal types:
 let y = 'hello' as const // Type: "hello"
 ```
 
-## State Machines
+## State Machines with Pure Functions
 
-Literal types are perfect for state machines:
+Literal types are perfect for state machines. Combined with pure functions, they
+give you type-safe state transitions:
 
 ```ts
 type TrafficLight = 'red' | 'yellow' | 'green'
 
+// Pure function: takes current state, returns new state
 function nextLight(current: TrafficLight): TrafficLight {
 	switch (current) {
 		case 'red':
@@ -53,7 +55,8 @@ function nextLight(current: TrafficLight): TrafficLight {
 
 <callout-info>
 	Literal types turn runtime errors into compile-time errors. If you typo a
-	state name, TypeScript catches it immediately.
+	state name, TypeScript catches it immediately. This is another example of
+	**making invalid states unrepresentable**.
 </callout-info>
 
 In this exercise, you'll use literal types for precise type definitions.

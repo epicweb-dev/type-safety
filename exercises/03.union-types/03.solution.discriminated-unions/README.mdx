@@ -2,12 +2,22 @@
 
 👨‍💼 Perfect implementation of discriminated unions!
 
-🦉 This pattern is extremely common in real applications:
+🦉 This pattern—defining all possible states and using exhaustive `switch`
+statements—is fundamental to functional programming. It's exactly how React,
+Redux, and many modern libraries handle state.
+
+This pattern is extremely common in real applications:
 
 - **API states** (loading, success, error)
 - **Form states** (idle, submitting, submitted, error)
 - **Authentication** (anonymous, authenticated, loading)
 - **Payment methods** (card, PayPal, crypto)
 
-The exhaustiveness check ensures you never forget to handle a case when you add
-a new variant.
+The exhaustiveness check with `never` ensures you can't forget to handle a case
+when you add a new variant. TypeScript becomes your safety net!
+
+<callout-info>
+	Notice how each function here is a **pure transformation**: it takes a state,
+	inspects it, and returns a result without side effects. This is the functional
+	pattern—data flows through functions, types guide your logic.
+</callout-info>

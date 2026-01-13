@@ -1,7 +1,8 @@
 # Generics
 
-Generics are one of TypeScript's most powerful features. They let you write
-**reusable code** that works with multiple types while maintaining type safety.
+Generics are one of TypeScript's most powerful features—and a cornerstone of
+functional programming. They let you write **reusable transformations** that
+work with multiple types while maintaining type safety.
 
 ```ts
 // Without generics - only works with numbers
@@ -48,8 +49,10 @@ const promise: Promise<string> = fetch('/api').then((r) => r.text())
 ```
 
 <callout-info>
-	Think of generics as "type parameters"—just like function parameters let you
-	pass in values, generics let you pass in types.
+	Think of generics as **type-level functions**—just like functions transform
+	values, generic types transform types. `Array<T>` is a function that takes a
+	type `T` and returns the type "array of T". This is the foundation of
+	functional type-level programming.
 </callout-info>
 
 In this exercise, you'll learn to write and use generic code.

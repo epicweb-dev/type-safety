@@ -6,10 +6,10 @@ You learned:
 
 - 🔀 **Union types** model "one of these types"
 - 🔍 **Narrowing** with `typeof`, `in`, and type guards
-- 🏷️ **Discriminated unions** with tag properties
+- 🏷️ **Discriminated unions** (algebraic data types) with tag properties
 - ✅ **Exhaustiveness checking** to handle all cases
 
-🦉 Discriminated unions are incredibly powerful:
+🦉 Discriminated unions are a core functional programming pattern:
 
 ```ts
 type ApiResponse =
@@ -17,9 +17,13 @@ type ApiResponse =
 	| { status: 'success'; data: User[] }
 	| { status: 'error'; error: string }
 
-// Forces you to handle all three states!
+// The type defines EXACTLY which states are possible.
+// No "loading with an error", no "success without data".
+// Invalid states are unrepresentable!
 ```
 
-This pattern is used extensively in React, Redux, and other libraries.
+This pattern—making impossible states impossible—is used extensively in React,
+Redux, and functional programming in general. It's how you let the type system
+catch bugs before they happen.
 
 Next up: Literal types—working with exact values!
