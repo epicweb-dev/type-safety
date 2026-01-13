@@ -1,0 +1,24 @@
+# Generic Constraints
+
+👨‍💼 You've mastered generic constraints!
+
+🦉 The `keyof` constraint pattern is incredibly powerful:
+
+```ts
+function getProperty<T, K extends keyof T>(obj: T, key: K): T[K]
+```
+
+This ensures:
+
+1. `key` must be an actual property of `obj`
+2. The return type matches the property's type exactly
+
+```ts
+const user = { name: 'Alice', age: 30 }
+getProperty(user, 'name') // Returns string
+getProperty(user, 'age') // Returns number
+getProperty(user, 'foo') // ❌ Error: 'foo' is not a key of user
+```
+
+This is how TypeScript's built-in `Pick`, `Omit`, and other utility types work
+under the hood!

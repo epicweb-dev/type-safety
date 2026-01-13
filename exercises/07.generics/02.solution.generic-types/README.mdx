@@ -1,0 +1,24 @@
+# Generic Types
+
+👨‍💼 You've created reusable generic types!
+
+🦉 The `Result<T>` pattern is extremely useful for error handling without
+exceptions:
+
+```ts
+function divide(a: number, b: number): Result<number> {
+	if (b === 0) {
+		return { success: false, error: 'Division by zero' }
+	}
+	return { success: true, data: a / b }
+}
+
+const result = divide(10, 2)
+if (result.success) {
+	console.log(result.data) // TypeScript knows data exists!
+} else {
+	console.log(result.error) // TypeScript knows error exists!
+}
+```
+
+This pattern forces callers to handle both success and failure cases.

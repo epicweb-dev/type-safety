@@ -1,0 +1,37 @@
+# Generic Functions
+
+👨‍💼 We have utility functions that work with arrays, but they're limited to
+specific types. Let's make them generic so they work with any type.
+
+The syntax for generic functions:
+
+```ts
+function functionName<T>(param: T): T {
+	return param
+}
+```
+
+The `<T>` declares a **type parameter**. When you call the function, TypeScript
+infers (or you specify) what `T` is:
+
+```ts
+identity<string>('hello') // Explicit: T is string
+identity(42) // Inferred: T is number
+```
+
+🐨 Open <InlineFile file="index.ts" /> and:
+
+1. Create a generic `identity` function that returns its input
+2. Create a generic `first` function that returns the first array element
+3. Create a generic `last` function that returns the last array element
+4. Create a generic `reverse` function that reverses an array
+
+💰 Generic array function pattern:
+
+```ts
+function example<T>(arr: T[]): T | undefined {
+	return arr[0]
+}
+```
+
+📜 [TypeScript Handbook - Generics](https://www.typescriptlang.org/docs/handbook/2/generics.html)

@@ -1,0 +1,20 @@
+# Generic Functions
+
+👨‍💼 Your functions now work with any type!
+
+🦉 Notice how TypeScript **infers** the type parameter from the arguments:
+
+```ts
+first([1, 2, 3]) // TypeScript infers T = number
+first(['a', 'b']) // TypeScript infers T = string
+```
+
+You rarely need to explicitly specify the type parameter—TypeScript figures it
+out. But you can when needed:
+
+```ts
+first<number>([]) // Explicitly T = number
+```
+
+The return types are also automatically correct: `first([1, 2, 3])` returns
+`number | undefined`, not `any`.

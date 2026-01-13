@@ -8,16 +8,16 @@
 // 🐨 Create a BaseEntity type with common fields
 // type BaseEntity = { id: ID; createdAt: Timestamp; updatedAt: Timestamp }
 
-// 🐨 Create a User type that includes BaseEntity fields plus:
+// 🐨 Create a User type by combining BaseEntity with additional fields:
 // - name: string
 // - email: Email
+// 💰 Use intersection: type User = BaseEntity & { name: string; email: Email }
 
-// 🐨 Create a Post type that includes BaseEntity fields plus:
+// 🐨 Create a Post type by combining BaseEntity with additional fields:
 // - title: string
 // - content: string
 // - authorId: ID
-
-// 💰 You can spread or redefine the fields from BaseEntity
+// 💰 Use intersection: type Post = BaseEntity & { ... }
 
 // 🐨 Create example instances
 // const user: User = { ... }

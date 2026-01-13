@@ -1,0 +1,33 @@
+# Generics
+
+👨‍💼 Excellent work with generics! This is one of the most important TypeScript
+skills.
+
+You learned:
+
+- 📦 **Generic functions** work with any type while preserving safety
+- 🏷️ **Generic types** create reusable type templates
+- 🔒 **Constraints** limit what types can be used
+- 🔢 **Multiple type parameters** for complex relationships
+
+🦉 Generics appear everywhere in real codebases:
+
+```ts
+// React hooks
+const [state, setState] = useState<User>(initialUser)
+
+// API responses
+async function fetchData<T>(url: string): Promise<T> { ... }
+
+// Data structures
+const map = new Map<string, User>()
+
+// Event handlers
+function on<K extends keyof Events>(event: K, handler: Events[K]) { ... }
+```
+
+Once you understand generics, you'll see them everywhere—and you'll write much
+more flexible, reusable TypeScript code.
+
+🎉 Congratulations! You've completed the Type Safety workshop, including the
+crucial concept of generics!

@@ -10,18 +10,12 @@ type BaseEntity = {
 	updatedAt: Timestamp
 }
 
-type User = {
-	id: ID
-	createdAt: Timestamp
-	updatedAt: Timestamp
+type User = BaseEntity & {
 	name: string
 	email: Email
 }
 
-type Post = {
-	id: ID
-	createdAt: Timestamp
-	updatedAt: Timestamp
+type Post = BaseEntity & {
 	title: string
 	content: string
 	authorId: ID
