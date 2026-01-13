@@ -1,0 +1,7 @@
+{
+  "name": "exercises_05.intersection-types_01.solution.combining-types",
+  "type": "module",
+  "scripts": {
+    "start": "node index.ts"
+  }
+}

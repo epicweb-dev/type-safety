@@ -1,0 +1,7 @@
+{
+  "name": "exercises_04.literal-types_02.problem.state-machines",
+  "type": "module",
+  "scripts": {
+    "start": "node index.ts"
+  }
+}

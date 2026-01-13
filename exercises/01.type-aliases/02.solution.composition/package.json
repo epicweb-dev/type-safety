@@ -1,0 +1,7 @@
+{
+  "name": "exercises_01.type-aliases_02.solution.composition",
+  "type": "module",
+  "scripts": {
+    "start": "node index.ts"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "exercises_06.any-vs-unknown_02.solution.type-guards",
+  "type": "module",
+  "scripts": {
+    "start": "node index.ts"
+  }
+}

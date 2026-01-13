@@ -1,0 +1,7 @@
+{
+  "name": "exercises_07.generics_01.problem.generic-functions",
+  "type": "module",
+  "scripts": {
+    "start": "node index.ts"
+  }
+}

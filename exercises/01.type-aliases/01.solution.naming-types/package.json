@@ -1,0 +1,7 @@
+{
+  "name": "exercises_01.type-aliases_01.solution.naming-types",
+  "type": "module",
+  "scripts": {
+    "start": "node index.ts"
+  }
+}

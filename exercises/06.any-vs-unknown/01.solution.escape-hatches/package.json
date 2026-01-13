@@ -1,0 +1,7 @@
+{
+  "name": "exercises_06.any-vs-unknown_01.solution.escape-hatches",
+  "type": "module",
+  "scripts": {
+    "start": "node index.ts"
+  }
+}
