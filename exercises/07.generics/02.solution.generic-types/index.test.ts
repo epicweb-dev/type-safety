@@ -11,9 +11,9 @@ import {
 
 await testStep('createSuccess should create success result', async () => {
 	const result = createSuccess('test data')
-	expect(result.success).toBe(true)
+	expect(result.success, '🚨 createSuccess should create a success result - check your generic Result type').toBe(true)
 	if (result.success) {
-		expect(result.data).toBe('test data')
+		expect(result.data, '🚨 result.data should contain the success data - check your generic Result type').toBe('test data')
 	}
 })
 
@@ -22,20 +22,20 @@ await testStep('createSuccess should work with different types', async () => {
 	const numberResult = createSuccess(42)
 	const objectResult = createSuccess({ id: 1, name: 'Alice' })
 
-	expect(stringResult.success).toBe(true)
-	expect(numberResult.success).toBe(true)
-	expect(objectResult.success).toBe(true)
+	expect(stringResult.success, '🚨 createSuccess should work with string types - check your generic Result type').toBe(true)
+	expect(numberResult.success, '🚨 createSuccess should work with number types - check your generic Result type').toBe(true)
+	expect(objectResult.success, '🚨 createSuccess should work with object types - check your generic Result type').toBe(true)
 
-	if (stringResult.success) expect(stringResult.data).toBe('hello')
-	if (numberResult.success) expect(numberResult.data).toBe(42)
-	if (objectResult.success) expect(objectResult.data).toEqual({ id: 1, name: 'Alice' })
+	if (stringResult.success) expect(stringResult.data, '🚨 stringResult.data should be "hello" - verify generic type inference').toBe('hello')
+	if (numberResult.success) expect(numberResult.data, '🚨 numberResult.data should be 42 - verify generic type inference').toBe(42)
+	if (objectResult.success) expect(objectResult.data, '🚨 objectResult.data should match the input object - verify generic type inference').toEqual({ id: 1, name: 'Alice' })
 })
 
 await testStep('createError should create error result', async () => {
 	const result = createError('error message')
-	expect(result.success).toBe(false)
+	expect(result.success, '🚨 createError should create an error result - check your generic Result type').toBe(false)
 	if (!result.success) {
-		expect(result.error).toBe('error message')
+		expect(result.error, '🚨 result.error should contain the error message - check your generic Result type').toBe('error message')
 	}
 })
 
@@ -44,35 +44,35 @@ await testStep('makePair should create pairs of different types', async () => {
 	const pair2 = makePair(1, 'test')
 	const pair3 = makePair(true, false)
 
-	expect(pair1.first).toBe('hello')
-	expect(pair1.second).toBe(42)
-	expect(pair2.first).toBe(1)
-	expect(pair2.second).toBe('test')
-	expect(pair3.first).toBe(true)
-	expect(pair3.second).toBe(false)
+	expect(pair1.first, '🚨 pair1.first should be "hello" - check your generic Pair type').toBe('hello')
+	expect(pair1.second, '🚨 pair1.second should be 42 - check your generic Pair type').toBe(42)
+	expect(pair2.first, '🚨 pair2.first should be 1 - check your generic Pair type').toBe(1)
+	expect(pair2.second, '🚨 pair2.second should be "test" - check your generic Pair type').toBe('test')
+	expect(pair3.first, '🚨 pair3.first should be true - check your generic Pair type').toBe(true)
+	expect(pair3.second, '🚨 pair3.second should be false - check your generic Pair type').toBe(false)
 })
 
 await testStep('Result type should discriminate correctly', async () => {
 	const success: Result<string> = { success: true, data: 'test' }
 	const error: Result<string> = { success: false, error: 'error' }
 
-	expect(success.success).toBe(true)
-	expect(error.success).toBe(false)
+	expect(success.success, '🚨 success.success should be true - verify your Result discriminated union').toBe(true)
+	expect(error.success, '🚨 error.success should be false - verify your Result discriminated union').toBe(false)
 
 	if (success.success) {
-		expect(success.data).toBe('test')
+		expect(success.data, '🚨 success.data should be accessible - verify your Result discriminated union').toBe('test')
 	}
 	if (!error.success) {
-		expect(error.error).toBe('error')
+		expect(error.error, '🚨 error.error should be accessible - verify your Result discriminated union').toBe('error')
 	}
 })
 
 await testStep('Pair type should hold correct types', async () => {
 	const pair: Pair<string, number> = { first: 'test', second: 42 }
-	expect(pair.first).toBe('test')
-	expect(pair.second).toBe(42)
-	expect(typeof pair.first).toBe('string')
-	expect(typeof pair.second).toBe('number')
+	expect(pair.first, '🚨 pair.first should be "test" - verify your generic Pair type preserves types').toBe('test')
+	expect(pair.second, '🚨 pair.second should be 42 - verify your generic Pair type preserves types').toBe(42)
+	expect(typeof pair.first, '🚨 pair.first should be type "string" - verify your generic Pair type preserves types').toBe('string')
+	expect(typeof pair.second, '🚨 pair.second should be type "number" - verify your generic Pair type preserves types').toBe('number')
 })
 
 await testStep('ApiResponse type should have correct structure', async () => {
@@ -81,7 +81,7 @@ await testStep('ApiResponse type should have correct structure', async () => {
 		status: 200,
 		timestamp: new Date(),
 	}
-	expect(response.data.id).toBe(1)
-	expect(response.status).toBe(200)
-	expect(response.timestamp).toBeInstanceOf(Date)
+	expect(response.data.id, '🚨 response.data.id should be 1 - verify your generic ApiResponse type').toBe(1)
+	expect(response.status, '🚨 response.status should be 200 - verify your ApiResponse type').toBe(200)
+	expect(response.timestamp, '🚨 response.timestamp should be a Date instance - verify your ApiResponse type').toBeInstanceOf(Date)
 })

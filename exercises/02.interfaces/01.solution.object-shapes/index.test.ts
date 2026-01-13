@@ -15,8 +15,8 @@ await testStep('isAdmin should correctly identify admin users', async () => {
 		email: 'user@example.com',
 		role: 'user',
 	}
-	expect(isAdmin(admin)).toBe(true)
-	expect(isAdmin(regularUser)).toBe(false)
+	expect(isAdmin(admin), '🚨 isAdmin should return true for admin users - check your role comparison logic').toBe(true)
+	expect(isAdmin(regularUser), '🚨 isAdmin should return false for regular users - check your role comparison logic').toBe(false)
 })
 
 await testStep('getProductSummary should format products correctly', async () => {
@@ -31,8 +31,8 @@ await testStep('getProductSummary should format products correctly', async () =>
 		price: 49.99,
 		description: 'A fancy gadget',
 	}
-	expect(getProductSummary(productWithoutDesc)).toBe('Widget - $29.99: No description')
-	expect(getProductSummary(productWithDesc)).toBe('Gadget - $49.99: A fancy gadget')
+	expect(getProductSummary(productWithoutDesc), '🚨 getProductSummary should handle products without description - check your optional property handling').toBe('Widget - $29.99: No description')
+	expect(getProductSummary(productWithDesc), '🚨 getProductSummary should include description when present - check your optional property handling').toBe('Gadget - $49.99: A fancy gadget')
 })
 
 await testStep('User interface should enforce correct structure', async () => {
@@ -42,7 +42,7 @@ await testStep('User interface should enforce correct structure', async () => {
 		email: 'test@example.com',
 		role: 'user',
 	}
-	expect(user.role).toBe('user')
+	expect(user.role, '🚨 user.role should be "user" - verify your User interface includes role property').toBe('user')
 })
 
 await testStep('Product interface should allow optional description', async () => {
@@ -53,6 +53,6 @@ await testStep('Product interface should allow optional description', async () =
 		price: 10,
 		description: 'Has description',
 	}
-	expect(product1.description).toBeUndefined()
-	expect(product2.description).toBe('Has description')
+	expect(product1.description, '🚨 product1.description should be undefined when not provided - verify description is optional in Product interface').toBeUndefined()
+	expect(product2.description, '🚨 product2.description should be "Has description" when provided - verify description is optional in Product interface').toBe('Has description')
 })
