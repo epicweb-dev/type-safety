@@ -4,7 +4,8 @@ import {
 	parseJsonSafely,
 	isUser,
 	parseUser,
-	type User} from './index.ts'
+	type User,
+} from './index.ts'
 
 await testStep('safeProcess should handle string values', async () => {
 	expect(

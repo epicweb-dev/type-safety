@@ -5,7 +5,8 @@ import {
 	makePair,
 	type Result,
 	type Pair,
-	type ApiResponse} from './index.ts'
+	type ApiResponse,
+} from './index.ts'
 
 await testStep('createSuccess should create success result', async () => {
 	const result = createSuccess('test data')

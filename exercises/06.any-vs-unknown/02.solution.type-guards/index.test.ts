@@ -4,7 +4,8 @@ import {
 	isNumber,
 	isProduct,
 	processApiResponse,
-	type Product} from './index.ts'
+	type Product,
+} from './index.ts'
 
 await testStep('isString should correctly identify strings', async () => {
 	expect(

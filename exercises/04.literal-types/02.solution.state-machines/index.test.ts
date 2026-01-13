@@ -4,7 +4,8 @@ import {
 	playerAction,
 	type OrderState,
 	type PlayerState,
-	type PlayerAction} from './index.ts'
+	type PlayerAction,
+} from './index.ts'
 
 await testStep(
 	'advanceOrder should transition pending to processing',

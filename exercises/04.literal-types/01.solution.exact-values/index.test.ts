@@ -4,7 +4,8 @@ import {
 	makeRequest,
 	type Size,
 	type Color,
-	type HttpMethod} from './index.ts'
+	type HttpMethod,
+} from './index.ts'
 
 await testStep('createOrder should accept valid Size values', async () => {
 	const order1 = createOrder('xs', 'red')

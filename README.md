@@ -32,8 +32,10 @@
 
 ## Prerequisites
 
-- [Programming Foundations](https://github.com/epicweb-dev/programming-foundations) workshop
-- [Structured Data](https://github.com/epicweb-dev/structured-data) workshop (or equivalent knowledge)
+- [Programming Foundations](https://github.com/epicweb-dev/programming-foundations)
+  workshop
+- [Structured Data](https://github.com/epicweb-dev/structured-data) workshop (or
+  equivalent knowledge)
 - Comfort with objects, arrays, and functions in TypeScript
 
 ## Pre-workshop Resources

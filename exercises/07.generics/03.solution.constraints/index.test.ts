@@ -5,7 +5,8 @@ import {
 	getProperty,
 	merge,
 	type User,
-	type Product} from './index.ts'
+	type Product,
+} from './index.ts'
 
 await testStep(
 	'getId should work with objects that have id property',

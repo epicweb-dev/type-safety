@@ -9,7 +9,8 @@ import {
 	type PaymentMethod,
 	type CreditCard,
 	type PayPal,
-	type BankTransfer} from './index.ts'
+	type BankTransfer,
+} from './index.ts'
 
 await testStep('renderState should handle loading state', async () => {
 	const loading: LoadingState = { status: 'loading' }

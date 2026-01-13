@@ -6,7 +6,8 @@ import {
 	type User,
 	type AdminUser,
 	type RegularUser,
-	type GuestUser} from './index.ts'
+	type GuestUser,
+} from './index.ts'
 
 await testStep('normalizeText should trim string input', async () => {
 	expect(

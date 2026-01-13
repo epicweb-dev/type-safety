@@ -6,7 +6,8 @@ import {
 	type Comment,
 	type WithId,
 	type WithTimestamps,
-	type WithAuthor} from './index.ts'
+	type WithAuthor,
+} from './index.ts'
 
 await testStep('getAgeInDays should calculate days correctly', async () => {
 	const now = new Date()
