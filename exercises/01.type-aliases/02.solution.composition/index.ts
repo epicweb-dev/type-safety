@@ -38,7 +38,7 @@ const post: Post = {
 	authorId: user.id,
 }
 
+export type { User, Post, BaseEntity, ID, Timestamp, Email }
+
 console.log('User:', user.name)
 console.log('Post:', post.title, 'by', post.authorId)
-
-export {}

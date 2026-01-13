@@ -6,7 +6,7 @@ function dangerousProcess(value: any): string {
 }
 
 // Safe version using `unknown`
-function safeProcess(value: unknown): string {
+export function safeProcess(value: unknown): string {
 	if (typeof value === 'string') {
 		return value.toUpperCase()
 	}
@@ -19,13 +19,13 @@ function safeProcess(value: unknown): string {
 	return String(value)
 }
 
-function parseJsonSafely(json: string): unknown {
+export function parseJsonSafely(json: string): unknown {
 	return JSON.parse(json)
 }
 
-type User = { name: string; email: string }
+export type User = { name: string; email: string }
 
-function isUser(value: unknown): value is User {
+export function isUser(value: unknown): value is User {
 	return (
 		typeof value === 'object' &&
 		value !== null &&
@@ -36,7 +36,7 @@ function isUser(value: unknown): value is User {
 	)
 }
 
-function parseUser(json: string): User | null {
+export function parseUser(json: string): User | null {
 	const data = parseJsonSafely(json)
 	if (isUser(data)) {
 		return data

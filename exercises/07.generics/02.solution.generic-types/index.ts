@@ -1,29 +1,29 @@
 // Generic Types and Interfaces
 
-type Result<T> =
+export type Result<T> =
 	| { success: true; data: T }
 	| { success: false; error: string }
 
-type Pair<T, U> = {
+export type Pair<T, U> = {
 	first: T
 	second: U
 }
 
-interface ApiResponse<T> {
+export interface ApiResponse<T> {
 	data: T
 	status: number
 	timestamp: Date
 }
 
-function createSuccess<T>(data: T): Result<T> {
+export function createSuccess<T>(data: T): Result<T> {
 	return { success: true, data }
 }
 
-function createError<T>(error: string): Result<T> {
+export function createError<T>(error: string): Result<T> {
 	return { success: false, error }
 }
 
-function makePair<T, U>(first: T, second: U): Pair<T, U> {
+export function makePair<T, U>(first: T, second: U): Pair<T, U> {
 	return { first, second }
 }
 

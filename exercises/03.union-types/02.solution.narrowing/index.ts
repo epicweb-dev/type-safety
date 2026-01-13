@@ -1,8 +1,8 @@
 // Type Narrowing Techniques
 
-type TextInput = string | string[]
+export type TextInput = string | string[]
 
-function normalizeText(input: TextInput): string {
+export function normalizeText(input: TextInput): string {
 	if (Array.isArray(input)) {
 		return input.join(' ').trim()
 	}
@@ -10,13 +10,13 @@ function normalizeText(input: TextInput): string {
 }
 
 // Different user types
-type AdminUser = { type: 'admin'; permissions: string[] }
-type RegularUser = { type: 'user'; subscription: 'free' | 'premium' }
-type GuestUser = { type: 'guest' }
+export type AdminUser = { type: 'admin'; permissions: string[] }
+export type RegularUser = { type: 'user'; subscription: 'free' | 'premium' }
+export type GuestUser = { type: 'guest' }
 
-type User = AdminUser | RegularUser | GuestUser
+export type User = AdminUser | RegularUser | GuestUser
 
-function describeUser(user: User): string {
+export function describeUser(user: User): string {
 	switch (user.type) {
 		case 'admin':
 			return `Admin with ${user.permissions.length} permissions`

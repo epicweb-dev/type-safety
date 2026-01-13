@@ -1,13 +1,13 @@
 // State Machines with Literal Types
 
-type OrderState =
+export type OrderState =
 	| 'pending'
 	| 'processing'
 	| 'shipped'
 	| 'delivered'
 	| 'cancelled'
 
-function advanceOrder(current: OrderState): OrderState {
+export function advanceOrder(current: OrderState): OrderState {
 	switch (current) {
 		case 'pending':
 			return 'processing'
@@ -21,10 +21,10 @@ function advanceOrder(current: OrderState): OrderState {
 	}
 }
 
-type PlayerState = 'stopped' | 'playing' | 'paused'
-type PlayerAction = 'play' | 'pause' | 'stop'
+export type PlayerState = 'stopped' | 'playing' | 'paused'
+export type PlayerAction = 'play' | 'pause' | 'stop'
 
-function playerAction(current: PlayerState, action: PlayerAction): PlayerState {
+export function playerAction(current: PlayerState, action: PlayerAction): PlayerState {
 	switch (action) {
 		case 'play':
 			return 'playing'

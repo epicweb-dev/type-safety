@@ -1,18 +1,18 @@
 // Generic Functions
 
-function identity<T>(value: T): T {
+export function identity<T>(value: T): T {
 	return value
 }
 
-function first<T>(arr: T[]): T | undefined {
+export function first<T>(arr: T[]): T | undefined {
 	return arr[0]
 }
 
-function last<T>(arr: T[]): T | undefined {
+export function last<T>(arr: T[]): T | undefined {
 	return arr[arr.length - 1]
 }
 
-function reverse<T>(arr: T[]): T[] {
+export function reverse<T>(arr: T[]): T[] {
 	return [...arr].reverse()
 }
 

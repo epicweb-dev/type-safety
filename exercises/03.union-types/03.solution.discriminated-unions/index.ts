@@ -1,11 +1,11 @@
 // Discriminated Unions Pattern
 
-type LoadingState = { status: 'loading' }
-type SuccessState = { status: 'success'; data: string[] }
-type ErrorState = { status: 'error'; error: string }
-type ApiState = LoadingState | SuccessState | ErrorState
+export type LoadingState = { status: 'loading' }
+export type SuccessState = { status: 'success'; data: string[] }
+export type ErrorState = { status: 'error'; error: string }
+export type ApiState = LoadingState | SuccessState | ErrorState
 
-function renderState(state: ApiState): string {
+export function renderState(state: ApiState): string {
 	switch (state.status) {
 		case 'loading':
 			return 'Loading...'
@@ -20,12 +20,12 @@ function renderState(state: ApiState): string {
 	}
 }
 
-type CreditCard = { type: 'credit_card'; last4: string; expiry: string }
-type PayPal = { type: 'paypal'; email: string }
-type BankTransfer = { type: 'bank'; accountNumber: string }
-type PaymentMethod = CreditCard | PayPal | BankTransfer
+export type CreditCard = { type: 'credit_card'; last4: string; expiry: string }
+export type PayPal = { type: 'paypal'; email: string }
+export type BankTransfer = { type: 'bank'; accountNumber: string }
+export type PaymentMethod = CreditCard | PayPal | BankTransfer
 
-function describePayment(method: PaymentMethod): string {
+export function describePayment(method: PaymentMethod): string {
 	switch (method.type) {
 		case 'credit_card':
 			return `Card ending in ${method.last4} (exp: ${method.expiry})`

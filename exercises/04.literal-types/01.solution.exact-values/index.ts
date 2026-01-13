@@ -1,12 +1,12 @@
 // Using Literal Types for Exact Values
 
-type Size = 'xs' | 's' | 'm' | 'l' | 'xl'
+export type Size = 'xs' | 's' | 'm' | 'l' | 'xl'
 
-type Color = 'red' | 'blue' | 'green' | 'black'
+export type Color = 'red' | 'blue' | 'green' | 'black'
 
-type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE'
+export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE'
 
-function createOrder(size: Size, color: Color) {
+export function createOrder(size: Size, color: Color) {
 	return {
 		size,
 		color,
@@ -14,7 +14,7 @@ function createOrder(size: Size, color: Color) {
 	}
 }
 
-function makeRequest(method: HttpMethod, url: string): void {
+export function makeRequest(method: HttpMethod, url: string): void {
 	console.log(`${method} ${url}`)
 }
 

@@ -1,20 +1,20 @@
 // Combining Types with Intersection
 
-type WithId = { id: string }
-type WithTimestamps = { createdAt: Date; updatedAt: Date }
-type WithAuthor = { authorId: string; authorName: string }
+export type WithId = { id: string }
+export type WithTimestamps = { createdAt: Date; updatedAt: Date }
+export type WithAuthor = { authorId: string; authorName: string }
 
-type User = WithId & WithTimestamps & { name: string; email: string }
+export type User = WithId & WithTimestamps & { name: string; email: string }
 
-type Post = WithId &
+export type Post = WithId &
 	WithTimestamps &
 	WithAuthor & { title: string; content: string }
 
-type Comment = WithId &
+export type Comment = WithId &
 	WithTimestamps &
 	WithAuthor & { text: string; postId: string }
 
-function getAgeInDays(entity: WithTimestamps): number {
+export function getAgeInDays(entity: WithTimestamps): number {
 	const now = new Date()
 	const created = entity.createdAt
 	const diffMs = now.getTime() - created.getTime()

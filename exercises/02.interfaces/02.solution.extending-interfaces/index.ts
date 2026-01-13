@@ -49,8 +49,8 @@ const log: AuditLog = {
 	userId: user.id,
 }
 
+export type { User, Product, AuditLog, Entity, Timestamps }
+
 console.log('User:', user.name, '- ID:', user.id)
 console.log('Product:', product.name, '- ID:', product.id)
 console.log('Log:', log.action, 'by', log.userId)
-
-export {}

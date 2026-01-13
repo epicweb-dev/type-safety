@@ -1,17 +1,17 @@
 // Working with Union Types
 
-type ID = string | number
+export type ID = string | number
 
-type Result = string | Error
+export type Result = string | Error
 
-function formatId(id: ID): string {
+export function formatId(id: ID): string {
 	if (typeof id === 'number') {
 		return `#${id}`
 	}
 	return id
 }
 
-function processResult(result: Result): void {
+export function processResult(result: Result): void {
 	if (result instanceof Error) {
 		console.log(`Error: ${result.message}`)
 	} else {

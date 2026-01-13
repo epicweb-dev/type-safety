@@ -32,17 +32,17 @@ const laptop: Product = {
 	inStock: true,
 }
 
-function greet(user: User): string {
+export function greet(user: User): string {
 	return `Hello, ${user.name}!`
 }
 
-function formatProduct(product: Product): string {
+export function formatProduct(product: Product): string {
 	const status = product.inStock ? 'In Stock' : 'Out of Stock'
 	return `${product.name} - $${product.price} (${status})`
 }
 
+export type { User, Product }
+
 console.log(greet(alice))
 console.log(greet(bob))
 console.log(formatProduct(laptop))
-
-export {}
