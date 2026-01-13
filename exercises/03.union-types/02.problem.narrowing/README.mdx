@@ -1,0 +1,31 @@
+# Narrowing
+
+👨‍💼 When you have a union type, TypeScript needs you to narrow it down before
+accessing type-specific properties.
+
+```ts
+function process(value: string | string[]) {
+	// Can't call .length—both have it, but .join is only on arrays
+	if (Array.isArray(value)) {
+		console.log(value.join(', ')) // ✅ Array methods available
+	} else {
+		console.log(value.toUpperCase()) // ✅ String methods available
+	}
+}
+```
+
+🐨 Open <InlineFile file="index.ts" /> and:
+
+1. Write a function that handles `string | string[]`
+2. Write a function that handles objects with different shapes
+3. Use the `in` operator to check for properties
+
+💰 Property check with `in`:
+
+```ts
+if ('property' in obj) {
+	// obj has 'property'
+}
+```
+
+📜 [TypeScript Handbook - Narrowing](https://www.typescriptlang.org/docs/handbook/2/narrowing.html)

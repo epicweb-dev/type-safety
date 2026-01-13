@@ -1,0 +1,31 @@
+# Type Composition
+
+👨‍💼 Type aliases can reference other type aliases, letting you build complex
+types from simpler ones.
+
+```ts
+type Name = string
+type Age = number
+type User = { name: Name; age: Age }
+```
+
+🐨 Open <Intml file="index.ts" /> and:
+
+1. Create primitive type aliases for IDs and timestamps
+2. Create a `BaseEntity` type with common fields
+3. Compose larger types using the building blocks
+
+💰 Type composition:
+
+```ts
+type ID = string
+type Timestamp = number
+
+type BaseEntity = {
+	id: ID
+	createdAt: Timestamp
+	updatedAt: Timestamp
+}
+```
+
+📜 [TypeScript Handbook - Composing Types](https://www.typescriptlang.org/docs/handbook/2/types-from-types.html)

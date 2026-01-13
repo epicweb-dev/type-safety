@@ -1,0 +1,26 @@
+# Escape Hatches
+
+👨‍💼 Sometimes you need to work with data whose type you don't know. Let's see
+how `any` and `unknown` differ.
+
+🐨 Open <InlineFile file="index.ts" /> and:
+
+1. See how `any` allows anything (dangerous!)
+2. See how `unknown` requires checks (safe!)
+3. Refactor `any` code to use `unknown`
+
+💰 Type narrowing with unknown:
+
+```ts
+function process(value: unknown) {
+	if (typeof value === 'string') {
+		return value.toUpperCase()
+	}
+	if (typeof value === 'number') {
+		return value.toFixed(2)
+	}
+	return String(value)
+}
+```
+
+📜 [TypeScript Handbook - Unknown](https://www.typescriptlang.org/docs/handbook/2/functions.html#unknown)

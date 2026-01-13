@@ -1,0 +1,55 @@
+# Union Types
+
+Union types allow a value to be one of several types. They're TypeScript's way
+of modeling "either/or" scenarios.
+
+```ts
+type StringOrNumber = string | number
+
+let value: StringOrNumber
+value = 'hello' // ✅
+value = 42 // ✅
+value = true // ❌ Error
+```
+
+## Narrowing
+
+When you have a union type, TypeScript needs to know which specific type you're
+working with before you can use type-specific methods:
+
+```ts
+function process(value: string | number) {
+	// Can't call .toUpperCase() yet - might be number!
+
+	if (typeof value === 'string') {
+		console.log(value.toUpperCase()) // ✅ Now TypeScript knows it's string
+	} else {
+		console.log(value.toFixed(2)) // ✅ Must be number
+	}
+}
+```
+
+## Discriminated Unions
+
+The most powerful pattern: objects with a common "tag" property:
+
+```ts
+type Success = { status: 'success'; data: string }
+type Error = { status: 'error'; message: string }
+type Result = Success | Error
+
+function handle(result: Result) {
+	if (result.status === 'success') {
+		console.log(result.data) // ✅ TypeScript knows it's Success
+	} else {
+		console.log(result.message) // ✅ TypeScript knows it's Error
+	}
+}
+```
+
+<callout-info>
+Discriminated unions are one of TypeScript's most powerful features for modeling
+real-world scenarios where data can take different shapes.
+</callout-info>
+
+In this exercise, you'll master union types and narrowing.

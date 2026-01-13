@@ -1,0 +1,46 @@
+# Type Aliases
+
+Type aliases let you give names to types, making them reusable and your code
+more readable.
+
+```ts
+// Without type alias - verbose and repetitive
+const user1: { name: string; email: string; age: number } = { ... }
+const user2: { name: string; email: string; age: number } = { ... }
+
+// With type alias - clean and reusable
+type User = { name: string; email: string; age: number }
+const user1: User = { ... }
+const user2: User = { ... }
+```
+
+## When to Use Type Aliases
+
+- **Reusable types** - When you use the same type multiple times
+- **Complex types** - When inline types get unwieldy
+- **Self-documenting code** - When a name adds clarity
+- **Union/intersection types** - Type aliases are the only way to name these
+
+```ts
+type ID = string | number
+type Coordinates = [number, number]
+type Handler = (event: Event) => void
+```
+
+## Type Aliases Are Flexible
+
+Type aliases work with any type, not just objects:
+
+```ts
+type StringOrNumber = string | number
+type Point = [number, number]
+type Callback = () => void
+type UserID = string
+```
+
+<callout-info>
+Type aliases are one of the most commonly used TypeScript features. They're the
+foundation for building a well-typed codebase.
+</callout-info>
+
+In this exercise, you'll create and use type aliases.

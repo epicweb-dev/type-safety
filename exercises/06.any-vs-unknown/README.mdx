@@ -1,0 +1,49 @@
+# Any vs Unknown
+
+TypeScript has two types for "I don't know what this is": `any` and `unknown`.
+They behave very differently.
+
+## The `any` Type
+
+`any` disables type checking entirely. You can do anything with `any`:
+
+```ts
+let value: any = 'hello'
+value.foo.bar.baz() // No error! (but will crash at runtime)
+value = 42
+value.toUpperCase() // No error! (but will crash at runtime)
+```
+
+<callout-danger>
+`any` is an escape hatch that removes type safety. Use it sparingly, if at all.
+</callout-danger>
+
+## The `unknown` Type
+
+`unknown` is the type-safe version. You must narrow it before use:
+
+```ts
+let value: unknown = 'hello'
+value.toUpperCase() // ❌ Error: Object is of type 'unknown'
+
+if (typeof value === 'string') {
+	value.toUpperCase() // ✅ Now TypeScript knows it's a string
+}
+```
+
+## When to Use Each
+
+| Scenario            | Use       |
+| ------------------- | --------- |
+| External data       | `unknown` |
+| Migrating JS to TS  | `any`     |
+| Third-party library | `any`     |
+| JSON.parse result   | `unknown` |
+| User input          | `unknown` |
+
+<callout-info>
+Prefer `unknown` over `any`. It forces you to verify the type before using the
+value, catching potential bugs.
+</callout-info>
+
+In this exercise, you'll handle unknown data safely.

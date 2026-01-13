@@ -1,0 +1,25 @@
+# Union Types
+
+👨‍💼 You've mastered union types and narrowing!
+
+You learned:
+
+- 🔀 **Union types** model "one of these types"
+- 🔍 **Narrowing** with `typeof`, `in`, and type guards
+- 🏷️ **Discriminated unions** with tag properties
+- ✅ **Exhaustiveness checking** to handle all cases
+
+🦉 Discriminated unions are incredibly powerful:
+
+```ts
+type ApiResponse =
+	| { status: 'loading' }
+	| { status: 'success'; data: User[] }
+	| { status: 'error'; error: string }
+
+// Forces you to handle all three states!
+```
+
+This pattern is used extensively in React, Redux, and other libraries.
+
+Next up: Literal types—working with exact values!

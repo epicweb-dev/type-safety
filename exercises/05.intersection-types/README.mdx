@@ -1,0 +1,49 @@
+# Intersection Types
+
+Intersection types combine multiple types into one. A value must satisfy **all**
+the combined types.
+
+```ts
+type A = { name: string }
+type B = { age: number }
+type C = A & B // { name: string; age: number }
+```
+
+## Intersection vs Union
+
+- **Union (`|`)** - Value is ONE of the types
+- **Intersection (`&`)** - Value is ALL of the types
+
+```ts
+type StringOrNumber = string | number // One or the other
+type Named = { name: string }
+type Aged = { age: number }
+type Person = Named & Aged // Has both name AND age
+```
+
+## Combining Behaviors
+
+Intersections are great for composing types:
+
+```ts
+type Timestamped = { createdAt: Date; updatedAt: Date }
+type Authored = { authorId: string }
+
+type Post = { title: string; content: string } & Timestamped & Authored
+// Post has title, content, createdAt, updatedAt, AND authorId
+```
+
+## With Type Aliases
+
+```ts
+type BaseEntity = { id: string }
+type User = BaseEntity & { name: string; email: string }
+// User has id, name, and email
+```
+
+<callout-info>
+Intersection types are an alternative to interface extension. They're more
+flexible because they work with any types, not just interfaces.
+</callout-info>
+
+In this exercise, you'll use intersections to compose complex types.

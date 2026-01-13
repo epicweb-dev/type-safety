@@ -1,0 +1,37 @@
+# Discriminated Unions
+
+👨‍💼 Discriminated unions are a pattern where each type in a union has a common
+"discriminant" property with a literal type value.
+
+```ts
+type Circle = { kind: 'circle'; radius: number }
+type Rectangle = { kind: 'rectangle'; width: number; height: number }
+type Shape = Circle | Rectangle
+```
+
+The `kind` property lets TypeScript narrow the type automatically.
+
+🐨 Open <InlineFile file="index.ts" /> and:
+
+1. Create discriminated unions for API responses
+2. Create discriminated unions for form states
+3. Handle all cases with exhaustiveness checking
+
+💰 Exhaustiveness checking:
+
+```ts
+function handle(shape: Shape) {
+	switch (shape.kind) {
+		case 'circle':
+			return Math.PI * shape.radius ** 2
+		case 'rectangle':
+			return shape.width * shape.height
+		default: {
+			const _exhaustive: never = shape
+			return _exhaustive
+		}
+	}
+}
+```
+
+📜 [TypeScript Handbook - Discriminated Unions](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#discriminated-unions)

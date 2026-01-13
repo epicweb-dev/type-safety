@@ -1,0 +1,27 @@
+# Intersection Types
+
+👨‍💼 You've learned to combine types with intersections!
+
+You learned:
+
+- ➕ **`&` operator** combines types
+- 🧩 **Composing types** from building blocks
+- 🆚 **Intersection vs extension** - similar but different
+- 💡 **Flexibility** - works with type aliases, not just interfaces
+
+🦉 Intersections vs extends:
+
+```ts
+// Using intersection
+type User = BaseEntity & { name: string }
+
+// Using interface extends
+interface User extends BaseEntity {
+	name: string
+}
+```
+
+Both work. Intersections are more flexible (work with unions, type aliases),
+while `extends` is more explicit about the hierarchy.
+
+Next up: `any` vs `unknown`—handling uncertain types safely!

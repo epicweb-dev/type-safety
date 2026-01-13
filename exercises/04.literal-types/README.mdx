@@ -1,0 +1,59 @@
+# Literal Types
+
+Literal types are types that represent exact values, not just general types like
+`string` or `number`.
+
+```ts
+type Direction = 'north' | 'south' | 'east' | 'west'
+type DiceRoll = 1 | 2 | 3 | 4 | 5 | 6
+```
+
+## How Literal Types Work
+
+```ts
+let direction: 'north' | 'south'
+direction = 'north' // ✅
+direction = 'south' // ✅
+direction = 'east' // ❌ Error: Type '"east"' is not assignable
+```
+
+## `const` vs `let` Inference
+
+TypeScript infers literal types differently:
+
+```ts
+const x = 'hello' // Type: "hello" (literal)
+let y = 'hello' // Type: string (widened)
+```
+
+Use `as const` to preserve literal types:
+
+```ts
+let y = 'hello' as const // Type: "hello"
+```
+
+## State Machines
+
+Literal types are perfect for state machines:
+
+```ts
+type TrafficLight = 'red' | 'yellow' | 'green'
+
+function nextLight(current: TrafficLight): TrafficLight {
+	switch (current) {
+		case 'red':
+			return 'green'
+		case 'green':
+			return 'yellow'
+		case 'yellow':
+			return 'red'
+	}
+}
+```
+
+<callout-info>
+Literal types turn runtime errors into compile-time errors. If you typo a state
+name, TypeScript catches it immediately.
+</callout-info>
+
+In this exercise, you'll use literal types for precise type definitions.

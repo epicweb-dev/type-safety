@@ -1,0 +1,29 @@
+# State Machines
+
+👨‍💼 Literal types are perfect for modeling state machines. A state machine has
+defined states and transitions between them.
+
+```ts
+type TrafficLight = 'red' | 'yellow' | 'green'
+```
+
+🐨 Open <InlineFile file="index.ts" /> and:
+
+1. Create a state machine for an order (pending → processing → shipped →
+   delivered)
+2. Create transition functions that only allow valid transitions
+3. Create a state machine for a simple media player
+
+💰 State transition function:
+
+```ts
+function nextState(current: OrderState): OrderState {
+	switch (current) {
+		case 'pending':
+			return 'processing'
+		// ...
+	}
+}
+```
+
+📜 [State Machines in TypeScript](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#discriminated-unions)

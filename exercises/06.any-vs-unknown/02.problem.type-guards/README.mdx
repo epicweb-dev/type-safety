@@ -1,0 +1,33 @@
+# Type Guards
+
+👨‍💼 Type guards are functions that narrow types. They use the special `is`
+return type to tell TypeScript what type the value is.
+
+```ts
+function isString(value: unknown): value is string {
+	return typeof value === 'string'
+}
+
+function process(value: unknown) {
+	if (isString(value)) {
+		console.log(value.toUpperCase()) // ✅ TypeScript knows it's string
+	}
+}
+```
+
+🐨 Open <InlineFile file="index.ts" /> and:
+
+1. Create type guards for different types
+2. Use them to safely narrow `unknown` values
+3. Combine type guards for complex types
+
+💰 Type guard syntax:
+
+```ts
+function isType(value: unknown): value is SpecificType {
+	// Return true if value matches SpecificType
+	return /* condition */
+}
+```
+
+📜 [TypeScript Handbook - Type Guards](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates)
