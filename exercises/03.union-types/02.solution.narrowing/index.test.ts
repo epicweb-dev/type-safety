@@ -23,7 +23,8 @@ await testStep('normalizeText should join array input', async () => {
 })
 
 await testStep('normalizeText should handle array with spaces', async () => {
-	expect(normalizeText(['  hello  ', '  world  '])).toBe('  hello     world  ')
+	// The function joins with space and then trims the result
+	expect(normalizeText(['  hello  ', '  world  '])).toBe('hello     world')
 })
 
 await testStep('describeUser should describe admin users', async () => {

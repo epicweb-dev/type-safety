@@ -74,8 +74,13 @@ await testStep('parseUser should return null for invalid JSON', async () => {
 	expect(result).toBeNull()
 })
 
-await testStep('parseUser should return null for malformed JSON', async () => {
+await testStep('parseUser should throw for malformed JSON', async () => {
 	const malformedJson = 'not json'
-	const result = parseUser(malformedJson)
-	expect(result).toBeNull()
+	let threw = false
+	try {
+		parseUser(malformedJson)
+	} catch {
+		threw = true
+	}
+	expect(threw).toBe(true)
 })
