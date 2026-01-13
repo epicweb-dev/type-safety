@@ -1,10 +1,10 @@
 <div>
-  <h1 align="center"><a href="https://www.epicweb.dev/workshops">Workshop Title 🎃</a></h1>
+  <h1 align="center"><a href="https://www.epicweb.dev/workshops">Type Safety 🛡️</a></h1>
   <strong>
-    Workshop subtitle
+    Harness TypeScript's type system to catch bugs before they happen
   </strong>
   <p>
-    Workshop summary
+    Learn type aliases, interfaces, unions, generics, and type guards—the tools that make TypeScript a powerful ally for writing correct code.
   </p>
 </div>
 
@@ -32,23 +32,23 @@
 
 ## Prerequisites
 
-- TODO: add prerequisites
-- Some
-- Pre-requisite
-- links
-- here
+- [Programming Foundations](https://github.com/epicweb-dev/programming-foundations) workshop
+- [Structured Data](https://github.com/epicweb-dev/structured-data) workshop (or equivalent knowledge)
+- Comfort with objects, arrays, and functions in TypeScript
 
 ## Pre-workshop Resources
 
 Here are some resources you can read before taking the workshop to get you up to
 speed on some of the tools and concepts we'll be covering:
 
-- TODO: add resources
+- [TypeScript Handbook - Everyday Types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html)
+- [TypeScript Handbook - Narrowing](https://www.typescriptlang.org/docs/handbook/2/narrowing.html)
+- [TypeScript Handbook - Generics](https://www.typescriptlang.org/docs/handbook/2/generics.html)
 
 ## System Requirements
 
 - [git][git] v2.18 or greater
-- [NodeJS][node] v18 or greater
+- [NodeJS][node] v20 or greater
 - [npm][npm] v8 or greater
 
 All of these must be available in your `PATH`. To verify things are set up
