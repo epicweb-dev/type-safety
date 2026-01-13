@@ -1,6 +1,6 @@
 // Type Narrowing Techniques
 
-type TextInput = string | string[]
+type TextInput = string | Array<string>
 
 // 🐨 Create a function `normalizeText` that:
 // - If string, returns it trimmed
@@ -8,7 +8,7 @@ type TextInput = string | string[]
 // 💰 Use Array.isArray() to check
 
 // Different user types
-type AdminUser = { type: 'admin'; permissions: string[] }
+type AdminUser = { type: 'admin'; permissions: Array<string> }
 type RegularUser = { type: 'user'; subscription: 'free' | 'premium' }
 type GuestUser = { type: 'guest' }
 

@@ -6,7 +6,7 @@
 
 // 🐨 Create a generic `first` function
 // Takes an array of T, returns T | undefined
-// function first<T>(arr: T[]): T | undefined
+// function first<T>(arr: Array<T>): T | undefined
 
 // 🐨 Create a generic `last` function
 // Takes an array of T, returns T | undefined

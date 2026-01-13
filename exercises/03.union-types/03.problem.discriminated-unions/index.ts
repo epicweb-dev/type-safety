@@ -2,7 +2,7 @@
 
 // 🐨 Create discriminated union types for API response states:
 // type LoadingState = { status: 'loading' }
-// type SuccessState = { status: 'success'; data: string[] }
+// type SuccessState = { status: 'success'; data: Array<string> }
 // type ErrorState = { status: 'error'; error: string }
 // type ApiState = LoadingState | SuccessState | ErrorState
 
