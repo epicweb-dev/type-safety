@@ -29,3 +29,6 @@ type Product = { id: string; name: string; price: number }
 // console.log(getName(user))                  // 'Alice'
 // console.log(getProperty(user, 'email'))     // 'alice@example.com'
 // const merged = merge({ a: 1 }, { b: 2 })    // { a: 1, b: 2 }
+
+// 🦺 This line ensures TypeScript treats this as a module
+export {}
