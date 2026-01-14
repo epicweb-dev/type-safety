@@ -25,5 +25,3 @@
 // let player: PlayerState = 'stopped'
 // player = playerAction(player, 'play')
 // console.log(player)
-
-export {}

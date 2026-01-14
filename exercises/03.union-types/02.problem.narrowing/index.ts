@@ -22,5 +22,3 @@ type User = AdminUser | RegularUser | GuestUser
 
 // console.log(normalizeText('  hello  '))
 // console.log(normalizeText(['hello', 'world']))
-
-export {}

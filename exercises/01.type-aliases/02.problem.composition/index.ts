@@ -22,5 +22,3 @@
 // 🐨 Create example instances
 // const user: User = { ... }
 // const post: Post = { ... }
-
-export {}

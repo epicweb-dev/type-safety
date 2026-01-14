@@ -55,5 +55,3 @@ const invalidJson = '{"foo": "bar"}'
 
 console.log(parseUser(validJson)) // { name: "Alice", email: "..." }
 console.log(parseUser(invalidJson)) // null
-
-export {}

@@ -45,5 +45,3 @@ if (success.success) {
 
 console.log('Pair first (string):', pair.first.toUpperCase())
 console.log('Pair second (number):', pair.second.toFixed(2))
-
-export {}

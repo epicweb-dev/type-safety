@@ -34,5 +34,3 @@ console.log(processApiResponse({ id: '1', name: 'Widget', price: 9.99 }))
 console.log(processApiResponse('Hello'))
 console.log(processApiResponse(42))
 console.log(processApiResponse({ invalid: 'data' }))
-
-export {}

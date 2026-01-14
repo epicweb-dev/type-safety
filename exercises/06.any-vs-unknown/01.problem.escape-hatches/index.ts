@@ -28,5 +28,3 @@ function dangerousProcess(value: any): string {
 // Test
 // console.log(dangerousProcess('hello'))  // Works
 // console.log(dangerousProcess(123))       // Runtime error!
-
-export {}

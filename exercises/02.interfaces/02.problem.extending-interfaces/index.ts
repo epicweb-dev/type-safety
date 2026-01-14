@@ -25,5 +25,3 @@
 // const user: User = { ... }
 // const product: Product = { ... }
 // const log: AuditLog = { ... }
-
-export {}

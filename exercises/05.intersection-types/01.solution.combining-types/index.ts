@@ -41,5 +41,3 @@ const post: Post = {
 
 console.log(`User ${user.name} created ${getAgeInDays(user)} days ago`)
 console.log(`Post "${post.title}" created ${getAgeInDays(post)} days ago`)
-
-export {}

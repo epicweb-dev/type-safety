@@ -28,5 +28,3 @@ console.log(reverse([1, 2, 3])) // [3, 2, 1]
 const num = first([1, 2, 3]) // number | undefined
 const str = first(['a', 'b']) // string | undefined
 const reversed = reverse([1, 2, 3]) // Array<number>
-
-export {}

@@ -28,5 +28,3 @@
 // const success = createSuccess({ id: 1, name: 'Alice' })
 // const error = createError<User>('User not found')
 // const pair = makePair('hello', 42)
-
-export {}

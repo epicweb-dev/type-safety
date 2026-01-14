@@ -23,5 +23,3 @@
 // console.log(first(['a', 'b']))      // 'a'
 // console.log(last([1, 2, 3]))        // 3
 // console.log(reverse([1, 2, 3]))     // [3, 2, 1]
-
-export {}

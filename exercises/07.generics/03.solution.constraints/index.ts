@@ -40,5 +40,3 @@ console.log(getProperty(product, 'price')) // 9.99
 const merged = merge({ a: 1, b: 2 }, { c: 3, d: 4 })
 console.log(merged) // { a: 1, b: 2, c: 3, d: 4 }
 console.log(merged.a + merged.c) // TypeScript knows these exist!
-
-export {}

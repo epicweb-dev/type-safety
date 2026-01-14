@@ -20,5 +20,3 @@
 // type PaymentMethod = CreditCard | PayPal | BankTransfer
 
 // 🐨 Create a function `describePayment` that describes each method
-
-export {}

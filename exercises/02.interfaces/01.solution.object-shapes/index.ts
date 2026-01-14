@@ -50,5 +50,3 @@ console.log(`${admin.name} is admin:`, isAdmin(admin))
 console.log(`${regularUser.name} is admin:`, isAdmin(regularUser))
 console.log(getProductSummary(product))
 console.log(getProductSummary(productWithDesc))
-
-export {}

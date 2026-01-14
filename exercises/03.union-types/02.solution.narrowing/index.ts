@@ -40,5 +40,3 @@ const guest: GuestUser = { type: 'guest' }
 console.log(describeUser(admin))
 console.log(describeUser(regular))
 console.log(describeUser(guest))
-
-export {}

@@ -50,5 +50,3 @@ const card: CreditCard = { type: 'credit_card', last4: '4242', expiry: '12/25' }
 const paypal: PayPal = { type: 'paypal', email: 'user@example.com' }
 console.log(describePayment(card))
 console.log(describePayment(paypal))
-
-export {}

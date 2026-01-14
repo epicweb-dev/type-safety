@@ -37,5 +37,3 @@ const laptop = {
 
 // 🐨 Create a function that takes a Product and returns a formatted string
 // function formatProduct(product: Product): string
-
-export {}

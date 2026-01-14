@@ -19,5 +19,3 @@
 // Test - these should error (uncomment to verify):
 // createOrder('medium', 'blue')  // ❌ 'medium' not in Size
 // makeRequest('PATCH', '/api')    // ❌ 'PATCH' not in HttpMethod
-
-export {}

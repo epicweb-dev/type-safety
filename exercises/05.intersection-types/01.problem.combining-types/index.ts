@@ -21,5 +21,3 @@
 // Test your types
 // const user: User = { ... }
 // const post: Post = { ... }
-
-export {}

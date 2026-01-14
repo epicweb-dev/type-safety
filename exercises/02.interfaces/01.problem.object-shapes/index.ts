@@ -20,5 +20,3 @@
 // Test data
 // const admin: User = { id: '1', name: 'Admin', email: 'admin@example.com', role: 'admin' }
 // const product: Product = { id: 'p1', name: 'Widget', price: 29.99 }
-
-export {}

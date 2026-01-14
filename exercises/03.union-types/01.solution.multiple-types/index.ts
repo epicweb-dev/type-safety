@@ -23,5 +23,3 @@ console.log(formatId(123)) // "#123"
 console.log(formatId('abc')) // "abc"
 processResult('Done!') // "Success: Done!"
 processResult(new Error('Oops')) // "Error: Oops"
-
-export {}
