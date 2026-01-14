@@ -11,5 +11,5 @@
 		"allowImportingTsExtensions": true
 	},
 	"include": ["**/*.ts", "**/*.tsx"],
-	"exclude": ["node_modules", "**/node_modules", "playground"]
+	"exclude": ["node_modules", "**/node_modules"]
 }
