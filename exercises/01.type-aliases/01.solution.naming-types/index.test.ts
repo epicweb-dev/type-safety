@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
+// @ts-ignore - these will fail in the playground with the problem.
 import { greet, formatProduct, type User, type Product } from './index.ts'
 
 await test('greet function should work correctly', () => {
