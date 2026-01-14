@@ -22,6 +22,3 @@ type User = AdminUser | RegularUser | GuestUser
 
 // console.log(normalizeText('  hello  '))
 // console.log(normalizeText(['hello', 'world']))
-
-// 🦺 This line ensures TypeScript treats this as a module
-export {}
