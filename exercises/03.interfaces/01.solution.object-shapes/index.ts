@@ -23,25 +23,11 @@ function getProductSummary(product: Product) {
 	return `${product.name} - $${product.price}: ${desc}`
 }
 
-const admin: User = {
-	id: '1',
-	name: 'Admin',
-	email: 'admin@example.com',
-	role: 'admin',
-}
 const regularUser: User = {
 	id: '2',
 	name: 'User',
 	email: 'user@example.com',
 	role: 'user',
-}
-
-const product: Product = { id: 'p1', name: 'Widget', price: 29.99 }
-const productWithDesc: Product = {
-	id: 'p2',
-	name: 'Gadget',
-	price: 49.99,
-	description: 'Has description',
 }
 
 const product: Product = { id: 'p1', name: 'Widget', price: 29.99 }

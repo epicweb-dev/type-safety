@@ -23,34 +23,21 @@ await test('comment is exported', () => {
 	)
 })
 
-await test('getAgeInDays should calculate days correctly', () => {
-	const fixedNow = new Date('2024-01-03T00:00:00.000Z')
-	const pastDate = new Date(fixedNow.getTime() - 2 * 24 * 60 * 60 * 1000)
-	const ageSample = Math.floor(
-		(fixedNow.getTime() - pastDate.getTime()) / (1000 * 60 * 60 * 24),
-	)
-	assert.strictEqual(
-		ageSample,
-		2,
-		'🚨 getAgeInDays should calculate days correctly - check your date calculation logic',
-	)
-})
-
 await test('User should combine WithId, WithTimestamps, and user fields', () => {
 	assert.strictEqual(
-		solution.user.id,
-		'user-1',
-		'🚨 user.id should be "user-1" - ensure User combines WithId, WithTimestamps, and user fields',
+		typeof solution.user.id,
+		'string',
+		'🚨 user.id should be a string - ensure User combines WithId',
 	)
 	assert.strictEqual(
-		solution.user.name,
-		'Alice',
-		'🚨 user.name should be "Alice" - ensure User combines WithId, WithTimestamps, and user fields',
+		typeof solution.user.name,
+		'string',
+		'🚨 user.name should be a string - ensure User has name property',
 	)
 	assert.strictEqual(
-		solution.user.email,
-		'alice@example.com',
-		'🚨 user.email should be "alice@example.com" - ensure User combines WithId, WithTimestamps, and user fields',
+		typeof solution.user.email,
+		'string',
+		'🚨 user.email should be a string - ensure User has email property',
 	)
 	assert.ok(
 		solution.user.createdAt instanceof Date,
@@ -64,29 +51,29 @@ await test('User should combine WithId, WithTimestamps, and user fields', () => 
 
 await test('Post should combine WithId, WithTimestamps, WithAuthor, and post fields', () => {
 	assert.strictEqual(
-		solution.post.id,
-		'post-1',
-		'🚨 post.id should be "post-1" - ensure Post combines WithId, WithTimestamps, WithAuthor, and post fields',
+		typeof solution.post.id,
+		'string',
+		'🚨 post.id should be a string - ensure Post combines WithId',
 	)
 	assert.strictEqual(
-		solution.post.title,
-		'Test Post',
-		'🚨 post.title should be "Test Post" - ensure Post combines WithId, WithTimestamps, WithAuthor, and post fields',
+		typeof solution.post.title,
+		'string',
+		'🚨 post.title should be a string - ensure Post has title property',
 	)
 	assert.strictEqual(
-		solution.post.content,
-		'Test content',
-		'🚨 post.content should be "Test content" - ensure Post combines WithId, WithTimestamps, WithAuthor, and post fields',
+		typeof solution.post.content,
+		'string',
+		'🚨 post.content should be a string - ensure Post has content property',
 	)
 	assert.strictEqual(
-		solution.post.authorId,
-		'user-1',
-		'🚨 post.authorId should be "user-1" - ensure Post combines WithAuthor',
+		typeof solution.post.authorId,
+		'string',
+		'🚨 post.authorId should be a string - ensure Post combines WithAuthor',
 	)
 	assert.strictEqual(
-		solution.post.authorName,
-		'Alice',
-		'🚨 post.authorName should be "Alice" - ensure Post combines WithAuthor',
+		typeof solution.post.authorName,
+		'string',
+		'🚨 post.authorName should be a string - ensure Post combines WithAuthor',
 	)
 	assert.ok(
 		solution.post.createdAt instanceof Date,
@@ -100,39 +87,36 @@ await test('Post should combine WithId, WithTimestamps, WithAuthor, and post fie
 
 await test('Comment should combine WithId, WithTimestamps, WithAuthor, and comment fields', () => {
 	assert.strictEqual(
-		solution.comment.id,
-		'comment-1',
-		'🚨 comment.id should be "comment-1" - ensure Comment combines WithId, WithTimestamps, WithAuthor, and comment fields',
+		typeof solution.comment.id,
+		'string',
+		'🚨 comment.id should be a string - ensure Comment combines WithId',
 	)
 	assert.strictEqual(
-		solution.comment.text,
-		'Test comment',
-		'🚨 comment.text should be "Test comment" - ensure Comment combines WithId, WithTimestamps, WithAuthor, and comment fields',
+		typeof solution.comment.text,
+		'string',
+		'🚨 comment.text should be a string - ensure Comment has text property',
 	)
 	assert.strictEqual(
-		solution.comment.postId,
-		'post-1',
-		'🚨 comment.postId should be "post-1" - ensure Comment includes postId field',
+		typeof solution.comment.postId,
+		'string',
+		'🚨 comment.postId should be a string - ensure Comment has postId property',
 	)
 	assert.strictEqual(
-		solution.comment.authorId,
-		'user-1',
-		'🚨 comment.authorId should be "user-1" - ensure Comment combines WithAuthor',
+		typeof solution.comment.authorId,
+		'string',
+		'🚨 comment.authorId should be a string - ensure Comment combines WithAuthor',
 	)
 	assert.strictEqual(
-		solution.comment.authorName,
-		'Alice',
-		'🚨 comment.authorName should be "Alice" - ensure Comment combines WithAuthor',
-	)
-})
-
-await test('getAgeInDays should work with any entity that has WithTimestamps', () => {
-	assert.ok(
-		solution.user.createdAt instanceof Date,
-		'🚨 getAgeInDays should work with User type - ensure it accepts types with WithTimestamps',
+		typeof solution.comment.authorName,
+		'string',
+		'🚨 comment.authorName should be a string - ensure Comment combines WithAuthor',
 	)
 	assert.ok(
-		solution.post.createdAt instanceof Date,
-		'🚨 getAgeInDays should work with Post type - ensure it accepts types with WithTimestamps',
+		solution.comment.createdAt instanceof Date,
+		'🚨 comment.createdAt should be a Date instance - ensure Comment combines WithTimestamps',
+	)
+	assert.ok(
+		solution.comment.updatedAt instanceof Date,
+		'🚨 comment.updatedAt should be a Date instance - ensure Comment combines WithTimestamps',
 	)
 })

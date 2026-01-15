@@ -15,9 +15,6 @@
 // 🐨 Create a Comment type by combining WithId, WithTimestamps, and WithAuthor
 // plus text and postId properties
 
-// 🐨 Create a function that takes any type with WithTimestamps
-// and returns how old it is in days
-
 // Test your types
 // const user: User = { ... }
 // const post: Post = { ... }
