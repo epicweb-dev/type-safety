@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
-import { type User, type Post, type BaseEntity } from './index.ts'
+import { type User, type Post } from './index.ts'
 
-await test('User type should extend BaseEntity', () => {
+await test('User type should have all required fields', () => {
 	const user: User = {
 		id: 'user-1',
 		createdAt: 1000000,
@@ -13,17 +13,17 @@ await test('User type should extend BaseEntity', () => {
 	assert.strictEqual(
 		user.id,
 		'user-1',
-		'🚨 user.id should be "user-1" - ensure User extends BaseEntity correctly',
+		'🚨 user.id should be "user-1" - verify your User type definition',
 	)
 	assert.strictEqual(
 		user.createdAt,
 		1000000,
-		'🚨 user.createdAt should be 1000000 - ensure User extends BaseEntity correctly',
+		'🚨 user.createdAt should be 1000000 - verify your User type definition',
 	)
 	assert.strictEqual(
 		user.updatedAt,
 		1000000,
-		'🚨 user.updatedAt should be 1000000 - ensure User extends BaseEntity correctly',
+		'🚨 user.updatedAt should be 1000000 - verify your User type definition',
 	)
 	assert.strictEqual(
 		user.name,
@@ -37,7 +37,7 @@ await test('User type should extend BaseEntity', () => {
 	)
 })
 
-await test('Post type should extend BaseEntity', () => {
+await test('Post type should have all required fields', () => {
 	const post: Post = {
 		id: 'post-1',
 		createdAt: 2000000,
@@ -49,17 +49,17 @@ await test('Post type should extend BaseEntity', () => {
 	assert.strictEqual(
 		post.id,
 		'post-1',
-		'🚨 post.id should be "post-1" - ensure Post extends BaseEntity correctly',
+		'🚨 post.id should be "post-1" - verify your Post type definition',
 	)
 	assert.strictEqual(
 		post.createdAt,
 		2000000,
-		'🚨 post.createdAt should be 2000000 - ensure Post extends BaseEntity correctly',
+		'🚨 post.createdAt should be 2000000 - verify your Post type definition',
 	)
 	assert.strictEqual(
 		post.updatedAt,
 		2000000,
-		'🚨 post.updatedAt should be 2000000 - ensure Post extends BaseEntity correctly',
+		'🚨 post.updatedAt should be 2000000 - verify your Post type definition',
 	)
 	assert.strictEqual(
 		post.title,
@@ -75,28 +75,5 @@ await test('Post type should extend BaseEntity', () => {
 		post.authorId,
 		'user-1',
 		'🚨 post.authorId should be "user-1" - ensure Post type includes authorId property',
-	)
-})
-
-await test('BaseEntity should have required fields', () => {
-	const base: BaseEntity = {
-		id: 'test-id',
-		createdAt: 1000,
-		updatedAt: 2000,
-	}
-	assert.strictEqual(
-		base.id,
-		'test-id',
-		'🚨 base.id should be "test-id" - verify your BaseEntity type definition',
-	)
-	assert.strictEqual(
-		base.createdAt,
-		1000,
-		'🚨 base.createdAt should be 1000 - verify your BaseEntity type definition',
-	)
-	assert.strictEqual(
-		base.updatedAt,
-		2000,
-		'🚨 base.updatedAt should be 2000 - verify your BaseEntity type definition',
 	)
 })

@@ -45,6 +45,14 @@ function getProp<T, K extends keyof T>(obj: T, key: K): T[K] {
 }
 ```
 
+<callout-info>
+	`keyof T` produces a union of all property names of type T. For example, if T
+	is `{ name: string; age: number }`, then `keyof T` is `'name' | 'age'`.
+
+	`T[K]` is an **indexed access type** - it gives you the type of property K on
+	type T. If T is `{ name: string }` and K is `'name'`, then `T[K]` is `string`.
+</callout-info>
+
 📜 [TypeScript Handbook - Generic Constraints](https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-constraints)
 
 🐨 Once you've completed the exercise, run `node index.ts` in the playground to test your work!

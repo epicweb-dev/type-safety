@@ -23,6 +23,12 @@ function process(value: unknown) {
 }
 ```
 
+<callout-info>
+	`JSON.parse(str)` converts a JSON string into a JavaScript value. TypeScript
+	types this as `any` by default, which is why returning `unknown` is safer—it
+	forces callers to narrow the type before using it.
+</callout-info>
+
 📜 [TypeScript Handbook - Unknown](https://www.typescriptlang.org/docs/handbook/2/functions.html#unknown)
 
 🐨 Once you've completed the exercise, run `node index.ts` in the playground to test your work!

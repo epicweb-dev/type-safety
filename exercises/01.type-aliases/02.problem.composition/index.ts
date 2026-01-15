@@ -5,19 +5,22 @@
 // type Timestamp = number
 // type Email = string
 
-// 🐨 Create a BaseEntity type with common fields
-// type BaseEntity = { id: ID; createdAt: Timestamp; updatedAt: Timestamp }
-
-// 🐨 Create a User type by combining BaseEntity with additional fields:
+// 🐨 Create a User type with these fields:
+// - id: ID
+// - createdAt: Timestamp
+// - updatedAt: Timestamp
 // - name: string
 // - email: Email
-// 💰 Use intersection: type User = BaseEntity & { name: string; email: Email }
+// 💰 type User = { id: ID; createdAt: Timestamp; ... }
 
-// 🐨 Create a Post type by combining BaseEntity with additional fields:
+// 🐨 Create a Post type with these fields:
+// - id: ID
+// - createdAt: Timestamp
+// - updatedAt: Timestamp
 // - title: string
 // - content: string
 // - authorId: ID
-// 💰 Use intersection: type Post = BaseEntity & { ... }
+// 💰 type Post = { id: ID; createdAt: Timestamp; ... }
 
 // 🐨 Create example instances
 // const user: User = { ... }

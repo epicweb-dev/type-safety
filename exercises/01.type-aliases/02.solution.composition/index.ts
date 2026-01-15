@@ -4,18 +4,18 @@ type ID = string
 type Timestamp = number
 type Email = string
 
-type BaseEntity = {
+type User = {
 	id: ID
 	createdAt: Timestamp
 	updatedAt: Timestamp
-}
-
-type User = BaseEntity & {
 	name: string
 	email: Email
 }
 
-type Post = BaseEntity & {
+type Post = {
+	id: ID
+	createdAt: Timestamp
+	updatedAt: Timestamp
 	title: string
 	content: string
 	authorId: ID
@@ -38,7 +38,7 @@ const post: Post = {
 	authorId: user.id,
 }
 
-export type { User, Post, BaseEntity, ID, Timestamp, Email }
+export type { User, Post, ID, Timestamp, Email }
 
 console.log('User:', user.name)
 console.log('Post:', post.title, 'by', post.authorId)
