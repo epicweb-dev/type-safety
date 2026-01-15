@@ -38,7 +38,7 @@ type Product = { id: string; name: string; price: number }
 // const mergedDifferent = merge({ name: 'Alice' }, { age: 30 })
 // const mergedTypes = merge({ a: 1, b: 'test' }, { c: true, d: 42 })
 // console.log(
-// 	'Results JSON:',
+// 	'Results:',
 // 	JSON.stringify({
 // 		getId: [getId(user), getId(product)],
 // 		getName: [getName(user), getName(product)],

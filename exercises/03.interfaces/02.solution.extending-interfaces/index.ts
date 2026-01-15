@@ -54,7 +54,7 @@ console.log('Product:', product.name, '- ID:', product.id)
 console.log('Log:', log.action, 'by', log.userId)
 
 console.log(
-	'Results JSON:',
+	'Results:',
 	JSON.stringify({
 		user: {
 			id: 'user-1',

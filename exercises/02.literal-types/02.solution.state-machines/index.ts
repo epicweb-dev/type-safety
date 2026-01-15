@@ -60,7 +60,7 @@ player = playerAction(player, 'stop')
 console.log('Player:', player)
 
 console.log(
-	'Results JSON:',
+	'Results:',
 	JSON.stringify({
 		orderTransitions: [
 			advanceOrder('pending'),

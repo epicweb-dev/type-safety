@@ -68,7 +68,7 @@ const parsedValid = parseJsonSafely('{"name": "Alice", "age": 30}')
 const parsedTest = parseJsonSafely('{"test": "value"}')
 
 console.log(
-	'Results JSON:',
+	'Results:',
 	JSON.stringify({
 		safeProcess: [
 			safeProcess('hello'),

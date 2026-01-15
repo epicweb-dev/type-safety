@@ -45,7 +45,7 @@ const freeUser: RegularUser = { type: 'user', subscription: 'free' }
 const sampleAdmin: AdminUser = { type: 'admin', permissions: ['read', 'write'] }
 
 console.log(
-	'Results JSON:',
+	'Results:',
 	JSON.stringify({
 		normalizeText: [
 			normalizeText('  hello  '),

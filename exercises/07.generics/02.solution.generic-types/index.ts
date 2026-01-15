@@ -45,7 +45,7 @@ console.log('Pair first (string):', pair.first.toUpperCase())
 console.log('Pair second (number):', pair.second.toFixed(2))
 
 console.log(
-	'Results JSON:',
+	'Results:',
 	JSON.stringify({
 		createSuccess: [
 			createSuccess('test data'),

@@ -3,10 +3,8 @@ import { execSync } from 'node:child_process'
 import { test } from 'node:test'
 
 const output = execSync('npm start --silent', { encoding: 'utf8' })
-const jsonLine = output
-	.split('\n')
-	.find((line) => line.startsWith('Results JSON:'))
-assert.ok(jsonLine, '🚨 Missing "Results JSON:" output line')
+const jsonLine = output.split('\n').find((line) => line.startsWith('Results:'))
+assert.ok(jsonLine, '🚨 Missing "Results:" output line')
 const {
 	createSuccess,
 	createError,
@@ -14,7 +12,7 @@ const {
 	resultSamples,
 	pairSample,
 	apiResponseSample,
-} = JSON.parse(jsonLine.replace('Results JSON:', '').trim())
+} = JSON.parse(jsonLine.replace('Results:', '').trim())
 
 await test('createSuccess should create success result', () => {
 	const result = createSuccess[0]

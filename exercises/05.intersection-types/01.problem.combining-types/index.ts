@@ -29,7 +29,7 @@
 // 	(fixedNow.getTime() - pastDate.getTime()) / (1000 * 60 * 60 * 24),
 // )
 // console.log(
-// 	'Results JSON:',
+// 	'Results:',
 // 	JSON.stringify({
 // 		ageSample,
 // 		user: {

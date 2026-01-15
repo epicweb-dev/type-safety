@@ -40,7 +40,7 @@ const colorOrders = colors.map((color) => createOrder('m', color))
 const sampleOrder = createOrder('m', 'blue')
 
 console.log(
-	'Results JSON:',
+	'Results:',
 	JSON.stringify({
 		sizeOrders: sizeOrders.map((order) => order.size),
 		colorOrders: colorOrders.map((order) => order.color),

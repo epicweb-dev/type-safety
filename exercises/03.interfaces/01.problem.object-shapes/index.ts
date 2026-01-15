@@ -30,7 +30,7 @@
 // 	description: 'A fancy gadget',
 // }
 // console.log(
-// 	'Results JSON:',
+// 	'Results:',
 // 	JSON.stringify({
 // 		isAdmin: [isAdmin(admin), isAdmin(regularUser)],
 // 		productSummary: [

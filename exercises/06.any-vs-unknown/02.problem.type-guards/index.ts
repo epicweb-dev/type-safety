@@ -39,7 +39,7 @@
 // 	'not an object',
 // ]
 // console.log(
-// 	'Results JSON:',
+// 	'Results:',
 // 	JSON.stringify({
 // 		isString: [
 // 			isString('hello'),

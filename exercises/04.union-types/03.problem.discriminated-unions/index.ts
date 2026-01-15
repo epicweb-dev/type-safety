@@ -27,7 +27,7 @@
 // const bank: BankTransfer = { type: 'bank', accountNumber: '123456789' }
 // const successEmpty: SuccessState = { status: 'success', data: [] }
 // console.log(
-// 	'Results JSON:',
+// 	'Results:',
 // 	JSON.stringify({
 // 		renderState: [
 // 			renderState({ status: 'loading' }),

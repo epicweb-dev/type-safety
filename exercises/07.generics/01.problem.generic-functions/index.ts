@@ -26,7 +26,7 @@
 
 // 🐨 When you're done, uncomment this:
 // console.log(
-// 	'Results JSON:',
+// 	'Results:',
 // 	JSON.stringify({
 // 		identity: [identity('hello'), identity(42), identity(true), identity(null)],
 // 		first: [first([1, 2, 3]), first(['a', 'b', 'c']), first([true, false]), first([])],

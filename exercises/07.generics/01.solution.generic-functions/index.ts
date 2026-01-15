@@ -30,7 +30,7 @@ const str = first(['a', 'b']) // string | undefined
 const reversed = reverse([1, 2, 3]) // Array<number>
 
 console.log(
-	'Results JSON:',
+	'Results:',
 	JSON.stringify({
 		identity: [identity('hello'), identity(42), identity(true), identity(null)],
 		first: [first([1, 2, 3]), first(['a', 'b', 'c']), first([true, false])],

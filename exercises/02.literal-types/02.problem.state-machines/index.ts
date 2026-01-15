@@ -30,7 +30,7 @@
 // const orderStates = ['pending', 'processing', 'shipped', 'delivered', 'cancelled'] as const
 // const playerStates = ['stopped', 'playing', 'paused'] as const
 // console.log(
-// 	'Results JSON:',
+// 	'Results:',
 // 	JSON.stringify({
 // 		orderTransitions: [
 // 			advanceOrder('pending'),

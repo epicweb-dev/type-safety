@@ -47,7 +47,7 @@ const invalidProducts = [
 ]
 
 console.log(
-	'Results JSON:',
+	'Results:',
 	JSON.stringify({
 		isString: [
 			isString('hello'),

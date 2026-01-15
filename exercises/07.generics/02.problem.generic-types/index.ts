@@ -31,7 +31,7 @@
 
 // 🐨 When you're done, uncomment this:
 // console.log(
-// 	'Results JSON:',
+// 	'Results:',
 // 	JSON.stringify({
 // 		createSuccess: [
 // 			createSuccess('test data'),

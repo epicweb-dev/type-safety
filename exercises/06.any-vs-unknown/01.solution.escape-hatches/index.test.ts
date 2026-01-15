@@ -3,10 +3,8 @@ import { execSync } from 'node:child_process'
 import { test } from 'node:test'
 
 const output = execSync('npm start --silent', { encoding: 'utf8' })
-const jsonLine = output
-	.split('\n')
-	.find((line) => line.startsWith('Results JSON:'))
-assert.ok(jsonLine, '🚨 Missing "Results JSON:" output line')
+const jsonLine = output.split('\n').find((line) => line.startsWith('Results:'))
+assert.ok(jsonLine, '🚨 Missing "Results:" output line')
 const {
 	safeProcess,
 	parsedValid,
@@ -16,7 +14,7 @@ const {
 	parseUserValid,
 	parseUserInvalid,
 	malformedThrew,
-} = JSON.parse(jsonLine.replace('Results JSON:', '').trim())
+} = JSON.parse(jsonLine.replace('Results:', '').trim())
 
 await test('safeProcess should handle string values', () => {
 	assert.strictEqual(

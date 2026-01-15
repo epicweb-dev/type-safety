@@ -3,10 +3,8 @@ import { execSync } from 'node:child_process'
 import { test } from 'node:test'
 
 const output = execSync('npm start --silent', { encoding: 'utf8' })
-const jsonLine = output
-	.split('\n')
-	.find((line) => line.startsWith('Results JSON:'))
-assert.ok(jsonLine, '🚨 Missing "Results JSON:" output line')
+const jsonLine = output.split('\n').find((line) => line.startsWith('Results:'))
+assert.ok(jsonLine, '🚨 Missing "Results:" output line')
 const {
 	identity,
 	first,
@@ -16,7 +14,7 @@ const {
 	reverse,
 	original,
 	reversed,
-} = JSON.parse(jsonLine.replace('Results JSON:', '').trim())
+} = JSON.parse(jsonLine.replace('Results:', '').trim())
 
 await test('identity should return the same value', () => {
 	assert.strictEqual(

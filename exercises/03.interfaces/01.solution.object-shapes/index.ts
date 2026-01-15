@@ -49,7 +49,7 @@ console.log(`${regularUser.name} is admin:`, isAdmin(regularUser))
 console.log(getProductSummary(product))
 console.log(getProductSummary(productWithDesc))
 console.log(
-	'Results JSON:',
+	'Results:',
 	JSON.stringify({
 		isAdmin: [isAdmin(admin), isAdmin(regularUser)],
 		productSummary: [

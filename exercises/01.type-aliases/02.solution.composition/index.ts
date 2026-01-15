@@ -41,7 +41,7 @@ const post: Post = {
 console.log('User:', user.name)
 console.log('Post:', post.title, 'by', post.authorId)
 console.log(
-	'Results JSON:',
+	'Results:',
 	JSON.stringify({
 		userSample: {
 			id: 'user-1',

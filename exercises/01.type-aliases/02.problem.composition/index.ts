@@ -28,7 +28,7 @@
 
 // 🐨 When you're done, uncomment this:
 // console.log(
-// 	'Results JSON:',
+// 	'Results:',
 // 	JSON.stringify({
 // 		userSample: {
 // 			id: 'user-1',

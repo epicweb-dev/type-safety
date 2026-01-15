@@ -46,7 +46,7 @@ const laptop = {
 // 	inStock: false,
 // }
 // console.log(
-// 	'Results JSON:',
+// 	'Results:',
 // 	JSON.stringify({
 // 		greet: [greet(alice), greet(bob)],
 // 		formatProduct: [formatProduct(laptop), formatProduct(outOfStockProduct)],

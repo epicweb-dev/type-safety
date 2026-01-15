@@ -29,7 +29,7 @@ processResult(new Error('Oops')) // "Error: Oops"
 
 const sampleError = new Error('Test error')
 console.log(
-	'Results JSON:',
+	'Results:',
 	JSON.stringify({
 		formatId: [
 			formatId(123),

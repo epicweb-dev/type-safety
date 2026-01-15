@@ -59,7 +59,7 @@ const ageSample = Math.floor(
 )
 
 console.log(
-	'Results JSON:',
+	'Results:',
 	JSON.stringify({
 		ageSample,
 		user: {
