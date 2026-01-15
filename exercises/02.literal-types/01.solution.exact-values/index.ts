@@ -2,15 +2,15 @@
 
 // Value-first approach: derive types from runtime values
 const sizes = ['xs', 's', 'm', 'l', 'xl'] as const
-export type Size = (typeof sizes)[number]
+type Size = (typeof sizes)[number]
 
 const colors = ['red', 'blue', 'green', 'black'] as const
-export type Color = (typeof colors)[number]
+type Color = (typeof colors)[number]
 
 const httpMethods = ['GET', 'POST', 'PUT', 'DELETE'] as const
-export type HttpMethod = (typeof httpMethods)[number]
+type HttpMethod = (typeof httpMethods)[number]
 
-export function createOrder(size: Size, color: Color) {
+function createOrder(size: Size, color: Color) {
 	return {
 		size,
 		color,
@@ -18,7 +18,7 @@ export function createOrder(size: Size, color: Color) {
 	}
 }
 
-export function makeRequest(method: HttpMethod, url: string) {
+function makeRequest(method: HttpMethod, url: string) {
 	console.log(`${method} ${url}`)
 }
 
@@ -35,7 +35,20 @@ makeRequest('POST', '/api/orders')
 console.log('Available sizes:', sizes)
 console.log('Available colors:', colors)
 
-export { sizes, colors, httpMethods }
+const sizeOrders = sizes.map((size) => createOrder(size, 'red'))
+const colorOrders = colors.map((color) => createOrder('m', color))
+const sampleOrder = createOrder('m', 'blue')
+
+console.log(
+	'Results JSON:',
+	JSON.stringify({
+		sizeOrders: sizeOrders.map((order) => order.size),
+		colorOrders: colorOrders.map((order) => order.color),
+		orderIdType: typeof sampleOrder.orderId,
+		orderIdLength: sampleOrder.orderId.length,
+		httpMethods,
+	}),
+)
 
 // 🦉 Traditional approach (you may see this in other codebases):
 // export type Size = 'xs' | 's' | 'm' | 'l' | 'xl'

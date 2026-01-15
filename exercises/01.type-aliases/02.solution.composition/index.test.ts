@@ -1,78 +1,72 @@
 import assert from 'node:assert/strict'
+import { execSync } from 'node:child_process'
 import { test } from 'node:test'
-import { type User, type Post } from './index.ts'
+
+const output = execSync('npm start --silent', { encoding: 'utf8' })
+const jsonLine = output
+	.split('\n')
+	.find((line) => line.startsWith('Results JSON:'))
+assert.ok(jsonLine, '🚨 Missing "Results JSON:" output line')
+const { userSample, postSample } = JSON.parse(
+	jsonLine.replace('Results JSON:', '').trim(),
+)
 
 await test('User type should have all required fields', () => {
-	const user: User = {
-		id: 'user-1',
-		createdAt: 1000000,
-		updatedAt: 1000000,
-		name: 'Alice',
-		email: 'alice@example.com',
-	}
 	assert.strictEqual(
-		user.id,
+		userSample.id,
 		'user-1',
 		'🚨 user.id should be "user-1" - verify your User type definition',
 	)
 	assert.strictEqual(
-		user.createdAt,
+		userSample.createdAt,
 		1000000,
 		'🚨 user.createdAt should be 1000000 - verify your User type definition',
 	)
 	assert.strictEqual(
-		user.updatedAt,
+		userSample.updatedAt,
 		1000000,
 		'🚨 user.updatedAt should be 1000000 - verify your User type definition',
 	)
 	assert.strictEqual(
-		user.name,
+		userSample.name,
 		'Alice',
 		'🚨 user.name should be "Alice" - ensure User type includes name property',
 	)
 	assert.strictEqual(
-		user.email,
+		userSample.email,
 		'alice@example.com',
 		'🚨 user.email should be "alice@example.com" - ensure User type includes email property',
 	)
 })
 
 await test('Post type should have all required fields', () => {
-	const post: Post = {
-		id: 'post-1',
-		createdAt: 2000000,
-		updatedAt: 2000000,
-		title: 'Test Post',
-		content: 'Test content',
-		authorId: 'user-1',
-	}
 	assert.strictEqual(
-		post.id,
+		postSample.id,
 		'post-1',
 		'🚨 post.id should be "post-1" - verify your Post type definition',
 	)
 	assert.strictEqual(
-		post.createdAt,
+		postSample.createdAt,
 		2000000,
 		'🚨 post.createdAt should be 2000000 - verify your Post type definition',
 	)
 	assert.strictEqual(
-		post.updatedAt,
+		postSample.updatedAt,
 		2000000,
 		'🚨 post.updatedAt should be 2000000 - verify your Post type definition',
 	)
 	assert.strictEqual(
-		post.title,
+		postSample.title,
 		'Test Post',
 		'🚨 post.title should be "Test Post" - ensure Post type includes title property',
 	)
 	assert.strictEqual(
-		post.content,
+		postSample.content,
 		'Test content',
 		'🚨 post.content should be "Test content" - ensure Post type includes content property',
 	)
 	assert.strictEqual(
-		post.authorId,
+		postSample.authorId,
 		'user-1',
 		'🚨 post.authorId should be "user-1" - ensure Post type includes authorId property',
 	)

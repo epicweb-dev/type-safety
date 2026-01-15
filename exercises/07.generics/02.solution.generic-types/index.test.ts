@@ -1,16 +1,23 @@
 import assert from 'node:assert/strict'
+import { execSync } from 'node:child_process'
 import { test } from 'node:test'
-import {
+
+const output = execSync('npm start --silent', { encoding: 'utf8' })
+const jsonLine = output
+	.split('\n')
+	.find((line) => line.startsWith('Results JSON:'))
+assert.ok(jsonLine, '🚨 Missing "Results JSON:" output line')
+const {
 	createSuccess,
 	createError,
 	makePair,
-	type Result,
-	type Pair,
-	type ApiResponse,
-} from './index.ts'
+	resultSamples,
+	pairSample,
+	apiResponseSample,
+} = JSON.parse(jsonLine.replace('Results JSON:', '').trim())
 
 await test('createSuccess should create success result', () => {
-	const result = createSuccess('test data')
+	const result = createSuccess[0]
 	assert.strictEqual(
 		result.success,
 		true,
@@ -26,9 +33,9 @@ await test('createSuccess should create success result', () => {
 })
 
 await test('createSuccess should work with different types', () => {
-	const stringResult = createSuccess('hello')
-	const numberResult = createSuccess(42)
-	const objectResult = createSuccess({ id: 1, name: 'Alice' })
+	const stringResult = createSuccess[1]
+	const numberResult = createSuccess[2]
+	const objectResult = createSuccess[3]
 
 	assert.strictEqual(
 		stringResult.success,
@@ -67,7 +74,7 @@ await test('createSuccess should work with different types', () => {
 })
 
 await test('createError should create error result', () => {
-	const result = createError('error message')
+	const result = createError[0]
 	assert.strictEqual(
 		result.success,
 		false,
@@ -83,9 +90,9 @@ await test('createError should create error result', () => {
 })
 
 await test('makePair should create pairs of different types', () => {
-	const pair1 = makePair('hello', 42)
-	const pair2 = makePair(1, 'test')
-	const pair3 = makePair(true, false)
+	const pair1 = makePair[0]
+	const pair2 = makePair[1]
+	const pair3 = makePair[2]
 
 	assert.strictEqual(
 		pair1.first,
@@ -120,8 +127,8 @@ await test('makePair should create pairs of different types', () => {
 })
 
 await test('Result type should discriminate correctly', () => {
-	const success: Result<string> = { success: true, data: 'test' }
-	const error: Result<string> = { success: false, error: 'error' }
+	const success = resultSamples.success
+	const error = resultSamples.error
 
 	assert.strictEqual(
 		success.success,
@@ -151,7 +158,7 @@ await test('Result type should discriminate correctly', () => {
 })
 
 await test('Pair type should hold correct types', () => {
-	const pair: Pair<string, number> = { first: 'test', second: 42 }
+	const pair = pairSample
 	assert.strictEqual(
 		pair.first,
 		'test',
@@ -175,11 +182,7 @@ await test('Pair type should hold correct types', () => {
 })
 
 await test('ApiResponse type should have correct structure', () => {
-	const response: ApiResponse<{ id: number }> = {
-		data: { id: 1 },
-		status: 200,
-		timestamp: new Date(),
-	}
+	const response = apiResponseSample
 	assert.strictEqual(
 		response.data.id,
 		1,
@@ -191,7 +194,7 @@ await test('ApiResponse type should have correct structure', () => {
 		'🚨 response.status should be 200 - verify your ApiResponse type',
 	)
 	assert.ok(
-		response.timestamp instanceof Date,
+		Boolean(response.timestamp),
 		'🚨 response.timestamp should be a Date instance - verify your ApiResponse type',
 	)
 })

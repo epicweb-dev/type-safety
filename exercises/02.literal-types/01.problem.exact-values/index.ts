@@ -19,3 +19,21 @@
 // Test - these should error (uncomment to verify):
 // createOrder('medium', 'blue')  // ❌ 'medium' not in Size
 // makeRequest('PATCH', '/api')    // ❌ 'PATCH' not in HttpMethod
+
+// 🐨 When you're done, uncomment this:
+// const sizes = ['xs', 's', 'm', 'l', 'xl'] as const
+// const colors = ['red', 'blue', 'green', 'black'] as const
+// const httpMethods = ['GET', 'POST', 'PUT', 'DELETE'] as const
+// const sizeOrders = sizes.map((size) => createOrder(size, 'red'))
+// const colorOrders = colors.map((color) => createOrder('m', color))
+// const sampleOrder = createOrder('m', 'blue')
+// console.log(
+// 	'Results JSON:',
+// 	JSON.stringify({
+// 		sizeOrders: sizeOrders.map((order) => order.size),
+// 		colorOrders: colorOrders.map((order) => order.color),
+// 		orderIdType: typeof sampleOrder.orderId,
+// 		orderIdLength: sampleOrder.orderId.length,
+// 		httpMethods,
+// 	}),
+// )

@@ -6,7 +6,7 @@ function dangerousProcess(value: any): string {
 }
 
 // Safe version using `unknown`
-export function safeProcess(value: unknown): string {
+function safeProcess(value: unknown): string {
 	if (typeof value === 'string') {
 		return value.toUpperCase()
 	}
@@ -19,13 +19,13 @@ export function safeProcess(value: unknown): string {
 	return String(value)
 }
 
-export function parseJsonSafely(json: string): unknown {
+function parseJsonSafely(json: string): unknown {
 	return JSON.parse(json)
 }
 
-export type User = { name: string; email: string }
+type User = { name: string; email: string }
 
-export function isUser(value: unknown): value is User {
+function isUser(value: unknown): value is User {
 	return (
 		typeof value === 'object' &&
 		value !== null &&
@@ -36,7 +36,7 @@ export function isUser(value: unknown): value is User {
 	)
 }
 
-export function parseUser(json: string): User | null {
+function parseUser(json: string): User | null {
 	const data = parseJsonSafely(json)
 	if (isUser(data)) {
 		return data
@@ -55,3 +55,47 @@ const invalidJson = '{"foo": "bar"}'
 
 console.log(parseUser(validJson)) // { name: "Alice", email: "..." }
 console.log(parseUser(invalidJson)) // null
+
+const malformedJson = 'not json'
+let malformedThrew = false
+try {
+	parseUser(malformedJson)
+} catch {
+	malformedThrew = true
+}
+
+const parsedValid = parseJsonSafely('{"name": "Alice", "age": 30}')
+const parsedTest = parseJsonSafely('{"test": "value"}')
+
+console.log(
+	'Results JSON:',
+	JSON.stringify({
+		safeProcess: [
+			safeProcess('hello'),
+			safeProcess('test'),
+			safeProcess(''),
+			safeProcess(123),
+			safeProcess(0),
+			safeProcess(3.14159),
+			safeProcess(true),
+			safeProcess(false),
+			safeProcess(null),
+			safeProcess(undefined),
+			safeProcess({}),
+		],
+		parsedValid,
+		parsedTestType: typeof parsedTest,
+		parsedTestIsNull: parsedTest === null,
+		isUserResults: [
+			isUser({ name: 'Alice', email: 'alice@example.com' }),
+			isUser({ name: 'Alice' }),
+			isUser({ email: 'alice@example.com' }),
+			isUser({ name: 123, email: 'alice@example.com' }),
+			isUser(null),
+			isUser('not an object'),
+		],
+		parseUserValid: parseUser(validJson),
+		parseUserInvalid: parseUser(invalidJson),
+		malformedThrew,
+	}),
+)

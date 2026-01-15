@@ -29,3 +29,36 @@ type Product = { id: string; name: string; price: number }
 // console.log(getName(user))                  // 'Alice'
 // console.log(getProperty(user, 'email'))     // 'alice@example.com'
 // const merged = merge({ a: 1 }, { b: 2 })    // { a: 1, b: 2 }
+
+// 🐨 When you're done, uncomment this:
+// const user: User = { id: '1', name: 'Alice', email: 'alice@example.com' }
+// const product: Product = { id: 'p1', name: 'Widget', price: 9.99 }
+// const merged = merge({ a: 1, b: 2 }, { c: 3, d: 4 })
+// const mergedOverride = merge({ a: 1, b: 2 }, { b: 3, c: 4 })
+// const mergedDifferent = merge({ name: 'Alice' }, { age: 30 })
+// const mergedTypes = merge({ a: 1, b: 'test' }, { c: true, d: 42 })
+// console.log(
+// 	'Results JSON:',
+// 	JSON.stringify({
+// 		getId: [getId(user), getId(product)],
+// 		getName: [getName(user), getName(product)],
+// 		getProperty: [
+// 			getProperty(user, 'id'),
+// 			getProperty(user, 'name'),
+// 			getProperty(user, 'email'),
+// 			getProperty(product, 'id'),
+// 			getProperty(product, 'name'),
+// 			getProperty(product, 'price'),
+// 		],
+// 		merge: [merged, mergedOverride, mergedDifferent, mergedTypes],
+// 		propertyTypes: {
+// 			id: typeof getProperty(user, 'id'),
+// 			name: typeof getProperty(user, 'name'),
+// 			email: typeof getProperty(user, 'email'),
+// 			mergeA: typeof mergedTypes.a,
+// 			mergeB: typeof mergedTypes.b,
+// 			mergeC: typeof mergedTypes.c,
+// 			mergeD: typeof mergedTypes.d,
+// 		},
+// 	}),
+// )

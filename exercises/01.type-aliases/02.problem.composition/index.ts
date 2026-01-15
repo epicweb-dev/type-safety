@@ -25,3 +25,25 @@
 // 🐨 Create example instances
 // const user: User = { ... }
 // const post: Post = { ... }
+
+// 🐨 When you're done, uncomment this:
+// console.log(
+// 	'Results JSON:',
+// 	JSON.stringify({
+// 		userSample: {
+// 			id: 'user-1',
+// 			createdAt: 1000000,
+// 			updatedAt: 1000000,
+// 			name: 'Alice',
+// 			email: 'alice@example.com',
+// 		},
+// 		postSample: {
+// 			id: 'post-1',
+// 			createdAt: 2000000,
+// 			updatedAt: 2000000,
+// 			title: 'Test Post',
+// 			content: 'Test content',
+// 			authorId: 'user-1',
+// 		},
+// 	}),
+// )

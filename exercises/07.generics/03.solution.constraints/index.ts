@@ -1,22 +1,20 @@
 // Generic Constraints
 
-export function getId<T extends { id: string }>(obj: T): string {
+function getId<T extends { id: string }>(obj: T): string {
 	return obj.id
 }
 
-export function getName<T extends { name: string }>(obj: T): string {
+function getName<T extends { name: string }>(obj: T): string {
 	return obj.name
 }
 
-export function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
+function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
 	return obj[key]
 }
 
-export function merge<T extends object, U extends object>(a: T, b: U): T & U {
+function merge<T extends object, U extends object>(a: T, b: U): T & U {
 	return { ...a, ...b }
 }
-
-export type { User, Product }
 
 // Test types
 type User = { id: string; name: string; email: string }
@@ -40,3 +38,33 @@ console.log(getProperty(product, 'price')) // 9.99
 const merged = merge({ a: 1, b: 2 }, { c: 3, d: 4 })
 console.log(merged) // { a: 1, b: 2, c: 3, d: 4 }
 console.log(merged.a + merged.c) // TypeScript knows these exist!
+
+const mergedOverride = merge({ a: 1, b: 2 }, { b: 3, c: 4 })
+const mergedDifferent = merge({ name: 'Alice' }, { age: 30 })
+const mergedTypes = merge({ a: 1, b: 'test' }, { c: true, d: 42 })
+
+console.log(
+	'Results JSON:',
+	JSON.stringify({
+		getId: [getId(user), getId(product)],
+		getName: [getName(user), getName(product)],
+		getProperty: [
+			getProperty(user, 'id'),
+			getProperty(user, 'name'),
+			getProperty(user, 'email'),
+			getProperty(product, 'id'),
+			getProperty(product, 'name'),
+			getProperty(product, 'price'),
+		],
+		merge: [merged, mergedOverride, mergedDifferent, mergedTypes],
+		propertyTypes: {
+			id: typeof getProperty(user, 'id'),
+			name: typeof getProperty(user, 'name'),
+			email: typeof getProperty(user, 'email'),
+			mergeA: typeof mergedTypes.a,
+			mergeB: typeof mergedTypes.b,
+			mergeC: typeof mergedTypes.c,
+			mergeD: typeof mergedTypes.d,
+		},
+	}),
+)

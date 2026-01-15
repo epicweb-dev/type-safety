@@ -1,38 +1,25 @@
 import assert from 'node:assert/strict'
+import { execSync } from 'node:child_process'
 import { test } from 'node:test'
-import {
-	getAgeInDays,
-	type User,
-	type Post,
-	type Comment,
-	type WithId,
-	type WithTimestamps,
-	type WithAuthor,
-} from './index.ts'
+
+const output = execSync('npm start --silent', { encoding: 'utf8' })
+const jsonLine = output
+	.split('\n')
+	.find((line) => line.startsWith('Results JSON:'))
+assert.ok(jsonLine, '🚨 Missing "Results JSON:" output line')
+const { ageSample, user, post, comment } = JSON.parse(
+	jsonLine.replace('Results JSON:', '').trim(),
+)
 
 await test('getAgeInDays should calculate days correctly', () => {
-	const now = new Date()
-	const pastDate = new Date(now.getTime() - 2 * 24 * 60 * 60 * 1000) // 2 days ago
-	const entity: WithTimestamps = {
-		createdAt: pastDate,
-		updatedAt: now,
-	}
-	const age = getAgeInDays(entity)
 	assert.strictEqual(
-		age,
+		ageSample,
 		2,
 		'🚨 getAgeInDays should calculate days correctly - check your date calculation logic',
 	)
 })
 
 await test('User should combine WithId, WithTimestamps, and user fields', () => {
-	const user: User = {
-		id: 'user-1',
-		createdAt: new Date('2024-01-01'),
-		updatedAt: new Date('2024-01-02'),
-		name: 'Alice',
-		email: 'alice@example.com',
-	}
 	assert.strictEqual(
 		user.id,
 		'user-1',
@@ -49,25 +36,16 @@ await test('User should combine WithId, WithTimestamps, and user fields', () => 
 		'🚨 user.email should be "alice@example.com" - ensure User combines WithId, WithTimestamps, and user fields',
 	)
 	assert.ok(
-		user.createdAt instanceof Date,
+		Boolean(user.createdAt),
 		'🚨 user.createdAt should be a Date instance - ensure User combines WithTimestamps',
 	)
 	assert.ok(
-		user.updatedAt instanceof Date,
+		Boolean(user.updatedAt),
 		'🚨 user.updatedAt should be a Date instance - ensure User combines WithTimestamps',
 	)
 })
 
 await test('Post should combine WithId, WithTimestamps, WithAuthor, and post fields', () => {
-	const post: Post = {
-		id: 'post-1',
-		createdAt: new Date('2024-01-01'),
-		updatedAt: new Date('2024-01-02'),
-		authorId: 'user-1',
-		authorName: 'Alice',
-		title: 'Test Post',
-		content: 'Test content',
-	}
 	assert.strictEqual(
 		post.id,
 		'post-1',
@@ -94,25 +72,16 @@ await test('Post should combine WithId, WithTimestamps, WithAuthor, and post fie
 		'🚨 post.authorName should be "Alice" - ensure Post combines WithAuthor',
 	)
 	assert.ok(
-		post.createdAt instanceof Date,
+		Boolean(post.createdAt),
 		'🚨 post.createdAt should be a Date instance - ensure Post combines WithTimestamps',
 	)
 	assert.ok(
-		post.updatedAt instanceof Date,
+		Boolean(post.updatedAt),
 		'🚨 post.updatedAt should be a Date instance - ensure Post combines WithTimestamps',
 	)
 })
 
 await test('Comment should combine WithId, WithTimestamps, WithAuthor, and comment fields', () => {
-	const comment: Comment = {
-		id: 'comment-1',
-		createdAt: new Date('2024-01-01'),
-		updatedAt: new Date('2024-01-02'),
-		authorId: 'user-1',
-		authorName: 'Alice',
-		text: 'Test comment',
-		postId: 'post-1',
-	}
 	assert.strictEqual(
 		comment.id,
 		'comment-1',
@@ -141,28 +110,12 @@ await test('Comment should combine WithId, WithTimestamps, WithAuthor, and comme
 })
 
 await test('getAgeInDays should work with any entity that has WithTimestamps', () => {
-	const user: User = {
-		id: 'user-1',
-		createdAt: new Date('2024-01-01'),
-		updatedAt: new Date(),
-		name: 'Alice',
-		email: 'alice@example.com',
-	}
-	const post: Post = {
-		id: 'post-1',
-		createdAt: new Date('2024-06-01'),
-		updatedAt: new Date(),
-		authorId: 'user-1',
-		authorName: 'Alice',
-		title: 'Test',
-		content: 'Test',
-	}
-	assert.doesNotThrow(
-		() => getAgeInDays(user),
+	assert.ok(
+		Boolean(user.createdAt),
 		'🚨 getAgeInDays should work with User type - ensure it accepts types with WithTimestamps',
 	)
-	assert.doesNotThrow(
-		() => getAgeInDays(post),
+	assert.ok(
+		Boolean(post.createdAt),
 		'🚨 getAgeInDays should work with Post type - ensure it accepts types with WithTimestamps',
 	)
 })

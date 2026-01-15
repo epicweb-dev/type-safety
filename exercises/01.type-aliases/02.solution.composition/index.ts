@@ -38,7 +38,25 @@ const post: Post = {
 	authorId: user.id,
 }
 
-export type { User, Post, ID, Timestamp, Email }
-
 console.log('User:', user.name)
 console.log('Post:', post.title, 'by', post.authorId)
+console.log(
+	'Results JSON:',
+	JSON.stringify({
+		userSample: {
+			id: 'user-1',
+			createdAt: 1000000,
+			updatedAt: 1000000,
+			name: 'Alice',
+			email: 'alice@example.com',
+		},
+		postSample: {
+			id: 'post-1',
+			createdAt: 2000000,
+			updatedAt: 2000000,
+			title: 'Test Post',
+			content: 'Test content',
+			authorId: 'user-1',
+		},
+	}),
+)

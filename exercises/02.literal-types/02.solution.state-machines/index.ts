@@ -8,9 +8,9 @@ const orderStates = [
 	'delivered',
 	'cancelled',
 ] as const
-export type OrderState = (typeof orderStates)[number]
+type OrderState = (typeof orderStates)[number]
 
-export function advanceOrder(current: OrderState): OrderState {
+function advanceOrder(current: OrderState): OrderState {
 	switch (current) {
 		case 'pending':
 			return 'processing'
@@ -25,15 +25,12 @@ export function advanceOrder(current: OrderState): OrderState {
 }
 
 const playerStates = ['stopped', 'playing', 'paused'] as const
-export type PlayerState = (typeof playerStates)[number]
+type PlayerState = (typeof playerStates)[number]
 
 const playerActions = ['play', 'pause', 'stop'] as const
-export type PlayerAction = (typeof playerActions)[number]
+type PlayerAction = (typeof playerActions)[number]
 
-export function playerAction(
-	current: PlayerState,
-	action: PlayerAction,
-): PlayerState {
+function playerAction(current: PlayerState, action: PlayerAction): PlayerState {
 	switch (action) {
 		case 'play':
 			return 'playing'
@@ -62,7 +59,31 @@ console.log('Player:', player)
 player = playerAction(player, 'stop')
 console.log('Player:', player)
 
-export { orderStates, playerStates, playerActions }
+console.log(
+	'Results JSON:',
+	JSON.stringify({
+		orderTransitions: [
+			advanceOrder('pending'),
+			advanceOrder('processing'),
+			advanceOrder('shipped'),
+			advanceOrder('delivered'),
+			advanceOrder('cancelled'),
+		],
+		playerTransitions: [
+			playerAction('stopped', 'play'),
+			playerAction('paused', 'play'),
+			playerAction('playing', 'play'),
+			playerAction('playing', 'pause'),
+			playerAction('stopped', 'pause'),
+			playerAction('paused', 'pause'),
+			playerAction('stopped', 'stop'),
+			playerAction('playing', 'stop'),
+			playerAction('paused', 'stop'),
+		],
+		orderStates,
+		playerStates,
+	}),
+)
 
 // 🦉 Note: State machine functions keep explicit return types because they
 // constrain the implementation to return only valid states. This catches bugs

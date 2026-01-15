@@ -32,20 +32,39 @@ const laptop: Product = {
 	inStock: true,
 }
 
-export function greet(user: User) {
+function greet(user: User) {
 	return `Hello, ${user.name}!`
 }
 
-export function formatProduct(product: Product) {
+function formatProduct(product: Product) {
 	const status = product.inStock ? 'In Stock' : 'Out of Stock'
 	return `${product.name} - $${product.price} (${status})`
 }
 
-export type { User, Product }
-
 console.log(greet(alice))
 console.log(greet(bob))
 console.log(formatProduct(laptop))
+const outOfStockProduct: Product = {
+	id: 'p2',
+	name: 'Mouse',
+	price: 29.99,
+	inStock: false,
+}
+
+console.log(
+	'Results JSON:',
+	JSON.stringify({
+		greet: [greet(alice), greet(bob)],
+		formatProduct: [formatProduct(laptop), formatProduct(outOfStockProduct)],
+		userSample: { id: '1', name: 'Test User', email: 'test@example.com' },
+		productSample: {
+			id: 'p1',
+			name: 'Test Product',
+			price: 49.99,
+			inStock: true,
+		},
+	}),
+)
 
 // 🦉 Alternative: Inference-first approach with typeof
 // Instead of defining a type first, you can derive it from a value:

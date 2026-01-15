@@ -1,11 +1,11 @@
 // Discriminated Unions Pattern
 
-export type LoadingState = { status: 'loading' }
-export type SuccessState = { status: 'success'; data: Array<string> }
-export type ErrorState = { status: 'error'; error: string }
-export type ApiState = LoadingState | SuccessState | ErrorState
+type LoadingState = { status: 'loading' }
+type SuccessState = { status: 'success'; data: Array<string> }
+type ErrorState = { status: 'error'; error: string }
+type ApiState = LoadingState | SuccessState | ErrorState
 
-export function renderState(state: ApiState): string {
+function renderState(state: ApiState): string {
 	switch (state.status) {
 		case 'loading':
 			return 'Loading...'
@@ -20,12 +20,12 @@ export function renderState(state: ApiState): string {
 	}
 }
 
-export type CreditCard = { type: 'credit_card'; last4: string; expiry: string }
-export type PayPal = { type: 'paypal'; email: string }
-export type BankTransfer = { type: 'bank'; accountNumber: string }
-export type PaymentMethod = CreditCard | PayPal | BankTransfer
+type CreditCard = { type: 'credit_card'; last4: string; expiry: string }
+type PayPal = { type: 'paypal'; email: string }
+type BankTransfer = { type: 'bank'; accountNumber: string }
+type PaymentMethod = CreditCard | PayPal | BankTransfer
 
-export function describePayment(method: PaymentMethod): string {
+function describePayment(method: PaymentMethod): string {
 	switch (method.type) {
 		case 'credit_card':
 			return `Card ending in ${method.last4} (exp: ${method.expiry})`
@@ -50,3 +50,24 @@ const card: CreditCard = { type: 'credit_card', last4: '4242', expiry: '12/25' }
 const paypal: PayPal = { type: 'paypal', email: 'user@example.com' }
 console.log(describePayment(card))
 console.log(describePayment(paypal))
+
+const bank: BankTransfer = { type: 'bank', accountNumber: '123456789' }
+const successEmpty: SuccessState = { status: 'success', data: [] }
+
+console.log(
+	'Results JSON:',
+	JSON.stringify({
+		renderState: [
+			renderState({ status: 'loading' }),
+			renderState({ status: 'success', data: ['a', 'b', 'c'] }),
+			renderState(successEmpty),
+			renderState({ status: 'error', error: 'Network failed' }),
+		],
+		describePayment: [
+			describePayment(card),
+			describePayment(paypal),
+			describePayment(bank),
+		],
+		apiStateStatuses: ['loading', 'success', 'error'],
+	}),
+)

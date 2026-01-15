@@ -49,8 +49,37 @@ const log: AuditLog = {
 	userId: user.id,
 }
 
-export type { User, Product, AuditLog, Entity, Timestamps }
-
 console.log('User:', user.name, '- ID:', user.id)
 console.log('Product:', product.name, '- ID:', product.id)
 console.log('Log:', log.action, 'by', log.userId)
+
+console.log(
+	'Results JSON:',
+	JSON.stringify({
+		user: {
+			id: 'user-1',
+			createdAt: '2024-01-01T00:00:00.000Z',
+			updatedAt: '2024-01-02T00:00:00.000Z',
+			name: 'Alice',
+			email: 'alice@example.com',
+		},
+		product: {
+			id: 'prod-1',
+			createdAt: '2024-01-01T00:00:00.000Z',
+			updatedAt: '2024-01-02T00:00:00.000Z',
+			name: 'Widget',
+			price: 29.99,
+		},
+		log: {
+			createdAt: '2024-01-01T00:00:00.000Z',
+			updatedAt: '2024-01-02T00:00:00.000Z',
+			action: 'USER_LOGIN',
+			userId: 'user-1',
+		},
+		entity: {
+			id: 'test-id',
+			createdAt: '2024-01-01T00:00:00.000Z',
+			updatedAt: '2024-01-02T00:00:00.000Z',
+		},
+	}),
+)

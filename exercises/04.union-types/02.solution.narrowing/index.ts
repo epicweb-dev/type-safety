@@ -1,8 +1,8 @@
 // Type Narrowing Techniques
 
-export type TextInput = string | Array<string>
+type TextInput = string | Array<string>
 
-export function normalizeText(input: TextInput) {
+function normalizeText(input: TextInput) {
 	if (Array.isArray(input)) {
 		return input.join(' ').trim()
 	}
@@ -10,13 +10,13 @@ export function normalizeText(input: TextInput) {
 }
 
 // Different user types
-export type AdminUser = { type: 'admin'; permissions: Array<string> }
-export type RegularUser = { type: 'user'; subscription: 'free' | 'premium' }
-export type GuestUser = { type: 'guest' }
+type AdminUser = { type: 'admin'; permissions: Array<string> }
+type RegularUser = { type: 'user'; subscription: 'free' | 'premium' }
+type GuestUser = { type: 'guest' }
 
-export type User = AdminUser | RegularUser | GuestUser
+type User = AdminUser | RegularUser | GuestUser
 
-export function describeUser(user: User) {
+function describeUser(user: User) {
 	switch (user.type) {
 		case 'admin':
 			return `Admin with ${user.permissions.length} permissions`
@@ -40,3 +40,31 @@ const guest: GuestUser = { type: 'guest' }
 console.log(describeUser(admin))
 console.log(describeUser(regular))
 console.log(describeUser(guest))
+
+const freeUser: RegularUser = { type: 'user', subscription: 'free' }
+const sampleAdmin: AdminUser = { type: 'admin', permissions: ['read', 'write'] }
+
+console.log(
+	'Results JSON:',
+	JSON.stringify({
+		normalizeText: [
+			normalizeText('  hello  '),
+			normalizeText('world'),
+			normalizeText('  test  '),
+			normalizeText(['hello', 'world']),
+			normalizeText(['a', 'b', 'c']),
+			normalizeText(['single']),
+			normalizeText(['  hello  ', '  world  ']),
+		],
+		describeUser: [
+			describeUser(sampleAdmin),
+			describeUser(freeUser),
+			describeUser(regular),
+			describeUser(guest),
+		],
+		textInputTypes: {
+			stringType: typeof 'test',
+			arrayIsArray: Array.isArray(['test', 'array']),
+		},
+	}),
+)

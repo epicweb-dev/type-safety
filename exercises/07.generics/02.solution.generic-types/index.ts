@@ -1,29 +1,27 @@
 // Generic Types and Interfaces
 
-export type Result<T> =
-	| { success: true; data: T }
-	| { success: false; error: string }
+type Result<T> = { success: true; data: T } | { success: false; error: string }
 
-export type Pair<T, U> = {
+type Pair<T, U> = {
 	first: T
 	second: U
 }
 
-export interface ApiResponse<T> {
+interface ApiResponse<T> {
 	data: T
 	status: number
 	timestamp: Date
 }
 
-export function createSuccess<T>(data: T): Result<T> {
+function createSuccess<T>(data: T): Result<T> {
 	return { success: true, data }
 }
 
-export function createError<T>(error: string): Result<T> {
+function createError<T>(error: string): Result<T> {
 	return { success: false, error }
 }
 
-export function makePair<T, U>(first: T, second: U): Pair<T, U> {
+function makePair<T, U>(first: T, second: U): Pair<T, U> {
 	return { first, second }
 }
 
@@ -45,3 +43,31 @@ if (success.success) {
 
 console.log('Pair first (string):', pair.first.toUpperCase())
 console.log('Pair second (number):', pair.second.toFixed(2))
+
+console.log(
+	'Results JSON:',
+	JSON.stringify({
+		createSuccess: [
+			createSuccess('test data'),
+			createSuccess('hello'),
+			createSuccess(42),
+			createSuccess({ id: 1, name: 'Alice' }),
+		],
+		createError: [createError('error message')],
+		makePair: [
+			makePair('hello', 42),
+			makePair(1, 'test'),
+			makePair(true, false),
+		],
+		resultSamples: {
+			success: { success: true, data: 'test' },
+			error: { success: false, error: 'error' },
+		},
+		pairSample: { first: 'test', second: 42 },
+		apiResponseSample: {
+			data: { id: 1 },
+			status: 200,
+			timestamp: '2024-01-01T00:00:00.000Z',
+		},
+	}),
+)
