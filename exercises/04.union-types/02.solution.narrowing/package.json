@@ -1,5 +1,5 @@
 {
-  "name": "exercises_03.union-types_02.solution.narrowing",
+  "name": "exercises_04.union-types_02.solution.narrowing",
   "type": "module",
   "scripts": {
     "start": "node index.ts",

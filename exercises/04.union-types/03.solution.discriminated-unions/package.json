@@ -1,5 +1,5 @@
 {
-  "name": "exercises_03.union-types_03.solution.discriminated-unions",
+  "name": "exercises_04.union-types_03.solution.discriminated-unions",
   "type": "module",
   "scripts": {
     "start": "node index.ts",

@@ -1,5 +1,5 @@
 {
-  "name": "exercises_03.union-types_01.solution.multiple-types",
+  "name": "exercises_04.union-types_01.solution.multiple-types",
   "type": "module",
   "scripts": {
     "start": "node index.ts",

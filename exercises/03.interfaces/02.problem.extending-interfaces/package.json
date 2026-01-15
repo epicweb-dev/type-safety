@@ -1,5 +1,5 @@
 {
-  "name": "exercises_02.interfaces_02.problem.extending-interfaces",
+  "name": "exercises_03.interfaces_02.problem.extending-interfaces",
   "type": "module",
   "scripts": {
     "start": "node index.ts",

@@ -1,5 +1,5 @@
 {
-  "name": "exercises_04.literal-types_01.problem.exact-values",
+  "name": "exercises_02.literal-types_01.problem.exact-values",
   "type": "module",
   "scripts": {
     "start": "node index.ts",
