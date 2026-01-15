@@ -41,49 +41,7 @@ function playerAction(current: PlayerState, action: PlayerAction): PlayerState {
 	}
 }
 
-// Test order state machine
-let order: OrderState = 'pending'
-console.log('Order:', order)
-order = advanceOrder(order)
-console.log('Order:', order)
-order = advanceOrder(order)
-console.log('Order:', order)
-
-// Test player state machine
-let player: PlayerState = 'stopped'
-console.log('Player:', player)
-player = playerAction(player, 'play')
-console.log('Player:', player)
-player = playerAction(player, 'pause')
-console.log('Player:', player)
-player = playerAction(player, 'stop')
-console.log('Player:', player)
-
-console.log(
-	'Results:',
-	JSON.stringify({
-		orderTransitions: [
-			advanceOrder('pending'),
-			advanceOrder('processing'),
-			advanceOrder('shipped'),
-			advanceOrder('delivered'),
-			advanceOrder('cancelled'),
-		],
-		playerTransitions: [
-			playerAction('stopped', 'play'),
-			playerAction('paused', 'play'),
-			playerAction('playing', 'play'),
-			playerAction('playing', 'pause'),
-			playerAction('stopped', 'pause'),
-			playerAction('paused', 'pause'),
-			playerAction('stopped', 'stop'),
-			playerAction('playing', 'stop'),
-			playerAction('paused', 'stop'),
-		],
-		orderStates,
-		playerStates,
-	}),
-)
+export { advanceOrder, playerAction, orderStates, playerStates }
 
 // 🦉 Note: State machine functions keep explicit return types because they
 // constrain the implementation to return only valid states. This catches bugs

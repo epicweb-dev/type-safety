@@ -24,22 +24,5 @@
 // console.log(last([1, 2, 3]))        // 3
 // console.log(reverse([1, 2, 3]))     // [3, 2, 1]
 
-// 🐨 When you're done, uncomment this:
-// console.log(
-// 	'Results:',
-// 	JSON.stringify({
-// 		identity: [identity('hello'), identity(42), identity(true), identity(null)],
-// 		first: [first([1, 2, 3]), first(['a', 'b', 'c']), first([true, false]), first([])],
-// 		last: [last([1, 2, 3]), last(['a', 'b', 'c']), last([true, false]), last([])],
-// 		reverse: [
-// 			reverse([1, 2, 3]),
-// 			reverse(['a', 'b', 'c']),
-// 			reverse([true, false]),
-// 			reverse([]),
-// 			reverse([1]),
-// 			reverse(['a']),
-// 		],
-// 		original: [1, 2, 3],
-// 		reversed: reverse([1, 2, 3]),
-// 	}),
-// )
+// 🐨 Export your functions so we can verify your work
+// 💰 export { identity, first, last, reverse }

@@ -1,16 +1,38 @@
 import assert from 'node:assert/strict'
-import { execSync } from 'node:child_process'
 import { test } from 'node:test'
+import * as solution from './index.ts'
 
-const output = execSync('npm start --silent', { encoding: 'utf8' })
-const jsonLine = output.split('\n').find((line) => line.startsWith('Results:'))
-assert.ok(jsonLine, '🚨 Missing "Results:" output line')
-const { orderTransitions, playerTransitions, orderStates, playerStates } =
-	JSON.parse(jsonLine.replace('Results:', '').trim())
+await test('advanceOrder is exported', () => {
+	assert.ok(
+		'advanceOrder' in solution,
+		'🚨 Make sure you export "advanceOrder" - add: export { advanceOrder, ... }',
+	)
+})
+
+await test('playerAction is exported', () => {
+	assert.ok(
+		'playerAction' in solution,
+		'🚨 Make sure you export "playerAction" - add: export { playerAction, ... }',
+	)
+})
+
+await test('orderStates is exported', () => {
+	assert.ok(
+		'orderStates' in solution,
+		'🚨 Make sure you export "orderStates" - add: export { orderStates, ... }',
+	)
+})
+
+await test('playerStates is exported', () => {
+	assert.ok(
+		'playerStates' in solution,
+		'🚨 Make sure you export "playerStates" - add: export { playerStates, ... }',
+	)
+})
 
 await test('advanceOrder should transition pending to processing', () => {
 	assert.strictEqual(
-		orderTransitions[0],
+		solution.advanceOrder('pending'),
 		'processing',
 		'🚨 advanceOrder should transition from "pending" to "processing" - check your state machine logic',
 	)
@@ -18,7 +40,7 @@ await test('advanceOrder should transition pending to processing', () => {
 
 await test('advanceOrder should transition processing to shipped', () => {
 	assert.strictEqual(
-		orderTransitions[1],
+		solution.advanceOrder('processing'),
 		'shipped',
 		'🚨 advanceOrder should transition from "processing" to "shipped" - check your state machine logic',
 	)
@@ -26,7 +48,7 @@ await test('advanceOrder should transition processing to shipped', () => {
 
 await test('advanceOrder should transition shipped to delivered', () => {
 	assert.strictEqual(
-		orderTransitions[2],
+		solution.advanceOrder('shipped'),
 		'delivered',
 		'🚨 advanceOrder should transition from "shipped" to "delivered" - check your state machine logic',
 	)
@@ -34,7 +56,7 @@ await test('advanceOrder should transition shipped to delivered', () => {
 
 await test('advanceOrder should keep delivered state unchanged', () => {
 	assert.strictEqual(
-		orderTransitions[3],
+		solution.advanceOrder('delivered'),
 		'delivered',
 		'🚨 advanceOrder should keep "delivered" state unchanged - check your terminal state handling',
 	)
@@ -42,7 +64,7 @@ await test('advanceOrder should keep delivered state unchanged', () => {
 
 await test('advanceOrder should keep cancelled state unchanged', () => {
 	assert.strictEqual(
-		orderTransitions[4],
+		solution.advanceOrder('cancelled'),
 		'cancelled',
 		'🚨 advanceOrder should keep "cancelled" state unchanged - check your terminal state handling',
 	)
@@ -50,17 +72,17 @@ await test('advanceOrder should keep cancelled state unchanged', () => {
 
 await test('playerAction play should set state to playing', () => {
 	assert.strictEqual(
-		playerTransitions[0],
+		solution.playerAction('stopped', 'play'),
 		'playing',
 		'🚨 playerAction "play" should set state to "playing" from "stopped" - check your state transition logic',
 	)
 	assert.strictEqual(
-		playerTransitions[1],
+		solution.playerAction('paused', 'play'),
 		'playing',
 		'🚨 playerAction "play" should set state to "playing" from "paused" - check your state transition logic',
 	)
 	assert.strictEqual(
-		playerTransitions[2],
+		solution.playerAction('playing', 'play'),
 		'playing',
 		'🚨 playerAction "play" should keep "playing" state - check your state transition logic',
 	)
@@ -68,17 +90,17 @@ await test('playerAction play should set state to playing', () => {
 
 await test('playerAction pause should only work from playing', () => {
 	assert.strictEqual(
-		playerTransitions[3],
+		solution.playerAction('playing', 'pause'),
 		'paused',
 		'🚨 playerAction "pause" should transition from "playing" to "paused" - check your state transition logic',
 	)
 	assert.strictEqual(
-		playerTransitions[4],
+		solution.playerAction('stopped', 'pause'),
 		'stopped',
 		'🚨 playerAction "pause" should not change "stopped" state - check your state transition logic',
 	)
 	assert.strictEqual(
-		playerTransitions[5],
+		solution.playerAction('paused', 'pause'),
 		'paused',
 		'🚨 playerAction "pause" should keep "paused" state - check your state transition logic',
 	)
@@ -86,24 +108,24 @@ await test('playerAction pause should only work from playing', () => {
 
 await test('playerAction stop should always set state to stopped', () => {
 	assert.strictEqual(
-		playerTransitions[6],
+		solution.playerAction('stopped', 'stop'),
 		'stopped',
 		'🚨 playerAction "stop" should set state to "stopped" - check your state transition logic',
 	)
 	assert.strictEqual(
-		playerTransitions[7],
+		solution.playerAction('playing', 'stop'),
 		'stopped',
 		'🚨 playerAction "stop" should transition from "playing" to "stopped" - check your state transition logic',
 	)
 	assert.strictEqual(
-		playerTransitions[8],
+		solution.playerAction('paused', 'stop'),
 		'stopped',
 		'🚨 playerAction "stop" should transition from "paused" to "stopped" - check your state transition logic',
 	)
 })
 
 await test('OrderState should be a valid literal type', () => {
-	orderStates.forEach((state: string) => {
+	solution.orderStates.forEach((state: string) => {
 		assert.ok(
 			['pending', 'processing', 'shipped', 'delivered', 'cancelled'].includes(
 				state,
@@ -114,7 +136,7 @@ await test('OrderState should be a valid literal type', () => {
 })
 
 await test('PlayerState should be a valid literal type', () => {
-	playerStates.forEach((state: string) => {
+	solution.playerStates.forEach((state: string) => {
 		assert.ok(
 			['stopped', 'playing', 'paused'].includes(state),
 			'🚨 state should be one of the valid PlayerState literal values - verify your PlayerState type definition',

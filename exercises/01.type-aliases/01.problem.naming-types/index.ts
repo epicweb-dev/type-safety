@@ -38,24 +38,5 @@ const laptop = {
 // 🐨 Create a function that takes a Product and returns a formatted string
 // function formatProduct(product: Product): string
 
-// 🐨 When you're done, uncomment this:
-// const outOfStockProduct = {
-// 	id: 'p2',
-// 	name: 'Mouse',
-// 	price: 29.99,
-// 	inStock: false,
-// }
-// console.log(
-// 	'Results:',
-// 	JSON.stringify({
-// 		greet: [greet(alice), greet(bob)],
-// 		formatProduct: [formatProduct(laptop), formatProduct(outOfStockProduct)],
-// 		userSample: { id: '1', name: 'Test User', email: 'test@example.com' },
-// 		productSample: {
-// 			id: 'p1',
-// 			name: 'Test Product',
-// 			price: 49.99,
-// 			inStock: true,
-// 		},
-// 	}),
-// )
+// 🐨 Export your functions and sample objects so we can verify your work
+// 💰 export { greet, formatProduct, userSample, productSample }

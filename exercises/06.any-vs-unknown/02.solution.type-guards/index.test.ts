@@ -1,46 +1,68 @@
 import assert from 'node:assert/strict'
-import { execSync } from 'node:child_process'
 import { test } from 'node:test'
+import * as solution from './index.ts'
 
-const output = execSync('npm start --silent', { encoding: 'utf8' })
-const jsonLine = output.split('\n').find((line) => line.startsWith('Results:'))
-assert.ok(jsonLine, '🚨 Missing "Results:" output line')
-const { isString, isNumber, isProduct, processApiResponse, narrowedProduct } =
-	JSON.parse(jsonLine.replace('Results:', '').trim())
+await test('isString is exported', () => {
+	assert.ok(
+		'isString' in solution,
+		'🚨 Make sure you export "isString" - add: export { isString, ... }',
+	)
+})
+
+await test('isNumber is exported', () => {
+	assert.ok(
+		'isNumber' in solution,
+		'🚨 Make sure you export "isNumber" - add: export { isNumber, ... }',
+	)
+})
+
+await test('isProduct is exported', () => {
+	assert.ok(
+		'isProduct' in solution,
+		'🚨 Make sure you export "isProduct" - add: export { isProduct, ... }',
+	)
+})
+
+await test('processApiResponse is exported', () => {
+	assert.ok(
+		'processApiResponse' in solution,
+		'🚨 Make sure you export "processApiResponse" - add: export { processApiResponse, ... }',
+	)
+})
 
 await test('isString should correctly identify strings', () => {
 	assert.strictEqual(
-		isString[0],
+		solution.isString('hello'),
 		true,
 		'🚨 isString should return true for strings - check your type guard implementation',
 	)
 	assert.strictEqual(
-		isString[1],
+		solution.isString(''),
 		true,
 		'🚨 isString should return true for empty strings - check your type guard implementation',
 	)
 	assert.strictEqual(
-		isString[2],
+		solution.isString('123'),
 		true,
 		'🚨 isString should return true for numeric strings - check your type guard implementation',
 	)
 	assert.strictEqual(
-		isString[3],
+		solution.isString(123),
 		false,
 		'🚨 isString should return false for numbers - check your type guard implementation',
 	)
 	assert.strictEqual(
-		isString[4],
+		solution.isString(null),
 		false,
 		'🚨 isString should return false for null - check your type guard implementation',
 	)
 	assert.strictEqual(
-		isString[5],
+		solution.isString(undefined),
 		false,
 		'🚨 isString should return false for undefined - check your type guard implementation',
 	)
 	assert.strictEqual(
-		isString[6],
+		solution.isString({}),
 		false,
 		'🚨 isString should return false for objects - check your type guard implementation',
 	)
@@ -48,93 +70,95 @@ await test('isString should correctly identify strings', () => {
 
 await test('isNumber should correctly identify numbers', () => {
 	assert.strictEqual(
-		isNumber[0],
+		solution.isNumber(123),
 		true,
 		'🚨 isNumber should return true for integers - check your type guard implementation',
 	)
 	assert.strictEqual(
-		isNumber[1],
+		solution.isNumber(0),
 		true,
 		'🚨 isNumber should return true for zero - check your type guard implementation',
 	)
 	assert.strictEqual(
-		isNumber[2],
+		solution.isNumber(-42),
 		true,
 		'🚨 isNumber should return true for negative numbers - check your type guard implementation',
 	)
 	assert.strictEqual(
-		isNumber[3],
+		solution.isNumber(3.14),
 		true,
 		'🚨 isNumber should return true for decimals - check your type guard implementation',
 	)
 	assert.strictEqual(
-		isNumber[4],
+		solution.isNumber(NaN),
 		false,
 		'🚨 isNumber should return false for NaN - check your type guard implementation',
 	)
 	assert.strictEqual(
-		isNumber[5],
+		solution.isNumber('123'),
 		false,
 		'🚨 isNumber should return false for strings - check your type guard implementation',
 	)
 	assert.strictEqual(
-		isNumber[6],
+		solution.isNumber(null),
 		false,
 		'🚨 isNumber should return false for null - check your type guard implementation',
 	)
 	assert.strictEqual(
-		isNumber[7],
+		solution.isNumber(undefined),
 		false,
 		'🚨 isNumber should return false for undefined - check your type guard implementation',
 	)
 })
 
 await test('isProduct should correctly identify Product objects', () => {
+	const validProduct = { id: '1', name: 'Widget', price: 9.99 }
 	assert.strictEqual(
-		isProduct[0],
+		solution.isProduct(validProduct),
 		true,
 		'🚨 isProduct should return true for valid Product objects - check your type guard implementation',
 	)
 	assert.strictEqual(
-		isProduct[1],
+		solution.isProduct({ id: '1', name: 'Widget' }),
 		false,
 		'🚨 isProduct should return false when price is missing - check your type guard validation',
 	)
 	assert.strictEqual(
-		isProduct[2],
+		solution.isProduct({ id: '1', price: 9.99 }),
 		false,
 		'🚨 isProduct should return false when name is missing - check your type guard validation',
 	)
 	assert.strictEqual(
-		isProduct[3],
+		solution.isProduct({ name: 'Widget', price: 9.99 }),
 		false,
 		'🚨 isProduct should return false when id is missing - check your type guard validation',
 	)
 	assert.strictEqual(
-		isProduct[4],
+		solution.isProduct({ id: 1, name: 'Widget', price: 9.99 }),
 		false,
 		'🚨 isProduct should return false when id is not a string - check your type guard validation',
 	)
 	assert.strictEqual(
-		isProduct[5],
+		solution.isProduct({ id: '1', name: 'Widget', price: '9.99' }),
 		false,
 		'🚨 isProduct should return false when price is not a number - check your type guard validation',
 	)
 	assert.strictEqual(
-		isProduct[6],
+		solution.isProduct(null),
 		false,
 		'🚨 isProduct should return false for null - check your type guard validation',
 	)
 	assert.strictEqual(
-		isProduct[7],
+		solution.isProduct('not an object'),
 		false,
 		'🚨 isProduct should return false for non-objects - check your type guard validation',
 	)
 })
 
 await test('processApiResponse should handle Product objects', () => {
+	const validProduct = { id: '1', name: 'Widget', price: 9.99 }
 	assert.strictEqual(
-		processApiResponse[0],
+		solution.processApiResponse(validProduct),
 		'Product: Widget ($9.99)',
 		'🚨 processApiResponse should format Product objects correctly - check your type narrowing logic',
 	)
@@ -142,12 +166,12 @@ await test('processApiResponse should handle Product objects', () => {
 
 await test('processApiResponse should handle string data', () => {
 	assert.strictEqual(
-		processApiResponse[1],
+		solution.processApiResponse('Hello'),
 		'Hello',
 		'🚨 processApiResponse should return strings unchanged - check your type narrowing logic',
 	)
 	assert.strictEqual(
-		processApiResponse[2],
+		solution.processApiResponse('Test'),
 		'Test',
 		'🚨 processApiResponse should return strings unchanged - check your type narrowing logic',
 	)
@@ -155,36 +179,39 @@ await test('processApiResponse should handle string data', () => {
 
 await test('processApiResponse should handle unknown data', () => {
 	assert.strictEqual(
-		processApiResponse[3],
+		solution.processApiResponse(42),
 		'Unknown data',
 		'🚨 processApiResponse should return "Unknown data" for unrecognized types - check your type narrowing logic',
 	)
 	assert.strictEqual(
-		processApiResponse[4],
+		solution.processApiResponse({ invalid: 'data' }),
 		'Unknown data',
 		'🚨 processApiResponse should return "Unknown data" for invalid objects - check your type narrowing logic',
 	)
 	assert.strictEqual(
-		processApiResponse[5],
+		solution.processApiResponse(null),
 		'Unknown data',
 		'🚨 processApiResponse should return "Unknown data" for null - check your type narrowing logic',
 	)
 })
 
 await test('isProduct type guard should narrow type correctly', () => {
-	assert.strictEqual(
-		narrowedProduct.id,
-		'1',
-		'🚨 data.id should be accessible after type guard - verify your type narrowing works',
-	)
-	assert.strictEqual(
-		narrowedProduct.name,
-		'Widget',
-		'🚨 data.name should be accessible after type guard - verify your type narrowing works',
-	)
-	assert.strictEqual(
-		narrowedProduct.price,
-		9.99,
-		'🚨 data.price should be accessible after type guard - verify your type narrowing works',
-	)
+	const validProduct = { id: '1', name: 'Widget', price: 9.99 }
+	if (solution.isProduct(validProduct)) {
+		assert.strictEqual(
+			validProduct.id,
+			'1',
+			'🚨 data.id should be accessible after type guard - verify your type narrowing works',
+		)
+		assert.strictEqual(
+			validProduct.name,
+			'Widget',
+			'🚨 data.name should be accessible after type guard - verify your type narrowing works',
+		)
+		assert.strictEqual(
+			validProduct.price,
+			9.99,
+			'🚨 data.price should be accessible after type guard - verify your type narrowing works',
+		)
+	}
 })

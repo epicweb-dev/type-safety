@@ -1,26 +1,56 @@
 import assert from 'node:assert/strict'
-import { execSync } from 'node:child_process'
 import { test } from 'node:test'
+import * as solution from './index.ts'
 
-const output = execSync('npm start --silent', { encoding: 'utf8' })
-const jsonLine = output.split('\n').find((line) => line.startsWith('Results:'))
-assert.ok(jsonLine, '🚨 Missing "Results:" output line')
-const {
-	isAdmin,
-	productSummary,
-	productDescriptionMissing,
-	productDescriptionValue,
-	userRole,
-} = JSON.parse(jsonLine.replace('Results:', '').trim())
+await test('isAdmin is exported', () => {
+	assert.ok(
+		'isAdmin' in solution,
+		'🚨 Make sure you export "isAdmin" - add: export { isAdmin, ... }',
+	)
+})
+
+await test('getProductSummary is exported', () => {
+	assert.ok(
+		'getProductSummary' in solution,
+		'🚨 Make sure you export "getProductSummary" - add: export { getProductSummary, ... }',
+	)
+})
+
+await test('product is exported', () => {
+	assert.ok(
+		'product' in solution,
+		'🚨 Make sure you export "product" - add: export { product, ... }',
+	)
+})
+
+await test('productWithDesc is exported', () => {
+	assert.ok(
+		'productWithDesc' in solution,
+		'🚨 Make sure you export "productWithDesc" - add: export { productWithDesc, ... }',
+	)
+})
+
+await test('regularUser is exported', () => {
+	assert.ok(
+		'regularUser' in solution,
+		'🚨 Make sure you export "regularUser" - add: export { regularUser, ... }',
+	)
+})
 
 await test('isAdmin should correctly identify admin users', () => {
+	const admin = {
+		id: '1',
+		name: 'Admin',
+		email: 'admin@example.com',
+		role: 'admin' as const,
+	}
 	assert.strictEqual(
-		isAdmin[0],
+		solution.isAdmin(admin),
 		true,
 		'🚨 isAdmin should return true for admin users - check your role comparison logic',
 	)
 	assert.strictEqual(
-		isAdmin[1],
+		solution.isAdmin(solution.regularUser),
 		false,
 		'🚨 isAdmin should return false for regular users - check your role comparison logic',
 	)
@@ -28,12 +58,12 @@ await test('isAdmin should correctly identify admin users', () => {
 
 await test('getProductSummary should format products correctly', () => {
 	assert.strictEqual(
-		productSummary[0],
+		solution.getProductSummary(solution.product),
 		'Widget - $29.99: No description',
 		'🚨 getProductSummary should handle products without description - check your optional property handling',
 	)
 	assert.strictEqual(
-		productSummary[1],
+		solution.getProductSummary(solution.productWithDesc),
 		'Gadget - $49.99: Has description',
 		'🚨 getProductSummary should include description when present - check your optional property handling',
 	)
@@ -41,7 +71,7 @@ await test('getProductSummary should format products correctly', () => {
 
 await test('User interface should enforce correct structure', () => {
 	assert.strictEqual(
-		userRole,
+		solution.regularUser.role,
 		'user',
 		'🚨 user.role should be "user" - verify your User interface includes role property',
 	)
@@ -49,12 +79,12 @@ await test('User interface should enforce correct structure', () => {
 
 await test('Product interface should allow optional description', () => {
 	assert.strictEqual(
-		productDescriptionMissing,
+		solution.product.description === undefined,
 		true,
 		'🚨 product1.description should be undefined when not provided - verify description is optional in Product interface',
 	)
 	assert.strictEqual(
-		productDescriptionValue,
+		solution.productWithDesc.description,
 		'Has description',
 		'🚨 product2.description should be "Has description" when provided - verify description is optional in Product interface',
 	)

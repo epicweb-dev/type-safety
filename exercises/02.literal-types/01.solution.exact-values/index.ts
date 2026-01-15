@@ -31,24 +31,11 @@ makeRequest('POST', '/api/orders')
 // createOrder('medium', 'blue')  // ❌ 'medium' not in Size
 // makeRequest('PATCH', '/api')    // ❌ 'PATCH' not in HttpMethod
 
-// Bonus: the arrays are available at runtime for validation/iteration
-console.log('Available sizes:', sizes)
-console.log('Available colors:', colors)
-
 const sizeOrders = sizes.map((size) => createOrder(size, 'red'))
 const colorOrders = colors.map((color) => createOrder('m', color))
 const sampleOrder = createOrder('m', 'blue')
 
-console.log(
-	'Results:',
-	JSON.stringify({
-		sizeOrders: sizeOrders.map((order) => order.size),
-		colorOrders: colorOrders.map((order) => order.color),
-		orderIdType: typeof sampleOrder.orderId,
-		orderIdLength: sampleOrder.orderId.length,
-		httpMethods,
-	}),
-)
+export { sizeOrders, colorOrders, sampleOrder, httpMethods }
 
 // 🦉 Traditional approach (you may see this in other codebases):
 // export type Size = 'xs' | 's' | 'm' | 'l' | 'xl'

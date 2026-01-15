@@ -23,30 +23,5 @@ type User = AdminUser | RegularUser | GuestUser
 // console.log(normalizeText('  hello  '))
 // console.log(normalizeText(['hello', 'world']))
 
-// 🐨 When you're done, uncomment this:
-// const freeUser: RegularUser = { type: 'user', subscription: 'free' }
-// const sampleAdmin: AdminUser = { type: 'admin', permissions: ['read', 'write'] }
-// console.log(
-// 	'Results:',
-// 	JSON.stringify({
-// 		normalizeText: [
-// 			normalizeText('  hello  '),
-// 			normalizeText('world'),
-// 			normalizeText('  test  '),
-// 			normalizeText(['hello', 'world']),
-// 			normalizeText(['a', 'b', 'c']),
-// 			normalizeText(['single']),
-// 			normalizeText(['  hello  ', '  world  ']),
-// 		],
-// 		describeUser: [
-// 			describeUser(sampleAdmin),
-// 			describeUser(freeUser),
-// 			describeUser({ type: 'user', subscription: 'premium' }),
-// 			describeUser({ type: 'guest' }),
-// 		],
-// 		textInputTypes: {
-// 			stringType: typeof 'test',
-// 			arrayIsArray: Array.isArray(['test', 'array']),
-// 		},
-// 	}),
-// )
+// 🐨 Export your functions so we can verify your work
+// 💰 export { normalizeText, describeUser }

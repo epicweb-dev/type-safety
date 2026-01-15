@@ -1,27 +1,34 @@
 import assert from 'node:assert/strict'
-import { execSync } from 'node:child_process'
 import { test } from 'node:test'
+import * as solution from './index.ts'
 
-const output = execSync('npm start --silent', { encoding: 'utf8' })
-const jsonLine = output.split('\n').find((line) => line.startsWith('Results:'))
-assert.ok(jsonLine, '🚨 Missing "Results:" output line')
-const { formatId, processResult, idTypes, resultTypes } = JSON.parse(
-	jsonLine.replace('Results:', '').trim(),
-)
+await test('formatId is exported', () => {
+	assert.ok(
+		'formatId' in solution,
+		'🚨 Make sure you export "formatId" - add: export { formatId, ... }',
+	)
+})
+
+await test('processResult is exported', () => {
+	assert.ok(
+		'processResult' in solution,
+		'🚨 Make sure you export "processResult" - add: export { processResult, ... }',
+	)
+})
 
 await test('formatId should format number IDs correctly', () => {
 	assert.strictEqual(
-		formatId[0],
+		solution.formatId(123),
 		'#123',
 		'🚨 formatId should format number IDs with "#" prefix - check your type narrowing logic',
 	)
 	assert.strictEqual(
-		formatId[1],
+		solution.formatId(456),
 		'#456',
 		'🚨 formatId should format number IDs with "#" prefix - check your type narrowing logic',
 	)
 	assert.strictEqual(
-		formatId[2],
+		solution.formatId(0),
 		'#0',
 		'🚨 formatId should format number IDs with "#" prefix even for 0 - check your type narrowing logic',
 	)
@@ -29,17 +36,17 @@ await test('formatId should format number IDs correctly', () => {
 
 await test('formatId should return string IDs as-is', () => {
 	assert.strictEqual(
-		formatId[3],
+		solution.formatId('abc'),
 		'abc',
 		'🚨 formatId should return string IDs unchanged - check your type narrowing logic',
 	)
 	assert.strictEqual(
-		formatId[4],
+		solution.formatId('user-123'),
 		'user-123',
 		'🚨 formatId should return string IDs unchanged - check your type narrowing logic',
 	)
 	assert.strictEqual(
-		formatId[5],
+		solution.formatId(''),
 		'',
 		'🚨 formatId should return empty strings unchanged - check your type narrowing logic',
 	)
@@ -47,51 +54,56 @@ await test('formatId should return string IDs as-is', () => {
 
 await test('processResult should handle string results', () => {
 	assert.strictEqual(
-		processResult[0],
+		solution.processResult('Done!'),
 		'Success: Done!',
 		'🚨 processResult should handle string results without throwing - check your union type handling',
 	)
 	assert.strictEqual(
-		processResult[1],
+		solution.processResult('Success'),
 		'Success: Success',
 		'🚨 processResult should handle string results without throwing - check your union type handling',
 	)
 })
 
 await test('processResult should handle Error results', () => {
+	const sampleError = new Error('Test error')
 	assert.strictEqual(
-		processResult[2],
+		solution.processResult(sampleError),
 		'Error: Test error',
 		'🚨 processResult should handle Error results without throwing - check your union type handling',
 	)
 	assert.strictEqual(
-		processResult[3],
+		solution.processResult(new Error('Another error')),
 		'Error: Another error',
 		'🚨 processResult should handle Error results without throwing - check your union type handling',
 	)
 })
 
 await test('ID type should accept string or number', () => {
+	const stringId = 'test-id'
+	const numberId = 123
 	assert.strictEqual(
-		idTypes.stringId,
+		typeof stringId,
 		'string',
 		'🚨 stringId should be type "string" - verify your ID union type accepts strings',
 	)
 	assert.strictEqual(
-		idTypes.numberId,
+		typeof numberId,
 		'number',
 		'🚨 numberId should be type "number" - verify your ID union type accepts numbers',
 	)
 })
 
 await test('Result type should accept string or Error', () => {
+	const stringResult = 'success'
+	const sampleError = new Error('Test error')
 	assert.strictEqual(
-		resultTypes.stringResult,
+		typeof stringResult,
 		'string',
 		'🚨 stringResult should be type "string" - verify your Result union type accepts strings',
 	)
 	assert.ok(
-		resultTypes.errorIsError,
+		sampleError instanceof Error,
 		'🚨 errorResult should be an Error instance - verify your Result union type accepts Error',
 	)
 })

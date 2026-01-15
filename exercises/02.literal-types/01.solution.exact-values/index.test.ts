@@ -1,14 +1,37 @@
 import assert from 'node:assert/strict'
-import { execSync } from 'node:child_process'
 import { test } from 'node:test'
+import * as solution from './index.ts'
 
-const output = execSync('npm start --silent', { encoding: 'utf8' })
-const jsonLine = output.split('\n').find((line) => line.startsWith('Results:'))
-assert.ok(jsonLine, '🚨 Missing "Results:" output line')
-const { sizeOrders, colorOrders, orderIdType, orderIdLength, httpMethods } =
-	JSON.parse(jsonLine.replace('Results:', '').trim())
+await test('sizeOrders is exported', () => {
+	assert.ok(
+		'sizeOrders' in solution,
+		'🚨 Make sure you export "sizeOrders" - add: export { sizeOrders, ... }',
+	)
+})
+
+await test('colorOrders is exported', () => {
+	assert.ok(
+		'colorOrders' in solution,
+		'🚨 Make sure you export "colorOrders" - add: export { colorOrders, ... }',
+	)
+})
+
+await test('sampleOrder is exported', () => {
+	assert.ok(
+		'sampleOrder' in solution,
+		'🚨 Make sure you export "sampleOrder" - add: export { sampleOrder, ... }',
+	)
+})
+
+await test('httpMethods is exported', () => {
+	assert.ok(
+		'httpMethods' in solution,
+		'🚨 Make sure you export "httpMethods" - add: export { httpMethods, ... }',
+	)
+})
 
 await test('createOrder should accept valid Size values', () => {
+	const sizeOrders = solution.sizeOrders.map((order) => order.size)
 	assert.strictEqual(
 		sizeOrders[0],
 		'xs',
@@ -37,6 +60,7 @@ await test('createOrder should accept valid Size values', () => {
 })
 
 await test('createOrder should accept valid Color values', () => {
+	const colorOrders = solution.colorOrders.map((order) => order.color)
 	assert.strictEqual(
 		colorOrders[0],
 		'red',
@@ -60,6 +84,8 @@ await test('createOrder should accept valid Color values', () => {
 })
 
 await test('createOrder should return order with orderId', () => {
+	const orderIdType = typeof solution.sampleOrder.orderId
+	const orderIdLength = solution.sampleOrder.orderId.length
 	assert.ok(
 		orderIdLength > 0,
 		'🚨 order should have orderId property - check your createOrder return type',
@@ -77,13 +103,14 @@ await test('createOrder should return order with orderId', () => {
 
 await test('makeRequest should accept valid HttpMethod values', () => {
 	assert.deepStrictEqual(
-		httpMethods,
+		solution.httpMethods,
 		['GET', 'POST', 'PUT', 'DELETE'],
 		'🚨 makeRequest should accept valid HttpMethod values - verify your HttpMethod literal type',
 	)
 })
 
 await test('Size type should only accept specific literal values', () => {
+	const sizeOrders = solution.sizeOrders.map((order) => order.size)
 	sizeOrders.forEach((size: string) => {
 		assert.ok(
 			['xs', 's', 'm', 'l', 'xl'].includes(size),
@@ -93,6 +120,7 @@ await test('Size type should only accept specific literal values', () => {
 })
 
 await test('Color type should only accept specific literal values', () => {
+	const colorOrders = solution.colorOrders.map((order) => order.color)
 	colorOrders.forEach((color: string) => {
 		assert.ok(
 			['red', 'blue', 'green', 'black'].includes(color),

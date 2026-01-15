@@ -44,20 +44,12 @@ const productWithDesc: Product = {
 	description: 'Has description',
 }
 
-console.log(`${admin.name} is admin:`, isAdmin(admin))
-console.log(`${regularUser.name} is admin:`, isAdmin(regularUser))
-console.log(getProductSummary(product))
-console.log(getProductSummary(productWithDesc))
-console.log(
-	'Results:',
-	JSON.stringify({
-		isAdmin: [isAdmin(admin), isAdmin(regularUser)],
-		productSummary: [
-			getProductSummary(product),
-			getProductSummary(productWithDesc),
-		],
-		productDescriptionMissing: product.description === undefined,
-		productDescriptionValue: productWithDesc.description,
-		userRole: regularUser.role,
-	}),
-)
+const product: Product = { id: 'p1', name: 'Widget', price: 29.99 }
+const productWithDesc: Product = {
+	id: 'p2',
+	name: 'Gadget',
+	price: 49.99,
+	description: 'Has description',
+}
+
+export { isAdmin, getProductSummary, product, productWithDesc, regularUser }

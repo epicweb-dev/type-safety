@@ -38,25 +38,21 @@ const post: Post = {
 	authorId: user.id,
 }
 
-console.log('User:', user.name)
-console.log('Post:', post.title, 'by', post.authorId)
-console.log(
-	'Results:',
-	JSON.stringify({
-		userSample: {
-			id: 'user-1',
-			createdAt: 1000000,
-			updatedAt: 1000000,
-			name: 'Alice',
-			email: 'alice@example.com',
-		},
-		postSample: {
-			id: 'post-1',
-			createdAt: 2000000,
-			updatedAt: 2000000,
-			title: 'Test Post',
-			content: 'Test content',
-			authorId: 'user-1',
-		},
-	}),
-)
+const userSample: User = {
+	id: 'user-1',
+	createdAt: 1000000,
+	updatedAt: 1000000,
+	name: 'Alice',
+	email: 'alice@example.com',
+}
+
+const postSample: Post = {
+	id: 'post-1',
+	createdAt: 2000000,
+	updatedAt: 2000000,
+	title: 'Test Post',
+	content: 'Test content',
+	authorId: 'user-1',
+}
+
+export { userSample, postSample }

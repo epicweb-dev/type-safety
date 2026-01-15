@@ -29,45 +29,5 @@ function dangerousProcess(value: any): string {
 // console.log(dangerousProcess('hello'))  // Works
 // console.log(dangerousProcess(123))       // Runtime error!
 
-// 🐨 When you're done, uncomment this:
-// const malformedJson = 'not json'
-// let malformedThrew = false
-// try {
-// 	parseUser(malformedJson)
-// } catch {
-// 	malformedThrew = true
-// }
-// const parsedValid = parseJsonSafely('{"name": "Alice", "age": 30}')
-// const parsedTest = parseJsonSafely('{"test": "value"}')
-// console.log(
-// 	'Results:',
-// 	JSON.stringify({
-// 		safeProcess: [
-// 			safeProcess('hello'),
-// 			safeProcess('test'),
-// 			safeProcess(''),
-// 			safeProcess(123),
-// 			safeProcess(0),
-// 			safeProcess(3.14159),
-// 			safeProcess(true),
-// 			safeProcess(false),
-// 			safeProcess(null),
-// 			safeProcess(undefined),
-// 			safeProcess({}),
-// 		],
-// 		parsedValid,
-// 		parsedTestType: typeof parsedTest,
-// 		parsedTestIsNull: parsedTest === null,
-// 		isUserResults: [
-// 			isUser({ name: 'Alice', email: 'alice@example.com' }),
-// 			isUser({ name: 'Alice' }),
-// 			isUser({ email: 'alice@example.com' }),
-// 			isUser({ name: 123, email: 'alice@example.com' }),
-// 			isUser(null),
-// 			isUser('not an object'),
-// 		],
-// 		parseUserValid: parseUser('{"name": "Alice", "email": "alice@example.com"}'),
-// 		parseUserInvalid: parseUser('{"foo": "bar"}'),
-// 		malformedThrew,
-// 	}),
-// )
+// 🐨 Export your functions so we can verify your work
+// 💰 export { safeProcess, parseJsonSafely, isUser, parseUser }

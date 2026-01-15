@@ -29,31 +29,5 @@
 // const error = createError<User>('User not found')
 // const pair = makePair('hello', 42)
 
-// 🐨 When you're done, uncomment this:
-// console.log(
-// 	'Results:',
-// 	JSON.stringify({
-// 		createSuccess: [
-// 			createSuccess('test data'),
-// 			createSuccess('hello'),
-// 			createSuccess(42),
-// 			createSuccess({ id: 1, name: 'Alice' }),
-// 		],
-// 		createError: [createError('error message')],
-// 		makePair: [
-// 			makePair('hello', 42),
-// 			makePair(1, 'test'),
-// 			makePair(true, false),
-// 		],
-// 		resultSamples: {
-// 			success: { success: true, data: 'test' },
-// 			error: { success: false, error: 'error' },
-// 		},
-// 		pairSample: { first: 'test', second: 42 },
-// 		apiResponseSample: {
-// 			data: { id: 1 },
-// 			status: 200,
-// 			timestamp: '2024-01-01T00:00:00.000Z',
-// 		},
-// 	}),
-// )
+// 🐨 Export your functions so we can verify your work
+// 💰 export { createSuccess, createError, makePair }

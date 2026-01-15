@@ -22,33 +22,4 @@ function processResult(result: Result) {
 	return message
 }
 
-console.log(formatId(123)) // "#123"
-console.log(formatId('abc')) // "abc"
-processResult('Done!') // "Success: Done!"
-processResult(new Error('Oops')) // "Error: Oops"
-
-const sampleError = new Error('Test error')
-console.log(
-	'Results:',
-	JSON.stringify({
-		formatId: [
-			formatId(123),
-			formatId(456),
-			formatId(0),
-			formatId('abc'),
-			formatId('user-123'),
-			formatId(''),
-		],
-		processResult: [
-			processResult('Done!'),
-			processResult('Success'),
-			processResult(sampleError),
-			processResult(new Error('Another error')),
-		],
-		idTypes: { stringId: typeof 'test-id', numberId: typeof 123 },
-		resultTypes: {
-			stringResult: typeof 'success',
-			errorIsError: sampleError instanceof Error,
-		},
-	}),
-)
+export { formatId, processResult }
