@@ -29,6 +29,13 @@ function process(value: unknown) {
 	forces callers to narrow the type before using it.
 </callout-info>
 
+<callout-info>
+	This exercise introduces **type guard functions** with the `value is Type`
+	return type syntax. This is a preview—we'll cover type guards in more depth in
+	the next exercise. For now, just know that this special syntax tells
+	TypeScript "if this function returns true, narrow the type."
+</callout-info>
+
 📜 [TypeScript Handbook - Unknown](https://www.typescriptlang.org/docs/handbook/2/functions.html#unknown)
 
 🐨 Once you've completed the exercise, run `node index.ts` in the playground to test your work!

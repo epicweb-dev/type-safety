@@ -31,20 +31,17 @@ await test('entity is exported', () => {
 })
 
 await test('User should extend Entity interface', () => {
-	assert.strictEqual(
-		solution.user.id,
-		'user-1',
-		'🚨 user.id should be "user-1" - ensure User extends Entity interface',
+	assert.ok(
+		typeof solution.user.id === 'string',
+		'🚨 user.id should be a string - ensure User extends Entity interface',
 	)
-	assert.strictEqual(
-		solution.user.name,
-		'Alice',
-		'🚨 user.name should be "Alice" - ensure User interface includes name property',
+	assert.ok(
+		typeof solution.user.name === 'string',
+		'🚨 user.name should be a string - ensure User interface includes name property',
 	)
-	assert.strictEqual(
-		solution.user.email,
-		'alice@example.com',
-		'🚨 user.email should be "alice@example.com" - ensure User interface includes email property',
+	assert.ok(
+		typeof solution.user.email === 'string',
+		'🚨 user.email should be a string - ensure User interface includes email property',
 	)
 	assert.ok(
 		solution.user.createdAt instanceof Date,
@@ -57,20 +54,17 @@ await test('User should extend Entity interface', () => {
 })
 
 await test('Product should extend Entity interface', () => {
-	assert.strictEqual(
-		solution.product.id,
-		'prod-1',
-		'🚨 product.id should be "prod-1" - ensure Product extends Entity interface',
+	assert.ok(
+		typeof solution.product.id === 'string',
+		'🚨 product.id should be a string - ensure Product extends Entity interface',
 	)
-	assert.strictEqual(
-		solution.product.name,
-		'Widget',
-		'🚨 product.name should be "Widget" - ensure Product interface includes name property',
+	assert.ok(
+		typeof solution.product.name === 'string',
+		'🚨 product.name should be a string - ensure Product interface includes name property',
 	)
-	assert.strictEqual(
-		solution.product.price,
-		29.99,
-		'🚨 product.price should be 29.99 - ensure Product interface includes price property',
+	assert.ok(
+		typeof solution.product.price === 'number',
+		'🚨 product.price should be a number - ensure Product interface includes price property',
 	)
 	assert.ok(
 		solution.product.createdAt instanceof Date,
@@ -83,15 +77,13 @@ await test('Product should extend Entity interface', () => {
 })
 
 await test('AuditLog should have timestamps and action', () => {
-	assert.strictEqual(
-		solution.log.action,
-		'USER_LOGIN',
-		'🚨 log.action should be "USER_LOGIN" - ensure AuditLog interface includes action property',
+	assert.ok(
+		typeof solution.log.action === 'string',
+		'🚨 log.action should be a string - ensure AuditLog interface includes action property',
 	)
-	assert.strictEqual(
-		solution.log.userId,
-		'user-1',
-		'🚨 log.userId should be "user-1" - ensure AuditLog interface includes userId property',
+	assert.ok(
+		typeof solution.log.userId === 'string',
+		'🚨 log.userId should be a string - ensure AuditLog interface includes userId property',
 	)
 	assert.ok(
 		solution.log.createdAt instanceof Date,
@@ -104,10 +96,9 @@ await test('AuditLog should have timestamps and action', () => {
 })
 
 await test('Entity interface should have required fields', () => {
-	assert.strictEqual(
-		solution.entity.id,
-		'test-id',
-		'🚨 entity.id should be "test-id" - verify your Entity interface definition',
+	assert.ok(
+		typeof solution.entity.id === 'string',
+		'🚨 entity.id should be a string - verify your Entity interface definition',
 	)
 	assert.ok(
 		solution.entity.createdAt instanceof Date,

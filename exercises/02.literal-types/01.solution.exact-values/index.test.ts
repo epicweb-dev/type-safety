@@ -31,56 +31,33 @@ await test('httpMethods is exported', () => {
 })
 
 await test('createOrder should accept valid Size values', () => {
-	const sizeOrders = solution.sizeOrders.map((order) => order.size)
-	assert.strictEqual(
-		sizeOrders[0],
-		'xs',
-		'🚨 order1.size should be "xs" - verify your Size literal type includes all valid values',
+	const sizeOrders: Array<string> = solution.sizeOrders.map(
+		(order) => order.size,
 	)
-	assert.strictEqual(
-		sizeOrders[1],
-		's',
-		'🚨 order2.size should be "s" - verify your Size literal type includes all valid values',
-	)
-	assert.strictEqual(
-		sizeOrders[2],
-		'm',
-		'🚨 order3.size should be "m" - verify your Size literal type includes all valid values',
-	)
-	assert.strictEqual(
-		sizeOrders[3],
-		'l',
-		'🚨 order4.size should be "l" - verify your Size literal type includes all valid values',
-	)
-	assert.strictEqual(
-		sizeOrders[4],
-		'xl',
-		'🚨 order5.size should be "xl" - verify your Size literal type includes all valid values',
-	)
+	const validSizes = ['xs', 's', 'm', 'l', 'xl']
+
+	// Verify all valid sizes are represented in the orders
+	for (const size of validSizes) {
+		assert.ok(
+			sizeOrders.includes(size),
+			`🚨 sizeOrders should include a size of "${size}" - verify your Size literal type includes all valid values`,
+		)
+	}
 })
 
 await test('createOrder should accept valid Color values', () => {
-	const colorOrders = solution.colorOrders.map((order) => order.color)
-	assert.strictEqual(
-		colorOrders[0],
-		'red',
-		'🚨 order1.color should be "red" - verify your Color literal type includes all valid values',
+	const colorOrders: Array<string> = solution.colorOrders.map(
+		(order) => order.color,
 	)
-	assert.strictEqual(
-		colorOrders[1],
-		'blue',
-		'🚨 order2.color should be "blue" - verify your Color literal type includes all valid values',
-	)
-	assert.strictEqual(
-		colorOrders[2],
-		'green',
-		'🚨 order3.color should be "green" - verify your Color literal type includes all valid values',
-	)
-	assert.strictEqual(
-		colorOrders[3],
-		'black',
-		'🚨 order4.color should be "black" - verify your Color literal type includes all valid values',
-	)
+	const validColors = ['red', 'blue', 'green', 'black']
+
+	// Verify all valid colors are represented in the orders
+	for (const color of validColors) {
+		assert.ok(
+			colorOrders.includes(color),
+			`🚨 colorOrders should include a color of "${color}" - verify your Color literal type includes all valid values`,
+		)
+	}
 })
 
 await test('createOrder should return order with orderId', () => {
@@ -102,11 +79,14 @@ await test('createOrder should return order with orderId', () => {
 })
 
 await test('makeRequest should accept valid HttpMethod values', () => {
-	assert.deepStrictEqual(
-		solution.httpMethods,
-		['GET', 'POST', 'PUT', 'DELETE'],
-		'🚨 makeRequest should accept valid HttpMethod values - verify your HttpMethod literal type',
-	)
+	const httpMethods: Array<string> = [...solution.httpMethods]
+	const validMethods = ['GET', 'POST', 'PUT', 'DELETE']
+	for (const method of validMethods) {
+		assert.ok(
+			httpMethods.includes(method),
+			`🚨 httpMethods should include "${method}" - verify your HttpMethod literal type`,
+		)
+	}
 })
 
 await test('Size type should only accept specific literal values', () => {

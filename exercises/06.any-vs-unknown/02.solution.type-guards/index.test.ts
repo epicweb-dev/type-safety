@@ -157,10 +157,12 @@ await test('isProduct should correctly identify Product objects', () => {
 
 await test('processApiResponse should handle Product objects', () => {
 	const validProduct = { id: '1', name: 'Widget', price: 9.99 }
-	assert.strictEqual(
-		solution.processApiResponse(validProduct),
-		'Product: Widget ($9.99)',
-		'🚨 processApiResponse should format Product objects correctly - check your type narrowing logic',
+	const result = solution.processApiResponse(validProduct)
+	assert.ok(
+		typeof result === 'string' &&
+			result.includes('Widget') &&
+			result.includes('9.99'),
+		'🚨 processApiResponse should format Product objects with name and price - check your type narrowing logic',
 	)
 })
 

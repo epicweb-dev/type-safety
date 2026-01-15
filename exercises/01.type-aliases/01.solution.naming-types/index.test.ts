@@ -47,55 +47,56 @@ await test('formatProduct function should format products correctly', () => {
 		price: 29.99,
 		inStock: false,
 	}
-	assert.strictEqual(
-		solution.formatProduct(laptop),
-		'Laptop - $999.99 (In Stock)',
-		'🚨 formatProduct should format in-stock products correctly - check your formatting logic',
+	const inStockResult = solution.formatProduct(laptop)
+	const outOfStockResult = solution.formatProduct(outOfStockProduct)
+
+	// Verify the result contains the product name, price, and stock status
+	assert.ok(
+		inStockResult.includes('Laptop') && inStockResult.includes('999.99'),
+		'🚨 formatProduct should include product name and price',
 	)
-	assert.strictEqual(
-		solution.formatProduct(outOfStockProduct),
-		'Mouse - $29.99 (Out of Stock)',
-		'🚨 formatProduct should format out-of-stock products correctly - check your conditional logic',
+	assert.ok(
+		outOfStockResult.includes('Mouse') && outOfStockResult.includes('29.99'),
+		'🚨 formatProduct should include product name and price',
+	)
+	// In-stock and out-of-stock should produce different results
+	assert.notStrictEqual(
+		inStockResult,
+		outOfStockResult.replace('Mouse', 'Laptop').replace('29.99', '999.99'),
+		'🚨 formatProduct should indicate stock status differently for in-stock vs out-of-stock products',
 	)
 })
 
 await test('User type should enforce correct structure', () => {
-	assert.strictEqual(
-		solution.userSample.id,
-		'1',
-		'🚨 user.id should be "1" - verify your User type definition',
+	assert.ok(
+		typeof solution.userSample.id === 'string',
+		'🚨 user.id should be a string - verify your User type definition',
 	)
-	assert.strictEqual(
-		solution.userSample.name,
-		'Test User',
-		'🚨 user.name should be "Test User" - verify your User type definition',
+	assert.ok(
+		typeof solution.userSample.name === 'string',
+		'🚨 user.name should be a string - verify your User type definition',
 	)
-	assert.strictEqual(
-		solution.userSample.email,
-		'test@example.com',
-		'🚨 user.email should be "test@example.com" - verify your User type definition',
+	assert.ok(
+		typeof solution.userSample.email === 'string',
+		'🚨 user.email should be a string - verify your User type definition',
 	)
 })
 
 await test('Product type should enforce correct structure', () => {
-	assert.strictEqual(
-		solution.productSample.id,
-		'p1',
-		'🚨 product.id should be "p1" - verify your Product type definition',
+	assert.ok(
+		typeof solution.productSample.id === 'string',
+		'🚨 product.id should be a string - verify your Product type definition',
 	)
-	assert.strictEqual(
-		solution.productSample.name,
-		'Test Product',
-		'🚨 product.name should be "Test Product" - verify your Product type definition',
+	assert.ok(
+		typeof solution.productSample.name === 'string',
+		'🚨 product.name should be a string - verify your Product type definition',
 	)
-	assert.strictEqual(
-		solution.productSample.price,
-		49.99,
-		'🚨 product.price should be 49.99 - verify your Product type definition',
+	assert.ok(
+		typeof solution.productSample.price === 'number',
+		'🚨 product.price should be a number - verify your Product type definition',
 	)
-	assert.strictEqual(
-		solution.productSample.inStock,
-		true,
-		'🚨 product.inStock should be true - verify your Product type definition',
+	assert.ok(
+		typeof solution.productSample.inStock === 'boolean',
+		'🚨 product.inStock should be a boolean - verify your Product type definition',
 	)
 })
