@@ -10,11 +10,11 @@
 
 // 🐨 Create a generic `last` function
 // Takes an array of T, returns T | undefined
-// 💰 Use arr[arr.length - 1]
+// 💰 Use the last index of the array
 
 // 🐨 Create a generic `reverse` function
 // Takes an array of T, returns a new reversed array of T
-// 💰 Use [...arr].reverse() to avoid mutating
+// 💰 Avoid mutating the original array
 
 // Test your functions
 // console.log(identity('hello'))      // 'hello'
@@ -25,4 +25,4 @@
 // console.log(reverse([1, 2, 3]))     // [3, 2, 1]
 
 // 🐨 Export your functions so we can verify your work
-// 💰 export { identity, first, last, reverse }
+// 💰 Export the functions you created

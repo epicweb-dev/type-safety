@@ -22,4 +22,4 @@
 // 🐨 Create a function `describePayment` that describes each method
 
 // 🐨 Export your functions so we can verify your work
-// 💰 export { renderState, describePayment }
+// 💰 Export the functions you created

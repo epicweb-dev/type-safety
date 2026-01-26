@@ -22,20 +22,6 @@ const dog: Dog = { name: 'Rex', breed: 'German Shepherd' }
 2. Extend it to create `User` and `Product` interfaces
 3. Use multiple inheritance with `extends A, B`
 
-💰 Extending syntax:
-
-```ts
-interface Child extends Parent {
-	additionalProperty: Type
-}
-```
-
-💰 Multiple inheritance:
-
-```ts
-interface C extends A, B {
-	// Has properties from A and B
-}
-```
+💰 Use `extends` to inherit fields from other interfaces.
 
 📜 [TypeScript Handbook - Extending Types](https://www.typescriptlang.org/docs/handbook/2/objects.html#extending-types)

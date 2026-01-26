@@ -15,18 +15,7 @@ type TrafficLight = 'red' | 'yellow' | 'green'
    state
 3. Create a state machine for a simple media player
 
-💰 State transition as a **pure function** (takes state in, returns new state
-out):
-
-```ts
-function nextState(current: OrderState): OrderState {
-	switch (current) {
-		case 'pending':
-			return 'processing'
-		// ...
-	}
-}
-```
+💰 A state transition should be a pure function that returns the next state.
 
 Notice this function doesn't mutate anything—it returns a new state. This is the
 functional approach to state management.

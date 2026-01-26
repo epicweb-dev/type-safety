@@ -39,4 +39,4 @@ const laptop = {
 // function formatProduct(product: Product): string
 
 // 🐨 Export your functions and sample objects so we can verify your work
-// 💰 export { greet, formatProduct, userSample, productSample }
+// 💰 Export the functions and sample objects you created

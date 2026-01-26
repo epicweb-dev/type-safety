@@ -3,7 +3,7 @@
 // 🐨 Create a function `getId` that:
 // - Takes any object with an `id: string` property
 // - Returns the id
-// 💰 function getId<T extends { id: string }>(obj: T): string
+// 💰 Constrain T so it always has an id string
 
 // 🐨 Create a function `getName` that:
 // - Takes any object with a `name: string` property
@@ -12,12 +12,12 @@
 // 🐨 Create a function `getProperty` that:
 // - Takes an object T and a key K (where K is a key of T)
 // - Returns the value at that key with correct type
-// 💰 function getProperty<T, K extends keyof T>(obj: T, key: K): T[K]
+// 💰 Use a key constraint so the return type matches the property
 
 // 🐨 Create a function `merge` that:
 // - Takes two objects of types T and U (both must be objects)
 // - Returns a merged object of type T & U
-// 💰 function merge<T extends object, U extends object>(a: T, b: U): T & U
+// 💰 Constrain both types to objects before merging
 
 // Test types
 type User = { id: string; name: string; email: string }
@@ -31,4 +31,4 @@ type Product = { id: string; name: string; price: number }
 // const merged = merge({ a: 1 }, { b: 2 })    // { a: 1, b: 2 }
 
 // 🐨 Export your functions so we can verify your work
-// 💰 export { getId, getName, getProperty, merge }
+// 💰 Export the functions you created

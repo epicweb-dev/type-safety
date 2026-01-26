@@ -22,4 +22,4 @@
 // processResult(new Error('Oops')) // "Error: Oops"
 
 // 🐨 Export your functions so we can verify your work
-// 💰 export { formatId, processResult }
+// 💰 Export the functions you created

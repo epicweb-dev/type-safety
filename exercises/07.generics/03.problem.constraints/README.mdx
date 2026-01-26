@@ -29,21 +29,9 @@ Use `extends` to add constraints.
 3. Use `keyof` constraint for type-safe property access
 4. Create a function with multiple constrained type parameters
 
-💰 Constraining to objects with specific properties:
+💰 Use `extends` to require specific properties.
 
-```ts
-function getProperty<T extends { id: string }>(obj: T): string {
-	return obj.id
-}
-```
-
-💰 Using `keyof` for property access:
-
-```ts
-function getProp<T, K extends keyof T>(obj: T, key: K): T[K] {
-	return obj[key]
-}
-```
+💰 `keyof` lets you constrain keys and return the correct property type.
 
 <callout-info>
 	`keyof T` produces a union of all property names of type T. For example, if T

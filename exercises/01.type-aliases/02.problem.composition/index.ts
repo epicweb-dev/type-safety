@@ -11,7 +11,7 @@
 // - updatedAt: Timestamp
 // - name: string
 // - email: Email
-// 💰 type User = { id: ID; createdAt: Timestamp; ... }
+// 💰 Build User from the primitive aliases
 
 // 🐨 Create a Post type with these fields:
 // - id: ID
@@ -20,11 +20,11 @@
 // - title: string
 // - content: string
 // - authorId: ID
-// 💰 type Post = { id: ID; createdAt: Timestamp; ... }
+// 💰 Build Post from the primitive aliases
 
 // 🐨 Create example instances
 // const user: User = { ... }
 // const post: Post = { ... }
 
 // 🐨 Export your sample objects so we can verify your work
-// 💰 export { userSample, postSample }
+// 💰 Export the sample objects you created

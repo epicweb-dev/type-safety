@@ -9,19 +9,7 @@ how `any` and `unknown` differ.
 2. See how `unknown` requires checks (safe!)
 3. Refactor `any` code to use `unknown`
 
-💰 Type narrowing with unknown:
-
-```ts
-function process(value: unknown) {
-	if (typeof value === 'string') {
-		return value.toUpperCase()
-	}
-	if (typeof value === 'number') {
-		return value.toFixed(2)
-	}
-	return String(value)
-}
-```
+💰 Narrow `unknown` with `typeof` checks before using it.
 
 <callout-info>
 	`JSON.parse(str)` converts a JSON string into a JavaScript value. TypeScript

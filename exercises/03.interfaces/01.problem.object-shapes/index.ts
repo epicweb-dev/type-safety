@@ -22,4 +22,4 @@
 // const product: Product = { id: 'p1', name: 'Widget', price: 29.99 }
 
 // 🐨 Export your functions and sample objects so we can verify your work
-// 💰 export { isAdmin, getProductSummary, product, productWithDesc, regularUser }
+// 💰 Export the functions and sample objects you created

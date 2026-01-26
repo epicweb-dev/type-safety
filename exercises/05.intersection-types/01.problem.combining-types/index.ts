@@ -20,4 +20,4 @@
 // const post: Post = { ... }
 
 // 🐨 Export your sample objects so we can verify your work
-// 💰 export { user, post, comment }
+// 💰 Export the sample objects you created

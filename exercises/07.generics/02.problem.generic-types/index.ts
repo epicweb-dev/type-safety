@@ -8,7 +8,7 @@
 // 🐨 Create a Pair<T, U> type with:
 // - first: T
 // - second: U
-// 💰 type Pair<T, U> = { first: T; second: U }
+// 💰 Pair should hold two values of different types
 
 // 🐨 Create an ApiResponse<T> interface with:
 // - data: T
@@ -30,4 +30,4 @@
 // const pair = makePair('hello', 42)
 
 // 🐨 Export your functions so we can verify your work
-// 💰 export { createSuccess, createError, makePair }
+// 💰 Export the functions you created

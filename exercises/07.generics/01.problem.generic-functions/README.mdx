@@ -26,12 +26,6 @@ identity(42) // Inferred: T is number
 3. Create a generic `last` function that returns the last array element
 4. Create a generic `reverse` function that reverses an array
 
-💰 Generic array function pattern:
-
-```ts
-function example<T>(arr: T[]): T | undefined {
-	return arr[0]
-}
-```
+💰 Use a type parameter to make the array function work with any type.
 
 📜 [TypeScript Handbook - Generics](https://www.typescriptlang.org/docs/handbook/2/generics.html)

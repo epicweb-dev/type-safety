@@ -30,4 +30,4 @@ function dangerousProcess(value: any): string {
 // console.log(dangerousProcess(123))       // Runtime error!
 
 // 🐨 Export your functions so we can verify your work
-// 💰 export { safeProcess, parseJsonSafely, isUser, parseUser }
+// 💰 Export the functions you created

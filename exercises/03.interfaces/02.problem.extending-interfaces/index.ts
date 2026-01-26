@@ -27,4 +27,4 @@
 // const log: AuditLog = { ... }
 
 // 🐨 Export your sample objects so we can verify your work
-// 💰 export { user, product, log, entity }
+// 💰 Export the sample objects you created

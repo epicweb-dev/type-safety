@@ -27,4 +27,4 @@
 // console.log(player)
 
 // 🐨 Export your functions and state arrays so we can verify your work
-// 💰 export { advanceOrder, playerAction, orderStates, playerStates }
+// 💰 Export the functions and state arrays you created

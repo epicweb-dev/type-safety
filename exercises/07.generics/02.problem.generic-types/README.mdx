@@ -28,10 +28,6 @@ This is exactly how built-in types like `Array<T>` and `Promise<T>` work.
 3. Create a generic `ApiResponse<T>` interface for API responses
 4. Use these types in functions
 
-💰 Result pattern:
-
-```ts
-type Result<T> = { success: true; data: T } | { success: false; error: string }
-```
+💰 Model success and error with a generic discriminated union.
 
 📜 [TypeScript Handbook - Generic Types](https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-types)

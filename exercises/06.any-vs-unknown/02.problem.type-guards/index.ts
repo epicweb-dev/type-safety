@@ -28,4 +28,4 @@
 // console.log(processApiResponse(42))
 
 // 🐨 Export your functions so we can verify your work
-// 💰 export { isString, isNumber, isProduct, processApiResponse }
+// 💰 Export the functions you created

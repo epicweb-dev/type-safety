@@ -21,4 +21,4 @@
 // makeRequest('PATCH', '/api')    // ❌ 'PATCH' not in HttpMethod
 
 // 🐨 Export your arrays and sample order so we can verify your work
-// 💰 export { sizeOrders, colorOrders, sampleOrder, httpMethods }
+// 💰 Export the arrays and sample order you created
