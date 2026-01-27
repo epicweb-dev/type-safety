@@ -1,0 +1,68 @@
+# Enums
+
+Enums give names to sets of related values. Instead of using magic strings or
+numbers, you use meaningful identifiers.
+
+```ts
+enum Status {
+	Pending = 'pending',
+	Active = 'active',
+	Completed = 'completed',
+}
+
+const orderStatus: Status = Status.Active
+```
+
+## String Enums vs Numeric Enums
+
+```ts
+// String enum - values are strings
+enum Color {
+	Red = 'red',
+	Green = 'green',
+	Blue = 'blue',
+}
+
+// Numeric enum - values are numbers (auto-incremented)
+enum Direction {
+	Up, // 0
+	Down, // 1
+	Left, // 2
+	Right, // 3
+}
+```
+
+## Enums vs Union Types
+
+TypeScript offers an alternative: **union types** of string literals.
+
+```ts
+// Enum
+enum Status {
+	Pending = 'pending',
+	Active = 'active',
+}
+
+// Union type alternative
+type Status = 'pending' | 'active'
+```
+
+Many TypeScript developers prefer union types because:
+
+- Simpler syntax
+- No runtime overhead
+- Better tree-shaking
+- Works with string literals directly
+
+<callout-info>
+	In functional programming, union types are the standard way to represent a
+	fixed set of possibilities. They work seamlessly with TypeScript's type
+	narrowing and discriminated unions—patterns you'll use extensively in modern
+	React and other functional codebases.
+</callout-info>
+
+Choose enums when you need reverse mapping (number → name) or when working with
+teams that prefer the enum syntax. Otherwise, union types are often the better
+choice.
+
+In this exercise, you'll work with both enums and union types.

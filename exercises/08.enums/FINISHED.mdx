@@ -1,0 +1,33 @@
+# Enums
+
+👨‍💼 Well done! You understand both enums and their alternatives.
+
+You learned:
+
+- 📝 **String enums** for readable, predictable values
+- 🔢 **Numeric enums** for auto-incrementing numbers
+- 🔀 **Union types** as a lighter-weight alternative
+- ⚖️ **Tradeoffs** between enums and unions
+
+🦉 The TypeScript community—especially in functional and React codebases—prefers
+union types:
+
+```ts
+// Modern TypeScript style (functional approach)
+type Status = 'pending' | 'active' | 'completed'
+type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE'
+```
+
+Union types work beautifully with TypeScript's type narrowing. When you write
+`if (status === 'pending')`, TypeScript knows exactly which type you're working
+with.
+
+But enums still have their place, especially when:
+
+- You need reverse mapping (number to name)
+- Your team prefers the enum pattern
+- You're working with existing enum-heavy codebases
+
+🎉 Congratulations! You've completed the Type Safety workshop! You can now
+design types that make invalid states unrepresentable and choose between enums
+and unions when modeling fixed sets of values.

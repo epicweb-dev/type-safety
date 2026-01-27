@@ -1,0 +1,8 @@
+{
+  "name": "exercises_01.type-aliases_03.problem.record-type",
+  "type": "module",
+  "scripts": {
+    "start": "npx @kentcdodds/log-module@latest ./index.ts",
+    "test": "node --test index.test.ts"
+  }
+}

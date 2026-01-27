@@ -4,7 +4,7 @@
     Harness TypeScript's type system to catch bugs before they happen
   </strong>
   <p>
-    Learn type aliases, interfaces, unions, generics, and type guards—the tools that make TypeScript a powerful ally for writing correct code.
+    Learn type aliases, interfaces, unions, enums, generics, and type guards—the tools that make TypeScript a powerful ally for writing correct code.
   </p>
 </div>
 
