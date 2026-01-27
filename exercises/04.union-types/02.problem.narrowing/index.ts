@@ -5,7 +5,7 @@ type TextInput = string | Array<string>
 // 🐨 Create a function `normalizeText` that:
 // - If string, returns it trimmed
 // - If array, joins with spaces and trims
-// 💰 Use a type guard to distinguish strings from arrays
+// 💰 Check the type before processing
 
 // Different user types
 type AdminUser = { type: 'admin'; permissions: Array<string> }
@@ -24,4 +24,3 @@ type User = AdminUser | RegularUser | GuestUser
 // console.log(normalizeText(['hello', 'world']))
 
 // 🐨 Export your functions so we can verify your work
-// 💰 Export the functions you created

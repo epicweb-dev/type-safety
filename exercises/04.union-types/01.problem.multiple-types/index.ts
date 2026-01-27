@@ -14,7 +14,7 @@
 // 🐨 Create a function `processResult` that takes a Result
 // If it's a string, log "Success: [value]"
 // If it's an Error, log "Error: [message]"
-// 💰 Use instanceof to check for Error
+// 💰 Check the type before accessing properties
 
 // console.log(formatId(123))      // "#123"
 // console.log(formatId('abc'))    // "abc"
@@ -22,4 +22,3 @@
 // processResult(new Error('Oops')) // "Error: Oops"
 
 // 🐨 Export your functions so we can verify your work
-// 💰 Export the functions you created

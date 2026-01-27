@@ -3,12 +3,12 @@
 // 🐨 Create a Result<T> type that represents either:
 // - { success: true, data: T }
 // - { success: false, error: string }
-// 💰 This is a discriminated union with a generic!
+// 💰 Model both success and error cases
 
 // 🐨 Create a Pair<T, U> type with:
 // - first: T
 // - second: U
-// 💰 Pair should hold two values of different types
+// 💰 Create a type that holds two values
 
 // 🐨 Create an ApiResponse<T> interface with:
 // - data: T
@@ -30,4 +30,3 @@
 // const pair = makePair('hello', 42)
 
 // 🐨 Export your functions so we can verify your work
-// 💰 Export the functions you created
