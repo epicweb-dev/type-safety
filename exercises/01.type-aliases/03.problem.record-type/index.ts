@@ -13,11 +13,10 @@ const users: Array<User> = [
 ]
 
 // 🐨 Create a UsersById type using Record to map IDs to User
-// 🦺 type UsersById = Record<string, User>
+// 🦺 Use string keys for IDs
 
 // 🐨 Create a RoleCounts type using Record and the User roles
-// 🦺 type Role = User['role']
-// 🦺 type RoleCounts = Record<Role, number>
+// 🦺 Extract the role union and map each role to a number
 
 // 🐨 Create a usersById object that matches UsersById
 // @ts-expect-error - 💣 remove this comment when you create UsersById
