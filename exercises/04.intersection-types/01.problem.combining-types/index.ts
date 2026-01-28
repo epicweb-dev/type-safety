@@ -1,6 +1,10 @@
 // Combining Types with Intersection
 
-// 🐨 Create base types:
+// 🐨 Create base types named `WithId`, `WithTimestamps`, and `WithAuthor`.
+// Use these properties:
+// - WithId: id
+// - WithTimestamps: createdAt, updatedAt
+// - WithAuthor: authorId, authorName
 
 // 🐨 Create a User type by combining WithId and WithTimestamps
 // plus name and email properties

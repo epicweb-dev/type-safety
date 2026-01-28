@@ -1,5 +1,5 @@
 {
-  "name": "exercises_02.union-types_03.solution.discriminated-unions",
+  "name": "exercises_02.union-types_03.solution.type-guards",
   "type": "module",
   "scripts": {
     "start": "npx @kentcdodds/log-module@latest ./index.ts",

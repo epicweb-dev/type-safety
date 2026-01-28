@@ -1,5 +1,5 @@
 {
-  "name": "exercises_02.union-types_03.problem.discriminated-unions",
+  "name": "exercises_02.union-types_04.problem.discriminated-unions",
   "type": "module",
   "scripts": {
     "start": "npx @kentcdodds/log-module@latest ./index.ts",
