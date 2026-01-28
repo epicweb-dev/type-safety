@@ -24,10 +24,10 @@ export type User = AdminUser | RegularUser | GuestUser
 // console.log(normalizeText(['hello', 'world']))
 
 // const admin: User = { permissions: ['read', 'write'] }
-// const regular: User = { subscription: 'premium' }
-// const guest: User = { guestCode: 'guest-1' }
 // console.log(describeUser(admin))
+// const regular: User = { subscription: 'premium' }
 // console.log(describeUser(regular))
+// const guest: User = { guestCode: 'guest-1' }
 // console.log(describeUser(guest))
 
 // 🐨 Export `normalizeText` and `describeUser`. Tests import these by name and

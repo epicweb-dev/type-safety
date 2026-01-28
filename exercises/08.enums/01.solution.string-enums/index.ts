@@ -8,12 +8,6 @@ enum OrderStatus {
 	Delivered = 'delivered',
 }
 
-const order = {
-	id: 'ORD-001',
-	status: OrderStatus.Pending,
-	customerName: 'Alice Johnson',
-}
-
 function getStatusMessage(status: OrderStatus) {
 	switch (status) {
 		case OrderStatus.Pending:
@@ -25,6 +19,12 @@ function getStatusMessage(status: OrderStatus) {
 		case OrderStatus.Delivered:
 			return 'Your order has been delivered'
 	}
+}
+
+const order = {
+	id: 'ORD-001',
+	status: OrderStatus.Pending,
+	customerName: 'Alice Johnson',
 }
 
 console.log(order)

@@ -20,12 +20,13 @@ const usersById: UsersById = {
 	u2: users[1],
 }
 
+console.log('Users by ID:', usersById)
+
 const roleCounts: RoleCounts = {
 	admin: 1,
 	member: 1,
 }
 
-console.log('Users by ID:', usersById)
 console.log('Role counts:', roleCounts)
 
 export { usersById, roleCounts }

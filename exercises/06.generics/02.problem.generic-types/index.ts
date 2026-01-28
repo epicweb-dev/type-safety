@@ -26,11 +26,10 @@
 
 // Test
 // const success = createSuccess({ id: 1, name: 'Alice' })
-// const error = createError<User>('User not found')
-// const pair = makePair('hello', 42)
-
 // console.log(success)
+// const error = createError<User>('User not found')
 // console.log(error)
+// const pair = makePair('hello', 42)
 // console.log(pair)
 
 // 🐨 Export `createSuccess`, `createError`, and `makePair`. Tests import these

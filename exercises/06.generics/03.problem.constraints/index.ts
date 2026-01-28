@@ -25,7 +25,6 @@
 // console.log(getName(user))                  // 'Alice'
 // console.log(getProperty(user, 'email'))     // 'alice@example.com'
 // const merged = merge({ a: 1 }, { b: 2 })    // { a: 1, b: 2 }
-
 // console.log(merged)
 
 // 🐨 Export `getId`, `getName`, `getProperty`, and `merge`. Tests import these

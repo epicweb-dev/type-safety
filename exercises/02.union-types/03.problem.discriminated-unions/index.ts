@@ -14,17 +14,17 @@
 // 🐨 Create a function `describePayment` that describes each method
 
 // const loadingState: ApiState = { status: 'loading' }
-// const successState: ApiState = { status: 'success', data: ['a', 'b'] }
-// const errorState: ApiState = { status: 'error', error: 'Network error' }
 // console.log(renderState(loadingState))
+// const successState: ApiState = { status: 'success', data: ['a', 'b'] }
 // console.log(renderState(successState))
+// const errorState: ApiState = { status: 'error', error: 'Network error' }
 // console.log(renderState(errorState))
 
 // const card: PaymentMethod = { type: 'credit_card', last4: '1234', expiry: '12/25' }
-// const paypal: PaymentMethod = { type: 'paypal', email: 'me@example.com' }
-// const bank: PaymentMethod = { type: 'bank', accountNumber: '000123' }
 // console.log(describePayment(card))
+// const paypal: PaymentMethod = { type: 'paypal', email: 'me@example.com' }
 // console.log(describePayment(paypal))
+// const bank: PaymentMethod = { type: 'bank', accountNumber: '000123' }
 // console.log(describePayment(bank))
 
 // 🐨 Export `renderState` and `describePayment`. Tests import these by name and
