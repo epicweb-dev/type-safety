@@ -14,16 +14,16 @@
 // - Returns the value at that key with correct type
 // 💰 Make sure the return type matches the property type
 
+// const user = { id: '1', name: 'Alice', email: 'alice@example.com' }
+// console.log(getId(user))                    // '1'
+// console.log(getName(user))                  // 'Alice'
+// console.log(getProperty(user, 'email'))     // 'alice@example.com'
+
 // 🐨 Create a function `merge` that:
 // - Takes two objects of types T and U (both must be objects)
 // - Returns a merged object of type T & U
 // 💰 Both parameters should be objects
 
-// Test
-// const user = { id: '1', name: 'Alice', email: 'alice@example.com' }
-// console.log(getId(user))                    // '1'
-// console.log(getName(user))                  // 'Alice'
-// console.log(getProperty(user, 'email'))     // 'alice@example.com'
 // const merged = merge({ a: 1 }, { b: 2 })    // { a: 1, b: 2 }
 // console.log(merged)
 

@@ -5,6 +5,9 @@
 // 🐨 Create a type guard `isNumber` that checks if a value is a number
 // (and not NaN!)
 
+// console.log(isString('hi'))
+// console.log(isNumber(123))
+
 // 🐨 Create a Product type:
 
 // 🐨 Create a type guard `isProduct` that checks if a value is a Product
@@ -20,13 +23,9 @@
 // - If it's a string, return it as-is
 // - Otherwise, return "Unknown data"
 
-// Test
 // console.log(processApiResponse({ id: '1', name: 'Widget', price: 9.99 }))
 // console.log(processApiResponse('Hello'))
 // console.log(processApiResponse(42))
-
-// console.log(isString('hi'))
-// console.log(isNumber(123))
 
 // 🐨 Export `isString`, `isNumber`, `isProduct`, and `processApiResponse`.
 // Tests import these by name and check the guard behavior.

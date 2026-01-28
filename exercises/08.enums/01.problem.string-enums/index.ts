@@ -12,10 +12,11 @@
 // - status: OrderStatus
 // - customerName: string
 
+// console.log(order)
+
 // 🐨 Create a function `getStatusMessage` that takes an OrderStatus
 // and returns a user-friendly message
 
-// console.log(order)
 // console.log(getStatusMessage(order.status))
 
 // 🐨 Export `OrderStatus`, `order`, and `getStatusMessage`. Tests import these

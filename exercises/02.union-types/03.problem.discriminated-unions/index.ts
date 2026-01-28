@@ -9,16 +9,16 @@
 // - Error: "Error: [message]"
 // Include exhaustiveness checking!
 
-// 🐨 Create discriminated union for payment methods:
-
-// 🐨 Create a function `describePayment` that describes each method
-
 // const loadingState: ApiState = { status: 'loading' }
 // console.log(renderState(loadingState))
 // const successState: ApiState = { status: 'success', data: ['a', 'b'] }
 // console.log(renderState(successState))
 // const errorState: ApiState = { status: 'error', error: 'Network error' }
 // console.log(renderState(errorState))
+
+// 🐨 Create discriminated union for payment methods:
+
+// 🐨 Create a function `describePayment` that describes each method
 
 // const card: PaymentMethod = { type: 'credit_card', last4: '1234', expiry: '12/25' }
 // console.log(describePayment(card))

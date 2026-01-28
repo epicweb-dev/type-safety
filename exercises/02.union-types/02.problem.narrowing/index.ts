@@ -7,6 +7,9 @@ export type TextInput = string | Array<string>
 // - If array, joins with spaces and trims
 // 💰 Check the type before processing
 
+// console.log(normalizeText('  hello  '))
+// console.log(normalizeText(['hello', 'world']))
+
 // Different user types
 type AdminUser = { permissions: Array<string> }
 type RegularUser = { subscription: 'free' | 'premium' }
@@ -19,9 +22,6 @@ export type User = AdminUser | RegularUser | GuestUser
 // - Admin: "Admin with X permissions"
 // - Regular: "Regular user (subscription)"
 // - Guest: "Guest user"
-
-// console.log(normalizeText('  hello  '))
-// console.log(normalizeText(['hello', 'world']))
 
 // const admin: User = { permissions: ['read', 'write'] }
 // console.log(describeUser(admin))

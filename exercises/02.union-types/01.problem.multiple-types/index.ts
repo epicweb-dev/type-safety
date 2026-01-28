@@ -6,6 +6,9 @@
 // If it's a number, prefix with '#'
 // If it's a string, return as-is
 
+// console.log(formatId(123))      // "#123"
+// console.log(formatId('abc'))    // "abc"
+
 // 🐨 Create a type `Result` that can be string (success) or Error (failure)
 
 // 🐨 Create a function `processResult` that takes a Result
@@ -13,8 +16,6 @@
 // If it's an Error, return "Error: [message]"
 // 💰 Check the type before accessing properties
 
-// console.log(formatId(123))      // "#123"
-// console.log(formatId('abc'))    // "abc"
 // console.log(processResult('Done!'))          // "Success: Done!"
 // console.log(processResult(new Error('Oops'))) // "Error: Oops"
 
