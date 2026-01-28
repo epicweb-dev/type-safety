@@ -1,6 +1,6 @@
 // Type Narrowing Techniques
 
-type TextInput = string | Array<string>
+export type TextInput = string | Array<string>
 
 function normalizeText(input: TextInput) {
 	if (Array.isArray(input)) {
@@ -14,7 +14,7 @@ type AdminUser = { permissions: Array<string> }
 type RegularUser = { subscription: 'free' | 'premium' }
 type GuestUser = { guestCode: string }
 
-type User = AdminUser | RegularUser | GuestUser
+export type User = AdminUser | RegularUser | GuestUser
 
 function describeUser(user: User) {
 	if ('permissions' in user) {

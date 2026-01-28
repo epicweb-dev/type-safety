@@ -15,13 +15,6 @@
 // 🐨 Create a function `getStatusMessage` that takes an OrderStatus
 // and returns a user-friendly message
 
-// function getStatusMessage(status: OrderStatus): string {
-//   switch (status) {
-//     case OrderStatus.Pending: return 'Your order is pending'
-//     // Add other cases
-//   }
-// }
-
 // console.log(order)
 // console.log(getStatusMessage(order.status))
 

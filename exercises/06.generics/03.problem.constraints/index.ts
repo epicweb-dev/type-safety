@@ -19,12 +19,8 @@
 // - Returns a merged object of type T & U
 // 💰 Both parameters should be objects
 
-// Test types
-type User = { id: string; name: string; email: string }
-type Product = { id: string; name: string; price: number }
-
 // Test
-// const user: User = { id: '1', name: 'Alice', email: 'alice@example.com' }
+// const user = { id: '1', name: 'Alice', email: 'alice@example.com' }
 // console.log(getId(user))                    // '1'
 // console.log(getName(user))                  // 'Alice'
 // console.log(getProperty(user, 'email'))     // 'alice@example.com'

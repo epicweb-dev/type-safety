@@ -1,6 +1,6 @@
 // Type Narrowing Techniques
 
-type TextInput = string | Array<string>
+export type TextInput = string | Array<string>
 
 // 🐨 Create a function `normalizeText` that:
 // - If string, returns it trimmed
@@ -12,7 +12,7 @@ type AdminUser = { permissions: Array<string> }
 type RegularUser = { subscription: 'free' | 'premium' }
 type GuestUser = { guestCode: string }
 
-type User = AdminUser | RegularUser | GuestUser
+export type User = AdminUser | RegularUser | GuestUser
 
 // 🐨 Create a function `describeUser` that returns a description
 // Narrow by checking which properties exist

@@ -6,13 +6,13 @@
 // - email: string
 // - role: 'admin' | 'user'
 
+// 🐨 Create a function `isAdmin` that takes a User and returns boolean
+
 // 🐨 Create a Product interface with:
 // - id: string
 // - name: string
 // - price: number
 // - description?: string (optional)
-
-// 🐨 Create a function `isAdmin` that takes a User and returns boolean
 
 // 🐨 Create a function `getProductSummary` that takes a Product
 // and returns a string summary

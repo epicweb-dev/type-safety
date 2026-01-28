@@ -1,13 +1,11 @@
 // Type Guards for Safe Narrowing
 
 // 🐨 Create a type guard `isString` that checks if a value is a string
-// function isString(value: unknown): value is string
 
 // 🐨 Create a type guard `isNumber` that checks if a value is a number
 // (and not NaN!)
 
 // 🐨 Create a Product type:
-// type Product = { id: string; name: string; price: number }
 
 // 🐨 Create a type guard `isProduct` that checks if a value is a Product
 // Check that:

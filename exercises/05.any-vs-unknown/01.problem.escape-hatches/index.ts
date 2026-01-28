@@ -6,6 +6,8 @@ function dangerousProcess(value: any): string {
 	return value.toUpperCase()
 }
 
+dangerousProcess('example')
+
 // 🐨 Rewrite this function using `unknown` instead of `any`.
 // Handle string, number, and at least one other type safely.
 
@@ -13,7 +15,6 @@ function dangerousProcess(value: any): string {
 // - Takes a JSON string
 // - Parses it (JSON.parse returns `any` by default)
 // - Returns unknown (forcing callers to narrow)
-// function parseJsonSafely(json: string): unknown
 
 // 🐨 Define a `User` type with `name` and `email` strings.
 // 🐨 Create an `isUser` type guard that checks an unknown value.

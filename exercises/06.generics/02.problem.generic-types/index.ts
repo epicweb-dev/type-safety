@@ -5,24 +5,24 @@
 // - { success: false, error: string }
 // 💰 Model both success and error cases
 
-// 🐨 Create a Pair<T, U> type with:
-// - first: T
-// - second: U
-// 💰 Create a type that holds two values
-
-// 🐨 Create an ApiResponse<T> interface with:
-// - data: T
-// - status: number
-// - timestamp: Date
-
 // 🐨 Create a function `createSuccess<T>` that takes data
 // and returns a successful Result<T>
 
 // 🐨 Create a function `createError<T>` that takes an error message
 // and returns a failed Result<T>
 
+// 🐨 Create a Pair<T, U> type with:
+// - first: T
+// - second: U
+// 💰 Create a type that holds two values
+
 // 🐨 Create a function `makePair<T, U>` that takes two values
 // and returns a Pair<T, U>
+
+// 🐨 Create and export an ApiResponse<T> interface with:
+// - data: T
+// - status: number
+// - timestamp: Date
 
 // Test
 // const success = createSuccess({ id: 1, name: 'Alice' })

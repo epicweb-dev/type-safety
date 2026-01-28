@@ -5,48 +5,20 @@
 // - name: string
 // - email: string
 
+// 🐨 Create a `userSample` value using the User type
+
+// 🐨 Create a function that takes a User and returns a greeting
+
 // 🐨 Create a type alias `Product` with:
 // - id: string
 // - name: string
 // - price: number
 // - inStock: boolean
 
-// 🐨 Use the User type for these variables
-const alice = {
-	id: '1',
-	name: 'Alice',
-	email: 'alice@example.com',
-}
-
-const bob = {
-	id: '2',
-	name: 'Bob',
-	email: 'bob@example.com',
-}
-
-// console.log(alice)
-// console.log(bob)
-
-// 🐨 Use the Product type for this variable
-const laptop = {
-	id: 'p1',
-	name: 'Laptop',
-	price: 999.99,
-	inStock: true,
-}
-
-// console.log(laptop)
-
-// 🐨 Create a function that takes a User and returns a greeting
-// function greet(user: User): string
+// 🐨 Create a `productSample` value using the Product type
 
 // 🐨 Create a function that takes a Product and returns a formatted string
-// function formatProduct(product: Product): string
 
-// console.log(greet(alice))
-// console.log(formatProduct(laptop))
-
-// 🐨 Create `userSample` and `productSample` values for tests.
 // 🐨 Export `greet`, `formatProduct`, `userSample`, and `productSample`. Tests
 // import these by name and will check their behavior and shapes.
 // export { greet, formatProduct, userSample, productSample }

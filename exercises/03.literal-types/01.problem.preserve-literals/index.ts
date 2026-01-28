@@ -14,14 +14,12 @@ const roles = {
 }
 
 // 🐨 Create a `Role` type from the keys of `roles`
-// type Role = ...
 
 // 🐨 Add `as const` to the `roles` object so this becomes `true`
 // @ts-expect-error - 💣 remove this comment
 const adminCanDelete: true = roles.admin.canDeleteUsers
 
 // 🐨 Implement `canDeleteUsers` to return whether a role can delete users
-// function canDeleteUsers(role: Role): boolean
 
 // 🐨 Export `roles`, `adminCanDelete`, and `canDeleteUsers` for tests.
 // export { roles, adminCanDelete, canDeleteUsers }

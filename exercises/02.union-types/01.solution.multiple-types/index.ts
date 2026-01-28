@@ -2,8 +2,6 @@
 
 type ID = string | number
 
-type Result = string | Error
-
 function formatId(id: ID) {
 	if (typeof id === 'number') {
 		return `#${id}`
@@ -11,15 +9,13 @@ function formatId(id: ID) {
 	return id
 }
 
+type Result = string | Error
+
 function processResult(result: Result) {
 	if (result instanceof Error) {
-		const message = `Error: ${result.message}`
-		console.log(message)
-		return message
+		return `Error: ${result.message}`
 	}
-	const message = `Success: ${result}`
-	console.log(message)
-	return message
+	return `Success: ${result}`
 }
 
 export { formatId, processResult }

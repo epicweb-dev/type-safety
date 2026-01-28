@@ -5,6 +5,8 @@ function dangerousProcess(value: any): string {
 	return value.toUpperCase() // Will crash if not a string!
 }
 
+dangerousProcess('example')
+
 // Safe version using `unknown`
 function safeProcess(value: unknown): string {
 	if (typeof value === 'string') {

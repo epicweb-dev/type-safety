@@ -6,46 +6,8 @@ type User = {
 	email: string
 }
 
-type Product = {
-	id: string
-	name: string
-	price: number
-	inStock: boolean
-}
-
-const alice: User = {
-	id: '1',
-	name: 'Alice',
-	email: 'alice@example.com',
-}
-
-const bob: User = {
-	id: '2',
-	name: 'Bob',
-	email: 'bob@example.com',
-}
-
-const laptop: Product = {
-	id: 'p1',
-	name: 'Laptop',
-	price: 999.99,
-	inStock: true,
-}
-
 function greet(user: User) {
 	return `Hello, ${user.name}!`
-}
-
-function formatProduct(product: Product) {
-	const status = product.inStock ? 'In Stock' : 'Out of Stock'
-	return `${product.name} - $${product.price} (${status})`
-}
-
-const outOfStockProduct: Product = {
-	id: 'p2',
-	name: 'Mouse',
-	price: 29.99,
-	inStock: false,
 }
 
 const userSample: User = {
@@ -53,6 +15,19 @@ const userSample: User = {
 	name: 'Test User',
 	email: 'test@example.com',
 }
+
+type Product = {
+	id: string
+	name: string
+	price: number
+	inStock: boolean
+}
+
+function formatProduct(product: Product) {
+	const status = product.inStock ? 'In Stock' : 'Out of Stock'
+	return `${product.name} - $${product.price} (${status})`
+}
+
 const productSample: Product = {
 	id: 'p1',
 	name: 'Test Product',

@@ -7,20 +7,8 @@ interface User {
 	role: 'admin' | 'user'
 }
 
-interface Product {
-	id: string
-	name: string
-	price: number
-	description?: string
-}
-
 function isAdmin(user: User) {
 	return user.role === 'admin'
-}
-
-function getProductSummary(product: Product) {
-	const desc = product.description ?? 'No description'
-	return `${product.name} - $${product.price}: ${desc}`
 }
 
 const regularUser: User = {
@@ -28,6 +16,18 @@ const regularUser: User = {
 	name: 'User',
 	email: 'user@example.com',
 	role: 'user',
+}
+
+interface Product {
+	id: string
+	name: string
+	price: number
+	description?: string
+}
+
+function getProductSummary(product: Product) {
+	const desc = product.description ?? 'No description'
+	return `${product.name} - $${product.price}: ${desc}`
 }
 
 const product: Product = { id: 'p1', name: 'Widget', price: 29.99 }
