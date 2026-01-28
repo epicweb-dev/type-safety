@@ -1,0 +1,54 @@
+# Interfaces
+
+Interfaces are another way to define object shapes in TypeScript. They're
+similar to type aliases for objects, but with some key differences.
+
+```ts
+interface User {
+	name: string
+	email: string
+}
+
+const user: User = { name: 'Alice', email: 'alice@example.com' }
+```
+
+## Interface vs Type Alias
+
+Both can define object shapes:
+
+```ts
+// Type alias
+type User = { name: string; email: string }
+
+// Interface
+interface User {
+	name: string
+	email: string
+}
+```
+
+Key differences:
+
+| Feature              | Type Alias | Interface      |
+| -------------------- | ---------- | -------------- |
+| Object shapes        | ✅         | ✅             |
+| Union types          | ✅         | ❌             |
+| Declaration merging  | ❌         | ✅             |
+| Extends keyword      | Use `&`    | `extends`      |
+| Class implementation | ✅         | ✅ (preferred) |
+
+<callout-info>We’ll cover union types in the next exercise.</callout-info>
+
+## When to Use Interfaces
+
+- **Object shapes** that may be extended
+- **Class contracts** (implements)
+- **Library APIs** that users might extend
+- **When you prefer the `extends` syntax**
+
+<callout-info>
+	Many teams choose one and stick with it. The most common convention is:
+	interfaces for objects, type aliases for everything else.
+</callout-info>
+
+In this exercise, you'll work with interfaces and their unique features.

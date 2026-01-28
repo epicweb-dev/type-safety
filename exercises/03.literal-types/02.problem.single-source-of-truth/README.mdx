@@ -1,0 +1,15 @@
+# Single Source of Truth
+
+👨‍💼 We want a single source of truth for route names and paths without enums.
+Using `as const` lets us derive types directly from the runtime object.
+
+🐨 Open <InlineFile file="index.ts" /> and:
+
+1. Add `as const` to the `routes` object
+2. Create `RouteName` and `RoutePath` types from the object
+3. Fix the `defaultRoute` assignment
+4. Implement `getRoutePath` to return the route path for a given name
+
+💰 `keyof typeof` gives you the keys; indexed access gives you the values.
+
+📜 [TypeScript Handbook - Typeof Type Operator](https://www.typescriptlang.org/docs/handbook/2/typeof-types.html)

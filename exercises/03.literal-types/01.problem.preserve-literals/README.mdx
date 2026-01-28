@@ -1,0 +1,15 @@
+# Preserve Literals
+
+👨‍💼 We store role permissions in a configuration object. Without `as const`,
+TypeScript widens the booleans to `boolean`, which loses useful information.
+
+🐨 Open <InlineFile file="index.ts" /> and:
+
+1. Add `as const` to the `roles` object
+2. Create a `Role` type using `keyof typeof roles`
+3. Fix the `adminCanDelete` assignment
+4. Implement `canDeleteUsers` using the `roles` data
+
+💰 `as const` preserves `true` and `false` as literal types, not just `boolean`.
+
+📜 [TypeScript Handbook - Literal Types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types)

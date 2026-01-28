@@ -1,0 +1,8 @@
+{
+  "name": "exercises_03.literal-types_02.solution.single-source-of-truth",
+  "type": "module",
+  "scripts": {
+    "start": "npx @kentcdodds/log-module@latest ./index.ts",
+    "test": "node --test index.test.ts"
+  }
+}

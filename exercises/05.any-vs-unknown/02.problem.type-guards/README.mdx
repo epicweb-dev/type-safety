@@ -1,0 +1,30 @@
+# Type Guards (Predicate Functions)
+
+👨‍💼 Type guards are functions that narrow types. In functional programming,
+these are called **predicates**—functions that test a condition and return true
+or false.
+
+TypeScript type guards use the special `is` return type to tell the compiler
+what type the value is when the predicate returns `true`:
+
+```ts
+function isString(value: unknown): value is string {
+	return typeof value === 'string'
+}
+
+function process(value: unknown) {
+	if (isString(value)) {
+		console.log(value.toUpperCase()) // ✅ TypeScript knows it's string
+	}
+}
+```
+
+🐨 Open <InlineFile file="index.ts" /> and:
+
+1. Create type guard predicates for different types
+2. Use them to safely narrow `unknown` values
+3. Combine type guards for complex types
+
+Like all good functions, type guards are reusable and composable!
+
+📜 [TypeScript Handbook - Type Guards](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates)

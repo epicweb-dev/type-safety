@@ -1,8 +1,0 @@
-{
-  "name": "exercises_04.union-types_01.problem.multiple-types",
-  "type": "module",
-  "scripts": {
-    "start": "npx @kentcdodds/log-module@latest ./index.ts",
-    "test": "node --test index.test.ts"
-  }
-}

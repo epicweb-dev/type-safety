@@ -1,0 +1,8 @@
+{
+  "name": "exercises_02.union-types_02.solution.narrowing",
+  "type": "module",
+  "scripts": {
+    "start": "npx @kentcdodds/log-module@latest ./index.ts",
+    "test": "node --test index.test.ts"
+  }
+}

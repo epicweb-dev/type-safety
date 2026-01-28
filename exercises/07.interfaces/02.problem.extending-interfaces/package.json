@@ -1,0 +1,8 @@
+{
+  "name": "exercises_07.interfaces_02.problem.extending-interfaces",
+  "type": "module",
+  "scripts": {
+    "start": "npx @kentcdodds/log-module@latest ./index.ts",
+    "test": "node --test index.test.ts"
+  }
+}

@@ -1,8 +1,0 @@
-{
-  "name": "exercises_07.generics_02.problem.generic-types",
-  "type": "module",
-  "scripts": {
-    "start": "npx @kentcdodds/log-module@latest ./index.ts",
-    "test": "node --test index.test.ts"
-  }
-}

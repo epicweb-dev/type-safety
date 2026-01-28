@@ -1,0 +1,8 @@
+{
+  "name": "exercises_06.generics_01.solution.generic-functions",
+  "type": "module",
+  "scripts": {
+    "start": "npx @kentcdodds/log-module@latest ./index.ts",
+    "test": "node --test index.test.ts"
+  }
+}

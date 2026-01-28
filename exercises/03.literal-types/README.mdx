@@ -1,0 +1,38 @@
+# Literal Types
+
+Literal types let you model **exact values** in TypeScript. Instead of saying
+"this is a string," you can say "this is the string `'success'`." That makes
+it possible to model **specific states** and build safer APIs.
+
+```ts
+type Status = 'success' | 'error'
+
+function handle(status: Status) {
+	if (status === 'success') {
+		return 'All good'
+	}
+	return 'Something went wrong'
+}
+```
+
+By default, TypeScript **widens** literal values in arrays and objects. That's
+often helpful, but it can erase useful information. `as const` preserves the
+most specific type, keeping your data precise and immutable.
+
+```ts
+const routes = {
+	home: '/',
+	login: '/login',
+} as const
+
+type RouteName = keyof typeof routes
+type RoutePath = (typeof routes)[RouteName]
+```
+
+<callout-info>
+	`as const` also makes objects and arrays **readonly**, which is perfect for
+	immutable data and tuples.
+</callout-info>
+
+In this exercise, you'll use `as const` to turn configuration data into a
+source of truth for types, so your types stay correct as data changes.

@@ -3,17 +3,11 @@ import { test } from 'node:test'
 import * as solution from './index.ts'
 
 await test('usersById is exported', () => {
-	assert.ok(
-		'usersById' in solution,
-		'🚨 Make sure you export "usersById"',
-	)
+	assert.ok('usersById' in solution, '🚨 Make sure you export "usersById"')
 })
 
 await test('roleCounts is exported', () => {
-	assert.ok(
-		'roleCounts' in solution,
-		'🚨 Make sure you export "roleCounts"',
-	)
+	assert.ok('roleCounts' in solution, '🚨 Make sure you export "roleCounts"')
 })
 
 await test('usersById should map ids to users', () => {

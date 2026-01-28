@@ -1,0 +1,8 @@
+{
+  "name": "exercises_07.interfaces_01.problem.object-shapes",
+  "type": "module",
+  "scripts": {
+    "start": "npx @kentcdodds/log-module@latest ./index.ts",
+    "test": "node --test index.test.ts"
+  }
+}

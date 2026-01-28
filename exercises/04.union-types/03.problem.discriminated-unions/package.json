@@ -1,8 +1,0 @@
-{
-  "name": "exercises_04.union-types_03.problem.discriminated-unions",
-  "type": "module",
-  "scripts": {
-    "start": "npx @kentcdodds/log-module@latest ./index.ts",
-    "test": "node --test index.test.ts"
-  }
-}
