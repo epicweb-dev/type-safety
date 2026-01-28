@@ -29,6 +29,30 @@ function process(value: string | number) {
 }
 ```
 
+## Type Guards
+
+Sometimes `typeof` checks aren't enough, especially when you need to distinguish
+between object shapes. Type guards are functions that tell TypeScript which type
+you have at runtime:
+
+```ts
+type Cat = { meow(): void }
+type Dog = { bark(): void }
+type Pet = Cat | Dog
+
+function isCat(pet: Pet): pet is Cat {
+	return 'meow' in pet
+}
+
+function speak(pet: Pet) {
+	if (isCat(pet)) {
+		pet.meow() // ✅ TypeScript knows it's Cat
+	} else {
+		pet.bark() // ✅ TypeScript knows it's Dog
+	}
+}
+```
+
 ## Discriminated Unions (Algebraic Data Types)
 
 The most powerful pattern: objects with a common "tag" property. In functional
@@ -56,4 +80,4 @@ function handle(result: Result) {
 	pattern is foundational in React, Redux, and modern functional codebases.
 </callout-info>
 
-In this exercise, you'll master union types and narrowing.
+In this exercise, you'll master union types, narrowing, and type guards.
