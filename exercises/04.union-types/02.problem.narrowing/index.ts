@@ -30,5 +30,6 @@ type User = AdminUser | RegularUser | GuestUser
 // console.log(describeUser(regular))
 // console.log(describeUser(guest))
 
-// 🐨 Export your functions so we can verify your work
+// 🐨 Export `normalizeText` and `describeUser`. Tests import these by name and
+// check the returned strings for each input shape.
 // export { normalizeText, describeUser }

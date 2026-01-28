@@ -21,18 +21,8 @@
 // - action: string
 // - userId: string
 
-// Test the interfaces
-// const user: User = { ... }
-// const product: Product = { ... }
-// const log: AuditLog = { ... }
-
-// const entity: Entity = { ... }
-
-// console.log(user)
-// console.log(product)
-// console.log(log)
-// console.log(entity)
-
-// 🐨 Export your sample objects so we can verify your work
-// 💰 Export the sample objects you created
+// 🐨 Create sample `user`, `product`, `log`, and `entity` values that match your
+// interfaces.
+// 🐨 Export `user`, `product`, `log`, and `entity`. Tests import these by name
+// and check their shapes.
 // export { user, product, log, entity }

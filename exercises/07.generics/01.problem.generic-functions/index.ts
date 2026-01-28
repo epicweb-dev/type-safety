@@ -23,5 +23,6 @@
 // console.log(last([1, 2, 3]))        // 3
 // console.log(reverse([1, 2, 3]))     // [3, 2, 1]
 
-// 🐨 Export your functions so we can verify your work
+// 🐨 Export `identity`, `first`, `last`, and `reverse`. Tests import these by
+// name and check generic behavior.
 // export { identity, first, last, reverse }

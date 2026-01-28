@@ -1,35 +1,22 @@
 // Composing Types from Building Blocks
 
-// 🐨 Create type aliases for primitives
-// type ID = string
-// type Timestamp = number
-// type Email = string
+// 🐨 Create primitive type aliases named `ID`, `Timestamp`, and `Email`.
 
-// 🐨 Create a User type with these fields:
-// - id: ID
-// - createdAt: Timestamp
-// - updatedAt: Timestamp
-// - name: string
-// - email: Email
+// 🐨 Create a `User` type that uses those primitives for:
+// - id
+// - createdAt
+// - updatedAt
+// - email
+// and includes a `name` string field.
 
-// 🐨 Create a Post type with these fields:
-// - id: ID
-// - createdAt: Timestamp
-// - updatedAt: Timestamp
-// - title: string
-// - content: string
-// - authorId: ID
+// 🐨 Create a `Post` type that uses those primitives for:
+// - id
+// - createdAt
+// - updatedAt
+// - authorId
+// and includes `title` and `content` string fields.
 
-// 🐨 Create example instances
-// const user: User = { ... }
-// const post: Post = { ... }
-
-// console.log(user)
-// console.log(post)
-
-// 🐨 Create sample objects for tests
-// const userSample: User = { ... }
-// const postSample: Post = { ... }
-
-// 🐨 Export your sample objects so we can verify your work
+// 🐨 Create a `userSample` and a `postSample` value that match your types.
+// 🐨 Export `userSample` and `postSample`. Tests will import these by name and
+// verify the fields have the expected types.
 // export { userSample, postSample }

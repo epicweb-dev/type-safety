@@ -35,6 +35,6 @@
 // console.log(describePayment(paypal))
 // console.log(describePayment(bank))
 
-// 🐨 Export your functions so we can verify your work
-// 💰 Export the functions you created
+// 🐨 Export `renderState` and `describePayment`. Tests import these by name and
+// check the output for each union variant.
 // export { renderState, describePayment }

@@ -33,5 +33,6 @@
 // console.log(error)
 // console.log(pair)
 
-// 🐨 Export your functions so we can verify your work
+// 🐨 Export `createSuccess`, `createError`, and `makePair`. Tests import these
+// by name and check the resulting types.
 // export { createSuccess, createError, makePair }

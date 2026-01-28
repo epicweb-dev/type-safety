@@ -32,8 +32,6 @@ const roleCounts: RoleCounts = {
 	member: 1,
 }
 
-// console.log('Users by ID:', usersById)
-// console.log('Role counts:', roleCounts)
-
-// 🐨 Export your variables so we can verify your work
+// 🐨 Export `usersById` and `roleCounts`. Tests import these by name and check
+// that the values match your Record-based types.
 // export { usersById, roleCounts }

@@ -25,5 +25,6 @@
 // console.log(order)
 // console.log(getStatusMessage(order.status))
 
-// 🐨 Export your enum, order, and function so we can verify your work
+// 🐨 Export `OrderStatus`, `order`, and `getStatusMessage`. Tests import these
+// by name and check the status message output.
 // export { OrderStatus, order, getStatusMessage }

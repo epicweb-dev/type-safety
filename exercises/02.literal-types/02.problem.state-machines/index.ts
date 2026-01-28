@@ -34,6 +34,6 @@
 // console.log(orderStates)
 // console.log(playerStates)
 
-// 🐨 Export your functions and state arrays so we can verify your work
-// 💰 Export the functions and state arrays you created
+// 🐨 Export `advanceOrder`, `playerAction`, `orderStates`, and `playerStates`.
+// Tests import these by name and check the states and transitions.
 // export { advanceOrder, playerAction, orderStates, playerStates }

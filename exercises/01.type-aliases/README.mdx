@@ -27,6 +27,27 @@ type Coordinates = [number, number]
 type Handler = (event: Event) => void
 ```
 
+## Type Aliases in functions
+
+You can use type aliases in function parameters and return types.
+
+```ts
+type Address = { street: string; city: string; state: string; zip: string }
+type User = { name: string; email: string; age: number; address: Address }
+
+function createUser({ address }: User): Address {
+	return address
+}
+```
+
+Though, unless my type is reusable, I prefer to inline my type definition in functions parameters instead:
+
+```ts
+function LogInfo({ message, type }: { message: string; type: string }) {
+	console.log(`${type}: ${message}`)
+}
+```
+
 ## Type Aliases Are Flexible
 
 Type aliases work with any type, not just objects:

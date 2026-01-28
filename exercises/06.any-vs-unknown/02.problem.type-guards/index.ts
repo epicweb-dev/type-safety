@@ -30,6 +30,6 @@
 // console.log(isString('hi'))
 // console.log(isNumber(123))
 
-// 🐨 Export your functions so we can verify your work
-// 💰 Export the functions you created
+// 🐨 Export `isString`, `isNumber`, `isProduct`, and `processApiResponse`.
+// Tests import these by name and check the guard behavior.
 // export { isString, isNumber, isProduct, processApiResponse }

@@ -23,16 +23,8 @@
 // createOrder('medium', 'blue')  // ❌ 'medium' not in Size
 // makeRequest('PATCH', '/api')    // ❌ 'PATCH' not in HttpMethod
 
-// 🐨 Create some sample orders
-// const sizeOrders = sizes.map((size) => createOrder(size, 'red'))
-// const colorOrders = colors.map((color) => createOrder('m', color))
-// const sampleOrder = createOrder('m', 'blue')
-
-// console.log(sizeOrders)
-// console.log(colorOrders)
-// console.log(sampleOrder)
-// console.log(httpMethods)
-
-// 🐨 Export your arrays and sample order so we can verify your work
-// 💰 Export the arrays and sample order you created
+// 🐨 Create `sizeOrders`, `colorOrders`, and `sampleOrder` values using your
+// arrays and functions.
+// 🐨 Export `sizeOrders`, `colorOrders`, `sampleOrder`, and `httpMethods`.
+// Tests import these by name and check their values and types.
 // export { sizeOrders, colorOrders, sampleOrder, httpMethods }

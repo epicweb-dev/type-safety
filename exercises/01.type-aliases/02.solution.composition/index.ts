@@ -21,23 +21,6 @@ type Post = {
 	authorId: ID
 }
 
-const user: User = {
-	id: 'user-1',
-	createdAt: Date.now(),
-	updatedAt: Date.now(),
-	name: 'Alice',
-	email: 'alice@example.com',
-}
-
-const post: Post = {
-	id: 'post-1',
-	createdAt: Date.now(),
-	updatedAt: Date.now(),
-	title: 'Hello TypeScript',
-	content: 'TypeScript is awesome!',
-	authorId: user.id,
-}
-
 const userSample: User = {
 	id: 'user-1',
 	createdAt: 1000000,

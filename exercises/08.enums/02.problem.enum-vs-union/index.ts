@@ -18,5 +18,6 @@
 
 // Which do you prefer?
 
-// 🐨 Export your enum and functions so we can verify your work
+// 🐨 Export `LogLevel`, `logWithEnum`, and `logWithUnion`. Tests import these
+// by name and check log output.
 // export { LogLevel, logWithEnum, logWithUnion }

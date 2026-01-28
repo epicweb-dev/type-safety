@@ -21,5 +21,6 @@
 // processResult('Done!')          // "Success: Done!"
 // processResult(new Error('Oops')) // "Error: Oops"
 
-// 🐨 Export your functions so we can verify your work
+// 🐨 Export `formatId` and `processResult`. Tests import these by name and
+// check the formatted output for both union cases.
 // export { formatId, processResult }

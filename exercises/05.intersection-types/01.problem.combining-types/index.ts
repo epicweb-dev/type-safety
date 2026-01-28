@@ -15,15 +15,7 @@
 // 🐨 Create a Comment type by combining WithId, WithTimestamps, and WithAuthor
 // plus text and postId properties
 
-// Test your types
-// const user: User = { ... }
-// const post: Post = { ... }
-// const comment: Comment = { ... }
-
-// console.log(user)
-// console.log(post)
-// console.log(comment)
-
-// 🐨 Export your sample objects so we can verify your work
-// 💰 Export the sample objects you created
+// 🐨 Create sample `user`, `post`, and `comment` values that match your types.
+// 🐨 Export `user`, `post`, and `comment`. Tests import these by name and check
+// their shapes.
 // export { user, post, comment }

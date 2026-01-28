@@ -46,10 +46,7 @@ const laptop = {
 // console.log(greet(alice))
 // console.log(formatProduct(laptop))
 
-// 🐨 Create a sample user and product for tests
-// const userSample: User = { ... }
-// const productSample: Product = { ... }
-
-// 🐨 Export your functions and sample objects so we can verify your work
-// 💰 Export the functions and sample objects you created
+// 🐨 Create `userSample` and `productSample` values for tests.
+// 🐨 Export `greet`, `formatProduct`, `userSample`, and `productSample`. Tests
+// import these by name and will check their behavior and shapes.
 // export { greet, formatProduct, userSample, productSample }

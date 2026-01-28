@@ -32,5 +32,6 @@ type Product = { id: string; name: string; price: number }
 
 // console.log(merged)
 
-// 🐨 Export your functions so we can verify your work
+// 🐨 Export `getId`, `getName`, `getProperty`, and `merge`. Tests import these
+// by name and check inferred types.
 // export { getId, getName, getProperty, merge }
