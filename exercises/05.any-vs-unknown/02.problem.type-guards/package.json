@@ -1,8 +1,0 @@
-{
-  "name": "exercises_05.any-vs-unknown_02.problem.type-guards",
-  "type": "module",
-  "scripts": {
-    "start": "npx @kentcdodds/log-module ./index.ts",
-    "test": "node --test index.test.ts && npx @kentcdodds/typecheck-modules ."
-  }
-}

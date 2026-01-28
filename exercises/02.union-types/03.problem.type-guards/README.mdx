@@ -3,6 +3,30 @@
 👨‍💼 We keep writing the same checks to narrow our union types. Let's extract
 those checks into reusable **type guard** functions.
 
+In functional programming, these are called **predicates**—functions that test
+something and return true or false.
+
+TypeScript type guards use the special `is` return type to tell the compiler
+what type a value is when the predicate returns `true`:
+
+```ts
+type Cat = { meow(): void }
+type Dog = { bark(): void }
+type Pet = Cat | Dog
+
+function isCat(pet: Pet): pet is Cat {
+	return 'meow' in pet
+}
+
+function speak(pet: Pet) {
+	if (isCat(pet)) {
+		pet.meow() // ✅ TypeScript knows it's a Cat
+	} else {
+		pet.bark() // ✅ TypeScript knows it's a Dog
+	}
+}
+```
+
 🐨 Open <InlineFile file="index.ts" /> and:
 
 1. Create type guards for `TextInput` and use them in `normalizeText`
