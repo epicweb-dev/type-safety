@@ -2,7 +2,7 @@
   "name": "exercises_04.intersection-types_01.problem.combining-types",
   "type": "module",
   "scripts": {
-    "start": "npx @kentcdodds/log-module@latest ./index.ts",
-    "test": "node --test index.test.ts"
+    "start": "npx @kentcdodds/log-module ./index.ts",
+    "test": "node --test index.test.ts && npx @kentcdodds/typecheck-modules ."
   }
 }

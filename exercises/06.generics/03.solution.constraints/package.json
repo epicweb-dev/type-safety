@@ -2,7 +2,7 @@
   "name": "exercises_06.generics_03.solution.constraints",
   "type": "module",
   "scripts": {
-    "start": "npx @kentcdodds/log-module@latest ./index.ts",
-    "test": "node --test index.test.ts"
+    "start": "npx @kentcdodds/log-module ./index.ts",
+    "test": "node --test index.test.ts && npx @kentcdodds/typecheck-modules ."
   }
 }

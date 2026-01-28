@@ -2,7 +2,7 @@
   "name": "exercises_08.enums_01.solution.string-enums",
   "type": "module",
   "scripts": {
-    "start": "npx --node-options=\"--experimental-transform-types\" @kentcdodds/log-module@latest ./index.ts",
+    "start": "npx --node-options=\"--experimental-transform-types\" @kentcdodds/log-module ./index.ts",
     "test": "node --experimental-transform-types --test index.test.ts"
   }
 }
