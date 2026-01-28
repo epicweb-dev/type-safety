@@ -4,7 +4,7 @@
 type User = {
 	id: string
 	name: string
-	role: 'admin' | 'member'
+	role: string
 }
 
 const users: Array<User> = [
@@ -15,8 +15,8 @@ const users: Array<User> = [
 // 🐨 Create a UsersById type using Record to map IDs to User
 // 🦺 Use string keys for IDs
 
-// 🐨 Create a RoleCounts type using Record and the User roles
-// 🦺 Extract the role union and map each role to a number
+// 🐨 Create a RoleCounts type using Record to map role strings to numbers
+// 🦺 Use string keys for the role names
 
 // 🐨 Create a usersById object that matches UsersById
 // @ts-expect-error - 💣 remove this comment when you create UsersById

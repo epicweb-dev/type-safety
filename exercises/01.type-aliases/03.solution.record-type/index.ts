@@ -4,7 +4,7 @@
 type User = {
 	id: string
 	name: string
-	role: 'admin' | 'member'
+	role: string
 }
 
 const users: Array<User> = [
@@ -13,8 +13,7 @@ const users: Array<User> = [
 ]
 
 type UsersById = Record<string, User>
-type Role = User['role']
-type RoleCounts = Record<Role, number>
+type RoleCounts = Record<string, number>
 
 const usersById: UsersById = {
 	u1: users[0],

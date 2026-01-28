@@ -10,21 +10,20 @@ function normalizeText(input: TextInput) {
 }
 
 // Different user types
-type AdminUser = { type: 'admin'; permissions: Array<string> }
-type RegularUser = { type: 'user'; subscription: 'free' | 'premium' }
-type GuestUser = { type: 'guest' }
+type AdminUser = { permissions: Array<string> }
+type RegularUser = { subscription: 'free' | 'premium' }
+type GuestUser = { guestCode: string }
 
 type User = AdminUser | RegularUser | GuestUser
 
 function describeUser(user: User) {
-	switch (user.type) {
-		case 'admin':
-			return `Admin with ${user.permissions.length} permissions`
-		case 'user':
-			return `Regular user (${user.subscription})`
-		case 'guest':
-			return 'Guest user'
+	if ('permissions' in user) {
+		return `Admin with ${user.permissions.length} permissions`
 	}
+	if ('subscription' in user) {
+		return `Regular user (${user.subscription})`
+	}
+	return 'Guest user'
 }
 
 export { normalizeText, describeUser }

@@ -62,38 +62,37 @@ await test('normalizeText should handle array with spaces', () => {
 })
 
 await test('describeUser should describe admin users', () => {
-	const sampleAdmin = { type: 'admin' as const, permissions: ['read', 'write'] }
+	const sampleAdmin = { permissions: ['read', 'write'] }
 	assert.strictEqual(
 		solution.describeUser(sampleAdmin),
 		'Admin with 2 permissions',
-		'🚨 describeUser should format admin users with permission count - check your discriminated union narrowing',
+		'🚨 describeUser should format admin users with permission count - check your property-based narrowing',
 	)
 })
 
 await test('describeUser should describe regular users', () => {
-	const freeUser = { type: 'user' as const, subscription: 'free' as const }
+	const freeUser = { subscription: 'free' as const }
 	assert.strictEqual(
 		solution.describeUser(freeUser),
 		'Regular user (free)',
-		'🚨 describeUser should format regular users with subscription - check your discriminated union narrowing',
+		'🚨 describeUser should format regular users with subscription - check your property-based narrowing',
 	)
 	const premiumUser = {
-		type: 'user' as const,
 		subscription: 'premium' as const,
 	}
 	assert.strictEqual(
 		solution.describeUser(premiumUser),
 		'Regular user (premium)',
-		'🚨 describeUser should format premium users correctly - check your discriminated union narrowing',
+		'🚨 describeUser should format premium users correctly - check your property-based narrowing',
 	)
 })
 
 await test('describeUser should describe guest users', () => {
-	const guest = { type: 'guest' as const }
+	const guest = { guestCode: 'G-001' }
 	assert.strictEqual(
 		solution.describeUser(guest),
 		'Guest user',
-		'🚨 describeUser should format guest users - check your discriminated union narrowing',
+		'🚨 describeUser should format guest users - check your property-based narrowing',
 	)
 })
 

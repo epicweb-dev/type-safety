@@ -26,11 +26,14 @@ Use `extends` to add constraints.
 
 1. Create a constrained function that requires objects with an `id` property
 2. Create a function constrained to types with a `name` property
-3. Use `keyof` constraint for type-safe property access
+3. Use `keyof` constraint for type-safe property access (we’ll cover type operators in depth in the Advanced TypeScript workshop)
 4. Create a function with multiple constrained type parameters
 
 
 <callout-info>
+	This is a small preview of **type operators**. We’ll dive deeper into these in
+	the Advanced TypeScript workshop.
+
 	`keyof T` produces a union of all property names of type T. For example, if T
 	is `{ name: string; age: number }`, then `keyof T` is `'name' | 'age'`.
 

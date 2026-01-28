@@ -8,14 +8,14 @@ type TextInput = string | Array<string>
 // 💰 Check the type before processing
 
 // Different user types
-type AdminUser = { type: 'admin'; permissions: Array<string> }
-type RegularUser = { type: 'user'; subscription: 'free' | 'premium' }
-type GuestUser = { type: 'guest' }
+type AdminUser = { permissions: Array<string> }
+type RegularUser = { subscription: 'free' | 'premium' }
+type GuestUser = { guestCode: string }
 
 type User = AdminUser | RegularUser | GuestUser
 
 // 🐨 Create a function `describeUser` that returns a description
-// Use the 'type' property to narrow
+// Narrow by checking which properties exist
 // - Admin: "Admin with X permissions"
 // - Regular: "Regular user (subscription)"
 // - Guest: "Guest user"
