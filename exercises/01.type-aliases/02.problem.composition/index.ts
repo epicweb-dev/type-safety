@@ -24,4 +24,12 @@
 // const user: User = { ... }
 // const post: Post = { ... }
 
+// console.log(user)
+// console.log(post)
+
+// 🐨 Create sample objects for tests
+// const userSample: User = { ... }
+// const postSample: Post = { ... }
+
 // 🐨 Export your sample objects so we can verify your work
+// export { userSample, postSample }

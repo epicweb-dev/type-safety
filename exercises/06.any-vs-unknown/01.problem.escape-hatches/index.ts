@@ -29,5 +29,11 @@ function dangerousProcess(value: any): string {
 // console.log(dangerousProcess('hello'))  // Works
 // console.log(dangerousProcess(123))       // Runtime error!
 
+// console.log(safeProcess('hello'))
+// console.log(safeProcess(123))
+// console.log(parseJsonSafely('{"name":"Ava","email":"ava@example.com"}'))
+// console.log(parseUser('{"name":"Ava","email":"ava@example.com"}'))
+
 // 🐨 Export your functions so we can verify your work
 // 💰 Export the functions you created
+// export { safeProcess, parseJsonSafely, isUser, parseUser }

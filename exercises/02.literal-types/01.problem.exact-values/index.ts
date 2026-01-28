@@ -1,10 +1,13 @@
 // Using Literal Types for Exact Values
 
-// 🐨 Create a type `Size` for t-shirt sizes: 'xs' | 's' | 'm' | 'l' | 'xl'
+// 🐨 Create an array `sizes` for t-shirt sizes: 'xs' | 's' | 'm' | 'l' | 'xl'
+// 🐨 Create a type `Size` from that array
 
-// 🐨 Create a type `Color` for available colors: 'red' | 'blue' | 'green' | 'black'
+// 🐨 Create an array `colors` for available colors: 'red' | 'blue' | 'green' | 'black'
+// 🐨 Create a type `Color` from that array
 
-// 🐨 Create a type `HttpMethod` for HTTP methods: 'GET' | 'POST' | 'PUT' | 'DELETE'
+// 🐨 Create an array `httpMethods` for HTTP methods: 'GET' | 'POST' | 'PUT' | 'DELETE'
+// 🐨 Create a type `HttpMethod` from that array
 
 // 🐨 Create a function `createOrder` that takes size and color
 // and returns an order object
@@ -20,5 +23,16 @@
 // createOrder('medium', 'blue')  // ❌ 'medium' not in Size
 // makeRequest('PATCH', '/api')    // ❌ 'PATCH' not in HttpMethod
 
+// 🐨 Create some sample orders
+// const sizeOrders = sizes.map((size) => createOrder(size, 'red'))
+// const colorOrders = colors.map((color) => createOrder('m', color))
+// const sampleOrder = createOrder('m', 'blue')
+
+// console.log(sizeOrders)
+// console.log(colorOrders)
+// console.log(sampleOrder)
+// console.log(httpMethods)
+
 // 🐨 Export your arrays and sample order so we can verify your work
 // 💰 Export the arrays and sample order you created
+// export { sizeOrders, colorOrders, sampleOrder, httpMethods }

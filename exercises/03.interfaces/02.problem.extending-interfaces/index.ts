@@ -26,5 +26,13 @@
 // const product: Product = { ... }
 // const log: AuditLog = { ... }
 
+// const entity: Entity = { ... }
+
+// console.log(user)
+// console.log(product)
+// console.log(log)
+// console.log(entity)
+
 // 🐨 Export your sample objects so we can verify your work
 // 💰 Export the sample objects you created
+// export { user, product, log, entity }

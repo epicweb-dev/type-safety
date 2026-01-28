@@ -21,5 +21,20 @@
 
 // 🐨 Create a function `describePayment` that describes each method
 
+// const loadingState: ApiState = { status: 'loading' }
+// const successState: ApiState = { status: 'success', data: ['a', 'b'] }
+// const errorState: ApiState = { status: 'error', error: 'Network error' }
+// console.log(renderState(loadingState))
+// console.log(renderState(successState))
+// console.log(renderState(errorState))
+
+// const card: PaymentMethod = { type: 'credit_card', last4: '1234', expiry: '12/25' }
+// const paypal: PaymentMethod = { type: 'paypal', email: 'me@example.com' }
+// const bank: PaymentMethod = { type: 'bank', accountNumber: '000123' }
+// console.log(describePayment(card))
+// console.log(describePayment(paypal))
+// console.log(describePayment(bank))
+
 // 🐨 Export your functions so we can verify your work
 // 💰 Export the functions you created
+// export { renderState, describePayment }

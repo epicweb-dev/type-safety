@@ -27,5 +27,9 @@
 // console.log(processApiResponse('Hello'))
 // console.log(processApiResponse(42))
 
+// console.log(isString('hi'))
+// console.log(isNumber(123))
+
 // 🐨 Export your functions so we can verify your work
 // 💰 Export the functions you created
+// export { isString, isNumber, isProduct, processApiResponse }

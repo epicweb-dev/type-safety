@@ -29,4 +29,9 @@
 // const error = createError<User>('User not found')
 // const pair = makePair('hello', 42)
 
+// console.log(success)
+// console.log(error)
+// console.log(pair)
+
 // 🐨 Export your functions so we can verify your work
+// export { createSuccess, createError, makePair }

@@ -14,6 +14,8 @@
 // logWithEnum(LogLevel.Info, 'Server started')
 // logWithUnion('info', 'Server started')
 
+// console.log(LogLevel.Info)
+
 // Which do you prefer?
 
 // 🐨 Export your enum and functions so we can verify your work

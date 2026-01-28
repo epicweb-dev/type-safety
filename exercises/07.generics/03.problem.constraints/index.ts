@@ -30,4 +30,7 @@ type Product = { id: string; name: string; price: number }
 // console.log(getProperty(user, 'email'))     // 'alice@example.com'
 // const merged = merge({ a: 1 }, { b: 2 })    // { a: 1, b: 2 }
 
+// console.log(merged)
+
 // 🐨 Export your functions so we can verify your work
+// export { getId, getName, getProperty, merge }
