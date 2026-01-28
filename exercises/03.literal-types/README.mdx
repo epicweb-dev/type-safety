@@ -5,13 +5,11 @@ Literal types let you model **exact values** in TypeScript. Instead of saying
 it possible to model **specific states** and build safer APIs.
 
 ```ts
-type Status = 'success' | 'error'
+const locales = ['en-US', 'es-ES', 'fr-FR'] as const
+type Locale = (typeof locales)[number]
 
-function handle(status: Status) {
-	if (status === 'success') {
-		return 'All good'
-	}
-	return 'Something went wrong'
+function formatLocale(locale: Locale) {
+	return locale.toLowerCase()
 }
 ```
 
@@ -20,13 +18,13 @@ often helpful, but it can erase useful information. `as const` preserves the
 most specific type, keeping your data precise and immutable.
 
 ```ts
-const routes = {
-	home: '/',
-	login: '/login',
+const shortcuts = {
+	save: 'cmd+s',
+	open: 'cmd+o',
 } as const
 
-type RouteName = keyof typeof routes
-type RoutePath = (typeof routes)[RouteName]
+type ShortcutName = keyof typeof shortcuts
+type ShortcutCombo = (typeof shortcuts)[ShortcutName]
 ```
 
 <callout-info>
