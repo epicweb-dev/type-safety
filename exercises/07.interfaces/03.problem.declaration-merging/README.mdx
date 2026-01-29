@@ -1,0 +1,29 @@
+# Declaration Merging
+
+👨‍💼 One unique feature of interfaces is **declaration merging**—you can declare
+the same interface multiple times, and TypeScript merges them together.
+
+```ts
+interface Config {
+	appName: string
+}
+
+interface Config {
+	theme: 'light' | 'dark'
+}
+
+// Config now has both appName AND theme!
+const config: Config = {
+	appName: 'MyApp',
+	theme: 'dark',
+}
+```
+
+This is impossible with type aliases—you'd get a "duplicate identifier" error.
+
+🐨 Open <InlineFile file="index.ts" /> and:
+
+1. Add properties to the existing `Config` interface using declaration merging
+2. Create a config object with all merged properties
+
+📜 [TypeScript Handbook - Declaration Merging](https://www.typescriptlang.org/docs/handbook/declaration-merging.html)

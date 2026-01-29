@@ -1,6 +1,8 @@
 # Enum vs Union Types
 
-👨‍💼 You've compared both approaches! Here's a summary:
+👨‍💼 Great migration! You've converted the enum-based function to use union types.
+
+**Why use union types?**
 
 **Enums**
 
@@ -19,8 +21,7 @@
 - ❌ No reverse mapping
 - ❌ Less explicit naming
 
-🦉 **Recommendation**: Use union types for most cases. Use enums when you need
-reverse mapping or when your team prefers them.
+🦉 **Recommendation**: Use union types for all cases. Never use enums.
 
 ```ts
 // Most TypeScript developers today prefer:

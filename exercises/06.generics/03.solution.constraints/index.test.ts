@@ -9,13 +9,6 @@ await test('getId is exported', () => {
 	)
 })
 
-await test('getName is exported', () => {
-	assert.ok(
-		'getName' in solution,
-		'🚨 Make sure you export "getName" - add: export { getName, ... }',
-	)
-})
-
 await test('getProperty is exported', () => {
 	assert.ok(
 		'getProperty' in solution,
@@ -44,23 +37,6 @@ await test('getId should work with objects that have id property', () => {
 		solution.getId(product),
 		'p1',
 		'🚨 getId should work with Product objects - ensure your generic constraint includes id property',
-	)
-})
-
-await test('getName should work with objects that have name property', () => {
-	type User = { id: string; name: string; email: string }
-	type Product = { id: string; name: string; price: number }
-	const user: User = { id: '1', name: 'Alice', email: 'alice@example.com' }
-	const product: Product = { id: 'p1', name: 'Widget', price: 9.99 }
-	assert.strictEqual(
-		solution.getName(user),
-		'Alice',
-		'🚨 getName should work with User objects - ensure your generic constraint includes name property',
-	)
-	assert.strictEqual(
-		solution.getName(product),
-		'Widget',
-		'🚨 getName should work with Product objects - ensure your generic constraint includes name property',
 	)
 })
 

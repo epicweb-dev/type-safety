@@ -1,27 +1,10 @@
 // Defining Object Shapes with Interfaces
 
-interface User {
-	id: string
-	name: string
-	email: string
-	role: 'admin' | 'user'
-}
-
-function isAdmin(user: User) {
-	return user.role === 'admin'
-}
-
-const regularUser: User = {
-	id: '2',
-	name: 'User',
-	email: 'user@example.com',
-	role: 'user',
-}
-
 interface Product {
 	id: string
 	name: string
 	price: number
+	status: 'active' | 'inactive' | 'discontinued'
 	description?: string
 }
 
@@ -30,12 +13,18 @@ function getProductSummary(product: Product) {
 	return `${product.name} - $${product.price}: ${desc}`
 }
 
-const product: Product = { id: 'p1', name: 'Widget', price: 29.99 }
+const product: Product = {
+	id: 'p1',
+	name: 'Widget',
+	price: 29.99,
+	status: 'active',
+}
 const productWithDesc: Product = {
 	id: 'p2',
 	name: 'Gadget',
 	price: 49.99,
+	status: 'inactive',
 	description: 'Has description',
 }
 
-export { isAdmin, getProductSummary, product, productWithDesc, regularUser }
+export { getProductSummary, product, productWithDesc }

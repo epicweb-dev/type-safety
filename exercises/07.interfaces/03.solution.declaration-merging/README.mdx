@@ -1,0 +1,24 @@
+# Declaration Merging
+
+👨‍💼 Declaration merging is complete! Each interface declaration added new
+properties, and TypeScript combined them all.
+
+🦉 This feature is especially useful for:
+
+- **Extending library types** - Add properties to third-party interfaces
+- **Plugin systems** - Each plugin can augment a shared config interface
+- **Global augmentation** - Add properties to `Window` or other globals
+
+This is the one capability that interfaces have that type aliases don't!
+
+<callout-warning>
+
+Declaration merging is powerful but **dangerous for everyday types**. Any code
+anywhere can secretly add properties to your interface—making it hard to know
+what a type actually contains without searching your entire codebase.
+
+This is why many teams prefer **type aliases for application code** (they can't
+be merged) and reserve interfaces for library APIs that genuinely need
+extension.
+
+</callout-warning>

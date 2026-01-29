@@ -1,0 +1,8 @@
+{
+  "name": "exercises_07.interfaces_03.problem.declaration-merging",
+  "type": "module",
+  "scripts": {
+    "start": "npx @kentcdodds/log-module ./index.ts",
+    "test": "node --test index.test.ts && npx @kentcdodds/typecheck-modules ."
+  }
+}

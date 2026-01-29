@@ -5,10 +5,6 @@
 // - Returns the id
 // 💰 Limit ItemWithId to objects with an id property
 
-// 🐨 Create a function `getName` that:
-// - Takes any object type with a `name: string` property
-// - Returns the name
-
 // 🐨 Create a function `getProperty` that:
 // - Takes an object ObjectType and a key Key (where Key is a key of ObjectType)
 // - Returns the value at that key with correct type
@@ -16,7 +12,6 @@
 
 // const user = { id: '1', name: 'Alice', email: 'alice@example.com' }
 // console.log(getId(user))                    // '1'
-// console.log(getName(user))                  // 'Alice'
 // console.log(getProperty(user, 'email'))     // 'alice@example.com'
 
 // 🐨 Create a function `merge` that:
@@ -27,6 +22,6 @@
 // const merged = merge({ a: 1 }, { b: 2 })    // { a: 1, b: 2 }
 // console.log(merged)
 
-// 🐨 Export `getId`, `getName`, `getProperty`, and `merge`. Tests import these
+// 🐨 Export `getId`, `getProperty`, and `merge`. Tests import these
 // by name and check inferred types.
-// export { getId, getName, getProperty, merge }
+// export { getId, getProperty, merge }
