@@ -5,13 +5,13 @@ example, a function that accesses `.length` only works with types that have a
 `length` property.
 
 ```ts
-// ❌ Error: T might not have .length
-function logLength<T>(value: T) {
+// ❌ Error: Value might not have .length
+function logLength<Value>(value: Value) {
 	console.log(value.length)
 }
 
-// ✅ Constrain T to types with length
-function logLength<T extends { length: number }>(value: T) {
+// ✅ Constrain Value to types with length
+function logLength<Value extends { length: number }>(value: Value) {
 	console.log(value.length) // Safe!
 }
 
@@ -33,11 +33,13 @@ Use `extends` to add constraints.
 	This is a small preview of **type operators**. We’ll dive deeper into these in
 	the Advanced TypeScript workshop.
 
-    `keyof T` produces a union of all property names of type T. For example, if T
-    is `{ name: string; age: number }`, then `keyof T` is `'name' | 'age'`.
+    `keyof ObjectType` produces a union of all property names of type ObjectType.
+    For example, if ObjectType is `{ name: string; age: number }`, then
+    `keyof ObjectType` is `'name' | 'age'`.
 
-    `T[K]` is an **indexed access type** - it gives you the type of property K on
-    type T. If T is `{ name: string }` and K is `'name'`, then `T[K]` is `string`.
+    `ObjectType[Key]` is an **indexed access type** - it gives you the type of
+    property Key on type ObjectType. If ObjectType is `{ name: string }` and Key
+    is `'name'`, then `ObjectType[Key]` is `string`.
 
 </callout-info>
 

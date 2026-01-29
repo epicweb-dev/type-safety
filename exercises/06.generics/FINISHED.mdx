@@ -17,13 +17,16 @@ You learned:
 const [state, setState] = useState<User>(initialUser)
 
 // API responses
-async function fetchData<T>(url: string): Promise<T> { ... }
+async function fetchData<ResponseBody>(url: string): Promise<ResponseBody> { ... }
 
 // Data structures
 const map = new Map<string, User>()
 
 // Event handlers
-function on<K extends keyof Events>(event: K, handler: Events[K]) { ... }
+function on<EventName extends keyof Events>(
+	event: EventName,
+	handler: Events[EventName],
+) { ... }
 ```
 
 Once you understand generics, you'll see them everywhere—and you'll write much

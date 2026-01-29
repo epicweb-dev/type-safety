@@ -5,7 +5,10 @@
 🦉 The `keyof` constraint pattern is incredibly powerful:
 
 ```ts
-function getProperty<T, K extends keyof T>(obj: T, key: K): T[K]
+function getProperty<ObjectType, Key extends keyof ObjectType>(
+	obj: ObjectType,
+	key: Key,
+): ObjectType[Key]
 ```
 
 This ensures:

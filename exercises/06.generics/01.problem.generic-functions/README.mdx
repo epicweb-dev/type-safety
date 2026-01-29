@@ -6,17 +6,17 @@ specific types. Let's make them generic so they work with any type.
 The syntax for generic functions:
 
 ```ts
-function functionName<T>(param: T): T {
+function functionName<Value>(param: Value): Value {
 	return param
 }
 ```
 
-The `<T>` declares a **type parameter**. When you call the function, TypeScript
-infers (or you specify) what `T` is:
+The `<Value>` declares a **type parameter**. When you call the function,
+TypeScript infers (or you specify) what `Value` is:
 
 ```ts
-identity<string>('hello') // Explicit: T is string
-identity(42) // Inferred: T is number
+identity<string>('hello') // Explicit: Value is string
+identity(42) // Inferred: Value is number
 ```
 
 🐨 Open <InlineFile file="index.ts" /> and:

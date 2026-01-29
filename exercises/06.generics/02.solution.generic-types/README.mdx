@@ -2,23 +2,51 @@
 
 👨‍💼 You've created reusable generic types!
 
-🦉 The `Result<T>` pattern is extremely useful for error handling without
-exceptions:
+🦉 The `LoadingState<Data>` pattern is extremely useful for modeling async
+operations in UI code. Here's how you'd use it:
 
 ```ts
-function divide(a: number, b: number): Result<number> {
-	if (b === 0) {
-		return { success: false, error: 'Division by zero' }
-	}
-	return { success: true, data: a / b }
-}
+type User = { id: number; name: string }
 
-const result = divide(10, 2)
-if (result.success) {
-	console.log(result.data) // TypeScript knows data exists!
-} else {
-	console.log(result.error) // TypeScript knows error exists!
+let userState: LoadingState<User> = { status: 'idle' }
+
+// User clicks "load"
+userState = { status: 'loading' }
+
+// Fetch completes successfully
+userState = createSuccess({ id: 1, name: 'Ada' })
+
+// Or fetch fails
+userState = createError<User>('Network failed')
+
+// Render based on state
+function render(state: LoadingState<User>) {
+	switch (state.status) {
+		case 'idle':
+			return 'Click to load'
+		case 'loading':
+			return 'Loading...'
+		case 'success':
+			return `Hello, ${state.data.name}` // TypeScript knows data exists!
+		case 'error':
+			return `Error: ${state.error}` // TypeScript knows error exists!
+	}
 }
 ```
 
-This pattern forces callers to handle both success and failure cases.
+This pattern forces you to handle all states and TypeScript narrows the types
+automatically based on the discriminated union.
+
+🦉 Avoid using generics to hide a cast. This looks type-safe but is not:
+
+```ts
+// ❌ Bad: the caller picks the type, not the data
+function getData<Data>(): Data {
+	return fetchData() as Data
+}
+
+const user = getData<User>() // Compiles even if fetchData returns wrong shape!
+```
+
+The caller can pick any `Data`, so this compiles even when the actual data is
+wrong. The generic is just hiding an unsafe cast.

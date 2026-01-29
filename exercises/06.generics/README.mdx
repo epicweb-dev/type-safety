@@ -11,12 +11,12 @@ function firstNumber(arr: Array<number>): number | undefined {
 }
 
 // With generics - works with ANY type
-function first<T>(arr: Array<T>): T | undefined {
+function first<Item>(arr: Array<Item>): Item | undefined {
 	return arr[0]
 }
 
-first([1, 2, 3]) // T is number, returns number | undefined
-first(['a', 'b']) // T is string, returns string | undefined
+first([1, 2, 3]) // Item is number, returns number | undefined
+first(['a', 'b']) // Item is string, returns string | undefined
 ```
 
 ## The Problem Generics Solve
@@ -36,22 +36,22 @@ function firstUser(arr: Array<User>): User | undefined { ... }
 function first(arr: Array<any>): any { ... }
 
 // Good: Generic - type-safe and reusable
-function first<T>(arr: Array<T>): T | undefined { ... }
+function first<Item>(arr: Array<Item>): Item | undefined { ... }
 ```
 
 ## Generics Are Everywhere
 
-You've already been using generics! `Array<T>`, `Promise<T>`, and many more:
+You've already been using generics! `Array<Item>`, `Promise<ResponseText>`, and many more:
 
 ```ts
 const numbers: Array<number> = [1, 2, 3]
-const promise: Promise<string> = fetch('/api').then((r) => r.text())
+const promise: Promise<ResponseText> = fetch('/api').then((r) => r.text())
 ```
 
 <callout-info>
 	Think of generics as **type-level functions**—just like functions transform
-	values, generic types transform types. `Array<T>` is a function that takes a
-	type `T` and returns the type "array of T". This is the foundation of
+	values, generic types transform types. `Array<Item>` is a function that takes a
+	type `Item` and returns the type "array of Item". This is the foundation of
 	functional type-level programming.
 </callout-info>
 

@@ -1,17 +1,17 @@
 # Generic Types
 
-👨‍💼 Generics aren't just for functions—you can create generic **types** and
-**interfaces** too!
+👨‍💼 Generics aren't just for functions—you can create reusable, generic **types**
+and **interfaces** too!
 
 ```ts
 // Generic type alias
-type Container<T> = {
-	value: T
+type Container<Value> = {
+	value: Value
 }
 
 // Generic interface
-interface Box<T> {
-	contents: T
+interface Box<Contents> {
+	contents: Contents
 }
 
 // Usage
@@ -19,15 +19,30 @@ const stringBox: Box<string> = { contents: 'hello' }
 const numberBox: Box<number> = { contents: 42 }
 ```
 
-This is exactly how built-in types like `Array<T>` and `Promise<T>` work.
+This is exactly how built-in types like `Array<Item>` and `Promise<ResponseData>`
+work.
+
+🦉 Avoid using generics to hide a cast. This is a common anti-pattern:
+
+```ts
+// ❌ Bad: the caller picks the type, not the data
+function getData<Data>(): Data {
+	return fetchData() as Data
+}
+
+const user = getData<User>() // Compiles even if fetchData returns wrong shape!
+```
+
+This compiles even if the actual data is the wrong shape, which defeats the
+purpose of TypeScript. Instead, you should actually validate the data and use
+type guards to ensure the data is the correct shape.
 
 🐨 Open <InlineFile file="index.ts" /> and:
 
-1. Create a generic `Result<T>` type for success/error handling
-2. Create a generic `Pair<T, U>` type with two different types
-3. Create a generic `ApiResponse<T>` interface for API responses
-4. Use these types in functions
+1. Create a generic `LoadingState<Data>` type for async operations
+2. Create helper functions `createSuccess<Data>` and `createError<Data>`
+3. See how TypeScript narrows the type based on the discriminated union
 
-💰 Model success and error with a generic discriminated union.
+💰 Model idle, loading, success, and error states with a generic discriminated union.
 
 📜 [TypeScript Handbook - Generic Types](https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-types)

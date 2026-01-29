@@ -5,15 +5,15 @@
 🦉 Notice how TypeScript **infers** the type parameter from the arguments:
 
 ```ts
-first([1, 2, 3]) // TypeScript infers T = number
-first(['a', 'b']) // TypeScript infers T = string
+first([1, 2, 3]) // TypeScript infers Item = number
+first(['a', 'b']) // TypeScript infers Item = string
 ```
 
 You rarely need to explicitly specify the type parameter—TypeScript figures it
 out. But you can when needed:
 
 ```ts
-first<number>([]) // Explicitly T = number
+first<number>([]) // Explicitly Item = number
 ```
 
 The return types are also automatically correct: `first([1, 2, 3])` returns

@@ -1,16 +1,16 @@
 // Generic Functions
 
 // 🐨 Create a generic `identity` function
-// It takes a value of type T and returns it
+// It takes a value of type Value and returns it
 
 // 🐨 Create a generic `first` function
-// Takes an array of T, returns T | undefined
+// Takes an array of Item, returns Item | undefined
 
 // 🐨 Create a generic `last` function
-// Takes an array of T, returns T | undefined
+// Takes an array of Item, returns Item | undefined
 
 // 🐨 Create a generic `reverse` function
-// Takes an array of T, returns a new reversed array of T
+// Takes an array of Item, returns a new reversed array of Item
 // 💰 Return a new array
 
 // Test your functions

@@ -1,18 +1,26 @@
 // Generic Constraints
 
-function getId<T extends { id: string }>(obj: T): string {
+function getId<ItemWithId extends { id: string }>(obj: ItemWithId): string {
 	return obj.id
 }
 
-function getName<T extends { name: string }>(obj: T): string {
+function getName<ItemWithName extends { name: string }>(
+	obj: ItemWithName,
+): string {
 	return obj.name
 }
 
-function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
+function getProperty<ObjectType, Key extends keyof ObjectType>(
+	obj: ObjectType,
+	key: Key,
+): ObjectType[Key] {
 	return obj[key]
 }
 
-function merge<T extends object, U extends object>(a: T, b: U): T & U {
+function merge<Left extends object, Right extends object>(
+	a: Left,
+	b: Right,
+): Left & Right {
 	return { ...a, ...b }
 }
 
