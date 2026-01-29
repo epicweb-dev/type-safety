@@ -1,0 +1,62 @@
+# Epic Task Manager
+
+👨‍💼 Welcome to the Epic Task Manager! This is a real-world React application where you'll practice all the TypeScript skills you've learned in this workshop. You'll implement utility functions that power a task management dashboard.
+
+## What You'll Build
+
+This app helps teams manage projects and tasks. You'll implement:
+
+- **Type definitions** for projects, tasks, and users
+- **Discriminated unions** for project status tracking
+- **Generic functions** for filtering and updating tasks
+- **Type narrowing** for handling user roles and assignments
+- **Union types** for priorities and user roles
+
+## Getting Started
+
+🐨 Open <InlineFile file="src/utils.ts" /> and implement all the type definitions and utility functions. Each function has 🐨 instructions explaining what to do.
+
+🐨 Then open <InlineFile file="src/app.tsx" /> and use your utility functions to make the app fully functional. Look for 🐨 comments indicating where to use your functions.
+
+## Running the App
+
+```sh
+npm run dev
+```
+
+The app will start on `http://localhost:5173` (or another port if 5173 is busy).
+
+## What to Implement
+
+### In `utils.ts`:
+
+1. **Type Definitions** - Create discriminated unions, type aliases, and interfaces
+2. **formatProjectStatus** - Handle different project status variants
+3. **filterByPriority** - Generic function to filter by priority
+4. **getUserDisplayName** - Handle null user values
+5. **canManageTasks** - Narrow user roles
+6. **updateTaskProperty** - Generic function with keyof constraints
+7. **getTasksByAssignee** - Handle null and string assignee IDs
+8. **createProjectUpdate** - Transition between project statuses
+
+### In `app.tsx`:
+
+1. Use `filterByPriority` to filter tasks
+2. Use `getTasksByAssignee` to filter by assignee
+3. Use `formatProjectStatus` to display project status
+4. Use `updateTaskProperty` to toggle task completion
+5. Use `createProjectUpdate` to transition project statuses
+
+## Tips
+
+💰 Start with the type definitions - they'll help TypeScript guide you as you implement the functions.
+
+💰 Use type narrowing (typeof, instanceof, or discriminated unions) to handle different cases safely.
+
+💰 Generic constraints ensure your functions work with any type that has the required properties.
+
+💰 Discriminated unions make it easy to handle different variants of a type safely.
+
+## No Tests, No Solutions
+
+📝 This is practice time! There are no tests or solutions. Experiment, make mistakes, and learn. The goal is to build confidence by applying what you've learned.
