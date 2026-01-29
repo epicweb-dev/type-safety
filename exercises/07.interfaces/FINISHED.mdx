@@ -12,13 +12,26 @@ You learned:
 🦉 A pragmatic approach:
 
 ```ts
-// Use interfaces for objects
-interface User {
+// Use types for everything
+type User = {
 	name: string
 }
 
-// Use type aliases for unions, tuples, primitives
 type Status = 'active' | 'inactive'
 type Point = [number, number]
 type ID = string
+
+// Use interfaces only for declaration merging when necessary
+declare global {
+	interface Config {
+		apiUrl: string
+	}
+}
+
+// Later augmented via declaration merging
+declare global {
+	interface Config {
+		theme: 'light' | 'dark'
+	}
+}
 ```

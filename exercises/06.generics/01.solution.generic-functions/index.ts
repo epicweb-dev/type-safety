@@ -4,16 +4,15 @@ function identity<Value>(value: Value): Value {
 	return value
 }
 
-function first<Item>(arr: Array<Item>): Item | undefined {
-	return arr[0]
-}
-
 function last<Item>(arr: Array<Item>): Item | undefined {
 	return arr[arr.length - 1]
 }
 
-function reverse<Item>(arr: Array<Item>): Array<Item> {
-	return [...arr].reverse()
-}
+// Test your functions
+console.log(identity('hello')) // 'hello'
+console.log(identity(42)) // 42
+console.log(last([1, 2, 3])) // 3
+console.log(last(['a', 'b'])) // 'b'
+console.log(last<number>([])) // undefined
 
-export { identity, first, last, reverse }
+export { identity, last }

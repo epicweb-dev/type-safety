@@ -1,13 +1,21 @@
 # Declaration Merging
 
-👨‍💼 Declaration merging is complete! Each interface declaration added new
-properties, and TypeScript combined them all.
+👨‍💼 Declaration merging is complete! The `Config` interface was declared in the
+global scope in `index.ts` with `appName`, then augmented in `config-augment.ts`
+with `theme` and `maxConnections` using `declare global`. When you import both
+files, TypeScript merges all the global `Config` declarations together!
+
+This is why `config` can have properties from both files—TypeScript sees all
+the `declare global { interface Config { ... } }` blocks and combines them into
+a single merged interface.
 
 🦉 This feature is especially useful for:
 
 - **Extending library types** - Add properties to third-party interfaces
-- **Plugin systems** - Each plugin can augment a shared config interface
+- **Plugin systems** - Each plugin can augment a shared config interface in its
+  own file
 - **Global augmentation** - Add properties to `Window` or other globals
+- **Modular configuration** - Split interface definitions across multiple files
 
 This is the one capability that interfaces have that type aliases don't!
 

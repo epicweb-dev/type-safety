@@ -1,16 +1,14 @@
 // Declaration Merging
 
-interface Config {
-	appName: string
+// Declare Config in the global scope so it can be merged across modules
+declare global {
+	interface Config {
+		appName: string
+	}
 }
 
-interface Config {
-	theme: 'light' | 'dark'
-}
-
-interface Config {
-	maxConnections: number
-}
+// Import the config-augment module to activate declaration merging
+import './config-augment.ts'
 
 const config: Config = {
 	appName: 'MyApp',

@@ -1,14 +1,12 @@
 // Extending Interfaces
 
-interface Entity {
-	id: string
+interface Timestamps {
 	createdAt: Date
 	updatedAt: Date
 }
 
-interface Timestamps {
-	createdAt: Date
-	updatedAt: Date
+interface Entity extends Timestamps {
+	id: string
 }
 
 interface User extends Entity {

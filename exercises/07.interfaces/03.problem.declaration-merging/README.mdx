@@ -4,26 +4,85 @@
 the same interface multiple times, and TypeScript merges them together.
 
 ```ts
-interface Config {
-	appName: string
+interface User {
+	name: string
 }
 
-interface Config {
-	theme: 'light' | 'dark'
+interface User {
+	email: string
 }
 
-// Config now has both appName AND theme!
+interface User {
+	age: number
+}
+
+// User now has name, email, AND age!
+const user: User = {
+	name: 'Alice',
+	email: 'alice@example.com',
+	age: 30,
+}
+```
+
+This is impossible with type aliases—you'd get a "duplicate identifier" error.
+
+## Declaration Merging Across Modules
+
+🦉 Declaration merging also works **across different files**! When you use
+`declare global`, you can augment interfaces from other modules.
+
+```ts
+// config.ts
+declare global {
+	interface Config {
+		appName: string
+	}
+}
+
+// theme-config.ts
+declare global {
+	interface Config {
+		theme: 'light' | 'dark'
+	}
+}
+
+// main.ts
+import './config.ts'
+import './theme-config.ts'
+
+// Now Config has both appName AND theme!
 const config: Config = {
 	appName: 'MyApp',
 	theme: 'dark',
 }
 ```
 
-This is impossible with type aliases—you'd get a "duplicate identifier" error.
+The `declare global` syntax creates a global interface that can be augmented
+from any file. When you import both files, TypeScript merges all the `Config`
+declarations into a single interface!
 
-🐨 Open <InlineFile file="index.ts" /> and:
+<callout-info>
 
-1. Add properties to the existing `Config` interface using declaration merging
-2. Create a config object with all merged properties
+**About imports and exports:** We haven't covered modules in detail yet, but
+here's what you need to know:
+
+- `import './file.ts'` - Imports a file to run its code (side effects)
+- `export { name }` - Exports a value so other files can use it
+- `declare global` - Creates or augments global types that can be merged across files
+
+For this exercise, you'll import the augment file to activate the declaration
+merge. Don't worry about understanding all the details—we'll cover modules
+properly later!
+
+</callout-info>
+
+🐨 Open <InlineFile file="index.ts" /> and <InlineFile file="config-augment.ts" />:
+
+1. In `index.ts`, use `declare global` to declare the `Config` interface with
+   `appName`
+2. In `config-augment.ts`, use `declare global` to augment `Config` with `theme`
+   and `maxConnections`
+3. In `index.ts`, import `config-augment.ts` to activate the merge
+4. Create a config object with all merged properties (appName, theme, maxConnections)
 
 📜 [TypeScript Handbook - Declaration Merging](https://www.typescriptlang.org/docs/handbook/declaration-merging.html)

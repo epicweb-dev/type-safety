@@ -1,4 +1,4 @@
-// Migrating from Enums to Union Types
+// Enum vs Union Types
 // Start with an enum, migrate to unions
 
 // Enum approach

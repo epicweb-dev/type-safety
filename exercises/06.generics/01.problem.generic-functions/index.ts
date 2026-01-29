@@ -3,24 +3,16 @@
 // 🐨 Create a generic `identity` function
 // It takes a value of type Value and returns it
 
-// 🐨 Create a generic `first` function
-// Takes an array of Item, returns Item | undefined
-
 // 🐨 Create a generic `last` function
 // Takes an array of Item, returns Item | undefined
 
-// 🐨 Create a generic `reverse` function
-// Takes an array of Item, returns a new reversed array of Item
-// 💰 Return a new array
-
 // Test your functions
-// console.log(identity('hello'))      // 'hello'
-// console.log(identity(42))           // 42
-// console.log(first([1, 2, 3]))       // 1
-// console.log(first(['a', 'b']))      // 'a'
-// console.log(last([1, 2, 3]))        // 3
-// console.log(reverse([1, 2, 3]))     // [3, 2, 1]
+// console.log(identity('hello')) // 'hello'
+// console.log(identity(42)) // 42
+// console.log(last([1, 2, 3])) // 3
+// console.log(last(['a', 'b'])) // 'b'
+// console.log(last<number>([])) // undefined
 
-// 🐨 Export `identity`, `first`, `last`, and `reverse`. Tests import these by
+// 🐨 Export `identity` and `last`. Tests import these by
 // name and check generic behavior.
-// export { identity, first, last, reverse }
+// export { identity, last }

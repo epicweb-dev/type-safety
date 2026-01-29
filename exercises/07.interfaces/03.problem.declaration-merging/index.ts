@@ -1,18 +1,15 @@
 // Declaration Merging
 
-interface Config {
-	appName: string
-}
+// 🐨 Declare Config in the global scope using: declare global { interface Config { ... } }
+// 💰 This allows the interface to be merged across multiple files
+// - appName: string
 
-// 🐨 Use declaration merging to add a `theme` property to Config:
-// - theme: 'light' | 'dark'
-// 💰 Just declare the Config interface again with the new property!
-
-// 🐨 Use declaration merging to add a `maxConnections` property to Config:
-// - maxConnections: number
+// 🐨 Import the config-augment module to activate declaration merging
+// 💰 You'll need to use: import './config-augment.ts'
 
 // 🐨 Create a `config` object that satisfies the merged Config interface
 // (it should have appName, theme, and maxConnections)
+// 💰 The Config interface will be merged with properties from config-augment.ts
 
 // 🐨 Create a `getTheme` function that takes a Config and returns its theme
 

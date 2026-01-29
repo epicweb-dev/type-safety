@@ -2,10 +2,18 @@
 
 👨‍💼 Beautiful! Interface extension keeps your types DRY.
 
+Interestingly, you can use intersections with interfaces as well:
+
+```ts
+type AuditLog = Timestamps & {
+	action: string
+	userId: string
+}
+```
+
 🦉 When to use extends vs intersection (`&`):
 
 - **`extends`** - Clear hierarchy, works with interfaces
 - **`&`** - Ad-hoc combinations, works with any types
 
-Both achieve similar results, but `extends` is more explicit about the
-relationship.
+Both achieve similar results, but because `&` works with both, it's recommended.

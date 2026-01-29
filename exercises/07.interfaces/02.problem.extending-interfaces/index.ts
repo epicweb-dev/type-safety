@@ -1,13 +1,11 @@
 // Extending Interfaces
 
-// 🐨 Create a base Entity interface with:
-// - id: string
-// - createdAt: Date
-// - updatedAt: Date
-
 // 🐨 Create a Timestamps interface with:
 // - createdAt: Date
 // - updatedAt: Date
+
+// 🐨 Create a base Entity interface that extends Timestamps with:
+// - id: string
 
 // 🐨 Create a User interface that extends Entity with:
 // - name: string
