@@ -1,7 +1,3 @@
 {
-	"files": [],
-	"references": [
-		{ "path": "./tsconfig.base.json" },
-		{ "path": "./extra/02.epic-task-manager/tsconfig.json" }
-	]
+	"extends": "./tsconfig.base.json"
 }
