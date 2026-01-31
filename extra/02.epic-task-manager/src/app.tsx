@@ -4,14 +4,15 @@ import {
 	type User,
 	type ProjectStatus,
 	type Priority,
-	type UserRole,
-	formatProjectStatus,
-	filterByPriority,
 	getUserDisplayName,
 	canManageTasks,
-	updateTaskProperty,
-	getTasksByAssignee,
-	createProjectUpdate,
+	// 🐨 uncomment these when you've implemented the functions
+	// type UserRole,
+	// formatProjectStatus,
+	// filterByPriority,
+	// updateTaskProperty,
+	// getTasksByAssignee,
+	// createProjectUpdate,
 } from './utils'
 import './app.css'
 
@@ -78,6 +79,9 @@ function App() {
 	const [projectStatus, setProjectStatus] = useState<ProjectStatus>({
 		status: 'planning',
 	})
+
+	// 💣 remove this when you've implemented the function
+	void setProjectStatus
 
 	// 🐨 Use the filterByPriority function to filter tasks by selectedPriority
 	// If selectedPriority is 'all', show all tasks

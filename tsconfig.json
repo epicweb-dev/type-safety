@@ -1,15 +1,7 @@
 {
-	"compilerOptions": {
-		"moduleDetection": "force",
-		"target": "ES2022",
-		"module": "ESNext",
-		"moduleResolution": "bundler",
-		"esModuleInterop": true,
-		"strict": true,
-		"skipLibCheck": true,
-		"noEmit": true,
-		"allowImportingTsExtensions": true
-	},
-	"include": ["**/*.ts", "**/*.tsx"],
-	"exclude": ["node_modules", "**/node_modules"]
+	"files": [],
+	"references": [
+		{ "path": "./tsconfig.base.json" },
+		{ "path": "./extra/02.epic-task-manager/tsconfig.json" }
+	]
 }

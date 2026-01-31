@@ -52,6 +52,8 @@ type User = any
 // 💰 Use type narrowing with a switch statement on the status property
 
 export function formatProjectStatus(status: ProjectStatus): string {
+	// 💣 remove this when you're implemented the function
+	void status
 	return 'Not implemented'
 }
 
@@ -62,11 +64,13 @@ export function formatProjectStatus(status: ProjectStatus): string {
 // 💰 Use a generic constraint to ensure items have a priority property
 // 💰 Type: <T extends { priority: Priority }>(items: Array<T>, priority: Priority) => Array<T>
 
-export function filterByPriority<T>(
+export function filterByPriority<T extends { priority: Priority }>(
 	items: Array<T>,
 	priority: Priority,
 ): Array<T> {
-	return []
+	// 💣 remove this when you're implemented the function
+	void priority
+	return items
 }
 
 // 🐨 Create a function `getUserDisplayName` that:
@@ -77,6 +81,8 @@ export function filterByPriority<T>(
 // 💰 Handle the null case with type narrowing
 
 export function getUserDisplayName(user: User | null): string {
+	// 💣 remove this when you're implemented the function
+	void user
 	return 'Not implemented'
 }
 
@@ -87,6 +93,8 @@ export function getUserDisplayName(user: User | null): string {
 // 💰 Use a type guard or union narrowing
 
 export function canManageTasks(role: UserRole): boolean {
+	// 💣 remove this when you're implemented the function
+	void role
 	return false
 }
 
@@ -101,6 +109,9 @@ export function updateTaskProperty<K extends keyof Task>(
 	key: K,
 	value: Task[K],
 ): Task {
+	// 💣 remove this when you're implemented the function
+	void key
+	void value
 	return task
 }
 
@@ -115,7 +126,9 @@ export function getTasksByAssignee(
 	tasks: Array<Task>,
 	userId: string | null,
 ): Array<Task> {
-	return []
+	// 💣 remove this when you're implemented the function
+	void userId
+	return tasks
 }
 
 // 🐨 Create a function `createProjectUpdate` that:
@@ -130,6 +143,8 @@ export function createProjectUpdate(
 	status: ProjectStatus,
 	update: 'start' | 'complete',
 ): ProjectStatus {
+	// 💣 remove this when you're implemented the function
+	void update
 	return status
 }
 
