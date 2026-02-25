@@ -5,7 +5,6 @@
     "title": "Type Safety 🛡️",
     "subtitle": "Making illegal states unrepresentable",
     "githubRepo": "https://github.com/epicweb-dev/type-safety",
-    "subdomain": "type-safety",
     "instructor": {
       "name": "Kent C. Dodds",
       "avatar": "/images/instructor.png",
@@ -14,7 +13,10 @@
     "product": {
       "host": "www.epicweb.dev",
       "displayName": "EpicWeb.dev",
-      "displayNameShort": "Epic Web"
+      "displayNameShort": "Epic Web",
+      "slug": "type-safety",
+      "discordChannelId": "1161045224907341972",
+      "discordTags": ["1161046174439063593", "1474187531254763590"]
     },
     "appType": "export"
   },
