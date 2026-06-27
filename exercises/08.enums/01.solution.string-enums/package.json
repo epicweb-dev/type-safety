@@ -2,7 +2,7 @@
   "name": "exercises_08.enums_01.solution.string-enums",
   "type": "module",
   "scripts": {
-    "start": "node ./index.ts",
-    "test": "node --test index.test.ts"
+    "start": "npx --yes tsx ./index.ts",
+    "test": "npx --yes tsx --test index.test.ts"
   }
 }

@@ -2,7 +2,7 @@
   "name": "exercises_08.enums_02.solution.enum-vs-union",
   "type": "module",
   "scripts": {
-    "start": "npx --yes tsx ./index.ts",
-    "test": "npx --yes tsx --test index.test.ts"
+    "start": "node ./index.ts",
+    "test": "node --test index.test.ts"
   }
 }
