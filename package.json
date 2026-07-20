@@ -25,7 +25,7 @@
   },
   "type": "module",
   "scripts": {
-    "postinstall": "cd ./epicshop && pkgmgr install",
+    "postinstall": "node ./epicshop/patch-typecheck-modules.js && cd ./epicshop && pkgmgr install",
     "start": "pkgmgrx --prefix ./epicshop epicshop start",
     "dev": "pkgmgrx --prefix ./epicshop epicshop start",
     "test": "pkgmgr run test --silent --prefix playground",
